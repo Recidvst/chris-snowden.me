@@ -1,8 +1,16 @@
-// Set own variables
+// Set colours
 $black: #333;
+$white: #fff;
+// neons
+$pink: #DC4383;
+$pink-dark: #98004B;
+$blue: #1CB6E0;
+$blue-dark: #066AB2;
+$blue-darker: #054F8B;
+$blue-black: #1D1836;
 
 // font
 $family-primary: 'Hind Siliguri', sans-serif;
 
-// import other personal styles
-// @import "./scaffold";
+// import other stylesheets
+@import "./scaffold";
