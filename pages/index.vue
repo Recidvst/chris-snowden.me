@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { Scrambler } from "~/assets/js/scramble.min.js";
+import { Scrambler } from "~/node_modules/scrambling-letters/dist/scramble.min.js";
 
 export default {
   components: {},
@@ -21,7 +21,12 @@ export default {
   beforeMount() {},
   mounted() {
     console.log("mounted");
-    Scrambler("h1");
+    console.log(Scrambler);
+    Scrambler({
+      target: "h1",
+      random: [1000, 50000],
+      speed: 120
+    });
   }
 };
 </script>
