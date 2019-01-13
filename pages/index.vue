@@ -1,17 +1,27 @@
 <template>
-  <section class="container">
-    <div>
-      <!-- <logo/> -->
+  <section class="page-container">
+    <div class="homepage-title-container">
       <h1 class="title">Chris Snowden</h1>
+      <div>
+        <h2>Front End Web Developer</h2>
+        <h3>js | scss | vue | wordpress | ??</h3>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
+// components
+import Header from "~/components/Header";
+import Footer from "~/components/Footer";
+// scripts
 import { Scrambler } from "~/node_modules/scrambling-letters/dist/scramble.min.js";
 
 export default {
-  components: {},
+  components: {
+    Header,
+    Footer
+  },
   data() {
     return {};
   },
@@ -20,11 +30,9 @@ export default {
   methods: {},
   beforeMount() {},
   mounted() {
-    console.log("mounted");
-    console.log(Scrambler);
     Scrambler({
       target: "h1",
-      random: [1000, 50000],
+      random: [1000, 20000],
       speed: 120
     });
   }
@@ -32,11 +40,4 @@ export default {
 </script>
 
 <style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 </style>

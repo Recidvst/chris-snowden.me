@@ -16,7 +16,19 @@ html {
   }
   body {
     background: $black;
-    color: $white;
-    color: $pink;
+    color: $blue;
+
+    // default page wrapper    
+    .page-container {
+      min-height: 100vh;
+      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      // menu pad
+      // padding-top: 60px;
+    }
+
   }
 }
