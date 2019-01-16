@@ -1,0 +1,59 @@
+// buttons
+a.button, button {
+  &.cta-button {
+    position: relative;
+    display: block;
+    padding: 20px 40px 15px;
+    margin: 30px 0;
+    text-align: center;
+    z-index: 1;
+    max-width: 100%;
+    min-width: 425px;
+    overflow: visible;
+    background: transparent;
+    border: none;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $blue;
+    // text-shadow: 0 0 10px $blue-dark, 0 0 20px $blue-dark, 0 0 30px $blue-dark, 0 0 40px $blue-darker, 0 0 70px $blue-darker;
+    text-shadow: 0 0 10px $blue-dark, 0 0 15px $blue-dark, 0 0 25px $blue-dark, 0 0 40px $blue-darker;
+    font-family: $family-neon-primary;
+    font-weight: 100;
+    letter-spacing: 4px;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border: 2px solid rgba(255,255,255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 0 15px 4px $pink, 0 0 120px 2px $pink-dark, inset 0 0 15px 4px $pink, inset 0 0 50px 2px $pink-dark;
+      transition: opacity .2s ease;
+      z-index: -1;
+      opacity: 1;
+      // animation: flicker ease-in-out infinite 4s;
+    }
+    @media(max-width: 767px) {
+      min-width: 0;   
+      margin: 20px auto; 
+    }
+
+    &:hover, &:focus, &:active {
+      cursor: pointer;
+    } 
+
+    // hover animation
+    &.flicker { 
+      animation: fizzle ease-in-out 1.5s;
+      &:before {
+        animation: fizzle ease-in-out 1.5s;
+      }
+    }
+  }
+}
+

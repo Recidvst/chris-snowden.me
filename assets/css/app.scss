@@ -1,23 +1,14 @@
-// Set colours
-$black: #333;
-$white: #fff;
-// darks
-$darker-black: #0d0d0d;
-// neons
-$pink: #DC4383;
-$pink-dark: #98004B;
-$blue: #1CB6E0;
-$blue-dark: #066AB2;
-$blue-darker: #054F8B;
-$blue-black: #1D1836;
-
-// font
-$family-primary: 'Hind Siliguri', sans-serif;
-
-// import other stylesheets
+// util
+@import "./colours";
+@import "./typography";
 @import "./scaffold";
+@import "./util";
+@import "./animations";
+
 // core
 @import "./header";
 @import "./footer";
+
 // components
-@import "./title";
+@import "./homepage";
+@import "./buttons";

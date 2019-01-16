@@ -1,20 +1,19 @@
 <template>
   <footer id="footer">
-    <div class="copyright">Copyright</div>
+    <div class="copyright">© {{currentYear}} Chris Snowden</div>
   </footer>
 </template>
 
 <script>
 export default {
-  components: {},
   data() {
     return {};
   },
-  computed: {},
-  watch: {},
-  methods: {},
-  beforeMount() {},
-  mounted() {}
+  computed: {
+    currentYear() {
+      return new Date().getFullYear();
+    }
+  }
 };
 </script>
 

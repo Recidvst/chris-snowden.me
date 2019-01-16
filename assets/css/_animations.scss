@@ -1,0 +1,62 @@
+// animations
+
+// repeating blink/flicker for neon sign - best set to 4s
+@keyframes flicker {
+  78% {
+    opacity: 1;
+  }
+  79%{
+     opacity: 0.5;
+  }
+  80% {
+    opacity: 0.25;
+  }
+  81% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 0.25;
+  }
+  83% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 0.25;
+  }
+  92.5% {
+    opacity: 1;
+  }
+}
+// fizzle (hover) for neon sign - best set to 1.5s
+@keyframes fizzle {
+  0% {
+    opacity: 1;
+  }
+  10%{
+     opacity: 0.75;
+  }
+  20%{
+     opacity: 0.6;
+  }
+  30%{
+     opacity: 0.75;
+  }
+  40%{
+    opacity: 0.6;
+  }
+  50%{
+    opacity: 0.6;
+  }
+  60%{
+    opacity: 0.75;
+  }
+  80%{
+    opacity: 0.9;
+  }
+  90%{
+    opacity: 0.6;
+  }
+  100%{
+    opacity: 1;
+  }
+}
