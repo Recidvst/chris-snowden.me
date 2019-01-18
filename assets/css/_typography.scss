@@ -63,3 +63,12 @@ h3 {
     font-size: 1rem;    
   }
 }
+
+// links 
+a {
+  color: $blue;
+  text-decoration: none;
+  &:hover, &focus, &:active {
+    color: $blue-darker;
+  }
+}

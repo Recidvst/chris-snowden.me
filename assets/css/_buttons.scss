@@ -3,7 +3,7 @@ a.button, button {
   &.cta-button {
     position: relative;
     display: block;
-    padding: 20px 40px 15px;
+    padding: 20px 60px 15px;
     margin: 30px 0;
     text-align: center;
     z-index: 1;
@@ -56,6 +56,22 @@ a.button, button {
       &:before {
         animation: none;
         animation: fizzleBorder ease-in-out .8s;
+      }
+    }
+
+
+    // mini version
+    &.cta-button-small {
+      min-width: 0;
+      font-size: 25px;
+      padding: 18px 60px 13px;
+      &:before {
+        box-shadow: 0 0 10px 2px $pink, 0 0 10px 2px $pink-dark, inset 0 0 10px 2px $pink, inset 0 0 10px 2px $pink-dark;
+      }
+      &:hover, &:focus, &:active {
+        &:before {
+          box-shadow: 0 0 10px 2px $blue, 0 0 10px 2px $blue-dark, inset 0 0 10px 2px $blue, inset 0 0 10px 2px $blue-dark;
+        } 
       }
     }
   }

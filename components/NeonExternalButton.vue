@@ -2,7 +2,7 @@
   <a
     v-bind:href="this.url"
     v-bind:title="this.title"
-    v-bind:class="['button cta-button text-glow', {'flicker' : this.flicker}]"
+    v-bind:class="['button cta-button text-glow', {'fizzle' : this.flicker}]"
     @mouseover="hoverFlicker($event)"
     target="_blank"
     role="button"
@@ -21,7 +21,7 @@ export default {
       this.flicker = true;
       setTimeout(e => {
         this.flicker = false;
-      }, 8100);
+      }, 810);
     }
   },
   props: {

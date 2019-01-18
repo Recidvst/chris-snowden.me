@@ -2,7 +2,7 @@
   <nuxt-link
     v-bind:to="this.url"
     v-bind:title="this.title"
-    v-bind:class="['button cta-button text-glow', {'flicker' : this.flicker}]"
+    v-bind:class="['button cta-button text-glow', {'fizzle' : this.flicker}]"
     @mouseover.native="hoverFlicker($event)"
     role="button"
   >{{this.text}}</nuxt-link>
@@ -20,7 +20,7 @@ export default {
       this.flicker = true;
       setTimeout(e => {
         this.flicker = false;
-      }, 8100);
+      }, 810);
     }
   },
   props: {

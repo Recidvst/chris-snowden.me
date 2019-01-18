@@ -9,36 +9,64 @@
           method="POST"
           action="/thank-you"
           data-netlify="true"
-          netlify-honeypot="middle-name"
+          netlify-honeypot="middle_name"
         >
-          <p>
-            <label>
-              Your Name:
-              <input type="text" name="name" tabindex="1">
+          <div>
+            <label>Name:
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  name="name"
+                  tabindex="1"
+                  @focus="activateInput($event)"
+                  @blur="deactivateInput($event)"
+                >
+              </div>
             </label>
-          </p>
-          <p>
-            <label>
-              Your Email:
-              <input type="email" name="email" tabindex="2">
+          </div>
+          <div>
+            <label>Email:
+              <div class="input-wrapper">
+                <input
+                  type="email"
+                  name="email"
+                  tabindex="2"
+                  @focus="activateInput($event)"
+                  @blur="deactivateInput($event)"
+                >
+              </div>
             </label>
-          </p>
-          <p>
-            <label>
-              Message:
-              <textarea name="message" tabindex="3"></textarea>
+          </div>
+          <div>
+            <label>Message:
+              <div class="input-wrapper">
+                <textarea
+                  name="message"
+                  rows="6"
+                  cols="40"
+                  tabindex="3"
+                  @focus="activateInput($event)"
+                  @blur="deactivateInput($event)"
+                ></textarea>
+              </div>
             </label>
-          </p>
+          </div>
           <!-- honeypot -->
-          <p class="hidthis">
+          <div class="middle-name">
             <label>
               Don’t fill this out if you're human:
-              <input name="middle-name">
+              <input name="middle_name">
             </label>
-          </p>
-          <p>
-            <button type="submit" tabindex="4">Send</button>
-          </p>
+          </div>
+          <div>
+            <button
+              type="submit"
+              tabindex="4"
+              v-bind:class="['cta-button cta-button-small', {'fizzle' : this.submitFlicker}]"
+              @mouseover="hoverFlicker($event)"
+              role="button"
+            >Send</button>
+          </div>
         </form>
       </div>
       <h2>Alternatively try email or LinkedIn</h2>
@@ -72,10 +100,33 @@ import { Scrambler } from "~/node_modules/scrambling-letters/dist/scramble.min.j
 export default {
   components: {},
   data() {
-    return {};
+    return {
+      submitFlicker: false,
+      errors: []
+    };
   },
   computed: {},
-  methods: {},
+  methods: {
+    activateInput(e) {
+      let inputParent = e.target.parentElement;
+      if (inputParent) {
+        inputParent.classList.add("active-input");
+      }
+    },
+    deactivateInput(e) {
+      let inputParent = e.target.parentElement;
+      if (inputParent) {
+        inputParent.classList.remove("active-input");
+      }
+    },
+    hoverFlicker(e) {
+      console.log(e);
+      this.submitFlicker = true;
+      setTimeout(e => {
+        this.submitFlicker = false;
+      }, 810);
+    }
+  },
   mounted() {
     let title = document.querySelector("h1");
     Scrambler({
