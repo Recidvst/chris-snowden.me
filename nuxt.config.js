@@ -11,13 +11,22 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description },
+      { hid: 'description', name: 'description', content: 'Chris Snowden is a Front-End Developer from the UK. He specialises in Javascript and CSS and is proficient at building modern web sites and web applications using CMSs such as WordPress and modern web frameworks including Vue.js' },
       {
         hid: "keywords",
         name: "keywords",
         content: "Chris Snowden, Snowden, portfolio"
       }
+      {
+        hid: "author",
+        name: "author",
+        content: "Chris Snowden"
+      }
+      { hid: 'robots', name: 'robots', content: 'index, follow' }
     ],
+    htmlAttrs: {
+      lang: 'en',
+    },
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {

@@ -1,15 +1,7 @@
 <template>
   <header id="header">
-    <a class="logo-letters title" href="/" title="Homepage">C</a>
-    <!-- <ul class="header-menu">
-      <li>
-        <a class="header-menu-nav-link" href="/" title="Home">Home</a>
-      </li>
-      <li>
-        <a class="header-menu-nav-link" href="/contact" title="Contact Chris">Contact</a>
-      </li>
-    </ul>-->
-    <ul class="contact-icon-menu">
+    <nuxt-link class="logo-letters title" to="/" title="Homepage">C</nuxt-link>
+    <!-- <ul class="contact-icon-menu">
       <li class="animated fadeInUp">
         <a href="/" target="_blank">
           <i class="fa fa-github"></i>
@@ -25,20 +17,23 @@
           <i class="fa fa-rss"></i>
         </a>
       </li>
-    </ul>
+    </ul>-->
   </header>
 </template>
 
 <script>
+// components
+import NeonButton from "~/components/NeonButton";
+
 export default {
-  components: {},
+  components: {
+    NeonButton
+  },
   data() {
     return {};
   },
   computed: {},
-  watch: {},
   methods: {},
-  beforeMount() {},
   mounted() {}
 };
 </script>

@@ -21,6 +21,7 @@ a.button, button {
     font-family: $family-neon-primary;
     font-weight: 100;
     letter-spacing: 4px;
+    transition: all .2s ease;
 
     &:before {
       content: "";
@@ -33,10 +34,9 @@ a.button, button {
       border: 2px solid rgba(255,255,255, 0.9);
       border-radius: 8px;
       box-shadow: 0 0 15px 4px $pink, 0 0 120px 2px $pink-dark, inset 0 0 15px 4px $pink, inset 0 0 50px 2px $pink-dark;
-      transition: opacity .2s ease;
+      transition: all .2s ease;
       z-index: -1;
       opacity: 1;
-      // animation: flicker ease-in-out infinite 4s;
     }
     @media(max-width: 767px) {
       min-width: 0;   
@@ -45,13 +45,17 @@ a.button, button {
 
     &:hover, &:focus, &:active {
       cursor: pointer;
+      &:before {
+        box-shadow: 0 0 15px 4px $blue, 0 0 120px 2px $blue-dark, inset 0 0 15px 4px $blue, inset 0 0 50px 2px $blue-dark;
+      } 
     } 
 
-    // hover animation
-    &.flicker { 
-      animation: fizzle ease-in-out 1.5s;
+    // fizzling hover animation
+    &.fizzle { 
+      animation: fizzleText ease-in-out .8s;
       &:before {
-        animation: fizzle ease-in-out 1.5s;
+        animation: none;
+        animation: fizzleBorder ease-in-out .8s;
       }
     }
   }

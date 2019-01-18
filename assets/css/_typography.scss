@@ -26,6 +26,10 @@ h1, .title {
   color: $pink;
   letter-spacing: 2px;
   text-shadow: 0 0 20px $pink, 0 0 20px $pink-dark;
+  &.flicker-title {
+    animation: flickerRepeatPink 8s linear infinite;
+    animation-delay: 1s;
+  }
 }
 
 h2 {

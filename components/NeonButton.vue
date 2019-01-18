@@ -1,16 +1,14 @@
 <template>
-  <a
-    href="https://github.com/Recidvst"
-    title="Contact me"
+  <nuxt-link
+    v-bind:to="this.url"
+    v-bind:title="this.title"
     v-bind:class="['button cta-button text-glow', {'flicker' : this.flicker}]"
-    @mouseover="hoverFlicker($event)"
-  >Get In Touch</a>
+    @mouseover.native="hoverFlicker($event)"
+    role="button"
+  >{{this.text}}</nuxt-link>
 </template>
 
 <script>
-// scripts
-import { Scrambler } from "~/node_modules/scrambling-letters/dist/scramble.min.js";
-
 export default {
   data() {
     return {
@@ -22,11 +20,13 @@ export default {
       this.flicker = true;
       setTimeout(e => {
         this.flicker = false;
-      }, 1500);
+      }, 8100);
     }
+  },
+  props: {
+    url: String,
+    text: String,
+    title: String
   }
 };
 </script>
-
-<style>
-</style>

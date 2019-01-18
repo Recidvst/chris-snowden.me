@@ -1,30 +1,27 @@
 <template>
-  <section class="container">
-    <div>
-      <h1 class="title">Thank You</h1>
+  <section class="page-container">
+    <div class="page-title-container">
+      <h1 class="title">Thanks very much!</h1>
+      <h2>I'll get back to you asap</h2>
+      <NeonButton url="/" text="Go back" title="Back to the homepage"/>
     </div>
   </section>
 </template>
 
 <script>
-import { Scrambler } from "~/node_modules/scrambling-letters/dist/scramble.min.js";
+// components
+import NeonButton from "~/components/NeonButton";
 
 export default {
-  components: {},
+  components: {
+    NeonButton
+  },
   data() {
     return {};
   },
   computed: {},
-  watch: {},
   methods: {},
-  beforeMount() {},
-  mounted() {
-    Scrambler({
-      target: "h1",
-      random: [1000, 50000],
-      speed: 120
-    });
-  }
+  mounted() {}
 };
 </script>
 
