@@ -16,12 +16,12 @@ module.exports = {
         hid: "keywords",
         name: "keywords",
         content: "Chris Snowden, Snowden, portfolio"
-      }
+      },
       {
         hid: "author",
         name: "author",
         content: "Chris Snowden"
-      }
+      },
       { hid: 'robots', name: 'robots', content: 'index, follow' }
     ],
     htmlAttrs: {

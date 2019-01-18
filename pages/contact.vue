@@ -4,7 +4,13 @@
       <h1 class="title">Contact me</h1>
       <h2>Get in touch using the form below</h2>
       <div id="contact-form-container">
-        <form name="contact-form" method="POST" action="/thank-you" data-netlify="true">
+        <form
+          name="contact-form"
+          method="POST"
+          action="/thank-you"
+          data-netlify="true"
+          netlify-honeypot="middle-name"
+        >
           <p>
             <label>
               Your Name:
@@ -21,6 +27,13 @@
             <label>
               Message:
               <textarea name="message" tabindex="3"></textarea>
+            </label>
+          </p>
+          <!-- honeypot -->
+          <p class="hidthis">
+            <label>
+              Don’t fill this out if you're human:
+              <input name="middle-name">
             </label>
           </p>
           <p>
