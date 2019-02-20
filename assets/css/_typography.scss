@@ -7,28 +7,42 @@
        url("../fonts/Neoneon.otf")  format("opentype");
 }
 @font-face {
-  font-family: StudioNeon;
-  src: url("../fonts/StudioNeon.woff") format("woff"), 
-       url("../fonts/StudioNeon.otf")  format("opentype");
+  font-family: Axaxax;
+  src: url("../fonts/Axaxax.woff") format("woff"), 
+       url("../fonts/Axaxax.otf")  format("opentype");
+}
+@font-face {
+  font-family: Neon;
+  src: url("../fonts/Neon.woff") format("woff"), 
+       url("../fonts/Neon.otf")  format("opentype");
+}
+@font-face {
+  font-family: Ironlounge;
+  src: url("../fonts/Ironlounge.woff") format("woff"), 
+       url("../fonts/Ironlounge.otf")  format("opentype");
 }
 
 $family-primary: 'Open Sans', sans-serif;
-$family-neon-primary: 'Neoneon', sans-serif;
-$family-neon-secondary: 'StudioNeon', sans-serif;
+$family-neon-primary: 'Ironlounge', sans-serif;
+$family-neon-secondary: 'Axaxax', sans-serif;
+$family-neon-tertiary: 'Neoneon', sans-serif;
+$family-neon-complex: 'Neon', sans-serif;
 
 // titles
-h1, .title {
+h1 {
   display: block;
   margin: 15px 0;
   font-family: $family-neon-primary;
-  font-size: 5rem;
+  font-size: 2rem;
   font-weight: 100;
   color: $white;
   letter-spacing: 2px;
   text-shadow: 0 0 20px $pink, 0 0 20px $pink-dark;
-  &.flicker-title {
-    animation: flickerRepeatPink 8s linear infinite;
-    animation-delay: 1s;
+  &.title {
+    font-size: 2.5rem;
+    @media(max-width: 767px) {
+      font-size: 1.25rem;
+    }
   }
 }
 
@@ -36,13 +50,22 @@ h2 {
   display: block;
   margin: 10px 0 15px;
   font-family: $family-neon-secondary;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 100;
   letter-spacing: 1px;
   color: $white;
-  // text-shadow: 0 0 20px $blue-dark, 0 0 20px $blue-darker;
-  // text-shadow: 0 0 20px $pink, 0 0 20px $pink-dark;
+  &:hover {
+    cursor: pointer;
+    animation: flickerSubtitles 8s linear;
+  }
+  &.subtitle {
+    font-size: 1.2rem;
+    @media(max-width: 767px) {
+      font-size: 1rem;
+    }
+  }
 }
+
 h3 {
   display: block;
   margin: 10px 0 15px;
@@ -53,24 +76,11 @@ h3 {
   text-shadow: 0 0 20px $blue-dark, 0 0 20px $blue-darker;
 }
 
-// mobile
-@media(max-width: 767px) {
-  h1, .title {
-    font-size: 3rem;
-  }
-  h2 {
-    font-size: 1.5rem;
-  }
-  h3 {
-    font-size: 1rem;    
-  }
-}
-
 // links 
 a {
   color: $blue;
   text-decoration: none;
   &:hover, &focus, &:active {
-    color: $blue-darker;
+    color: $pink;
   }
 }

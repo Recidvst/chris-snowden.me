@@ -33,12 +33,6 @@ html {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
-      // pad for menu bar
-      // padding-top: 20px;
-      @media(min-width: 768px) {
-        // padding-left: 100px;
-      }
     }
 
     // main title blocks on pages
@@ -48,19 +42,18 @@ html {
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
+      max-width: 90%;
 
-      .homepage-title-blurb {
-        margin: 20px 0;
-      }
-      
-      @media(max-width: 767px) {
-        h1, h2, h3 {
-          margin: 10px 0;
-          width: 100%;
-          text-align: center;
-        }  
-        .homepage-title-blurb {
-          margin: 10px 0;
+      .subtitles-container {      
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        .subtitle {
+          margin: 10px 10px;
+          color: $blue;
         }
       }
     }

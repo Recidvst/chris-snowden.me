@@ -1,79 +1,8 @@
 // buttons
-a.button, button, h1 {
-  &.cta-button {
-    position: relative;
-    display: block;
-    padding: 30px 50px 22px;
-    margin: 30px 0;
-    text-align: center;
-    z-index: 1;
-    max-width: 100%;
-    // min-width: 425px;
-    overflow: visible;
-    background: transparent;
-    border: none;
-    font-size: 40px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $blue;
-    // text-shadow: 0 0 10px $blue-dark, 0 0 20px $blue-dark, 0 0 30px $blue-dark, 0 0 40px $blue-darker, 0 0 70px $blue-darker;
-    text-shadow: 0 0 10px $blue-dark, 0 0 15px $blue-dark, 0 0 25px $blue-dark, 0 0 40px $blue-darker;
-    font-family: $family-neon-primary;
-    font-weight: 100;
-    letter-spacing: 4px;
-    transition: all .2s ease;
-
-    &:before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      border: 2px solid rgba(255,255,255, 0.9);
-      border-radius: 8px;
-      box-shadow: 0 0 15px 4px $pink, 0 0 120px 2px $pink-dark, inset 0 0 15px 4px $pink, inset 0 0 50px 2px $pink-dark;
-      transition: all .2s ease;
-      z-index: -1;
-      opacity: 0.8;
-    }
-    @media(max-width: 767px) {
-      min-width: 0;   
-      margin: 20px auto; 
-    }
-
-    &:hover, &:focus, &:active {
-      cursor: pointer;
-      &:before {
-        box-shadow: 0 0 15px 4px $blue, 0 0 120px 2px $blue-dark, inset 0 0 15px 4px $blue, inset 0 0 50px 2px $blue-dark;
-      } 
-    } 
-
-    // fizzling hover animation
-    &.fizzle { 
-      animation: fizzleText ease-in-out .8s;
-      &:before {
-        animation: none;
-        animation: fizzleBorder ease-in-out .8s;
-      }
-    }
-
-
-    // mini version
-    &.cta-button-small {
-      min-width: 0;
-      font-size: 25px;
-      padding: 18px 60px 13px;
-      &:before {
-        box-shadow: 0 0 10px 2px $pink, 0 0 10px 2px $pink-dark, inset 0 0 10px 2px $pink, inset 0 0 10px 2px $pink-dark;
-      }
-      &:hover, &:focus, &:active {
-        &:before {
-          box-shadow: 0 0 10px 2px $blue, 0 0 10px 2px $blue-dark, inset 0 0 10px 2px $blue, inset 0 0 10px 2px $blue-dark;
-        } 
-      }
-    }
+a.button, button {
+  &:hover, &:focus, &:active {
+    cursor: pointer;
+    color: $pink;
   }
 }
 

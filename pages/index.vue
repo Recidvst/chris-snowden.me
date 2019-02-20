@@ -1,13 +1,29 @@
 <template>
   <section class="page-container">
     <div class="page-title-container">
-      <!-- <h1 class="title">
-        <span>Chris</span>
-        <br>
-        <span>Snowden</span>
-      </h1> -->
-      <!-- <NeonButton url="/contact" text="Get In Touch" title="Get In Touch" tabindex="1"/> -->
-      <NeonButton url="/" text="Chris Snowden" title="" tabindex="1"/>
+      <h1 v-bind:class="['title neon-title', {'fizzle' : this.flicker}]" @mouseover="hoverFlicker($event)">Chris Snowden</h1>
+      <div class="subtitles-container" role="navigation">
+        <h2 class="subtitle">          
+          <a
+            href="https://github.com/Recidvst"
+            title="Check out my Github"
+            target="_blank"
+          >Github</a>
+        </h2>
+        <h2 class="subtitle">
+          <a
+            href="mailto:cdsnowden@gmail.com"
+            title="Email me"
+          >Email</a>
+        </h2>
+        <h2 class="subtitle">
+          <a
+            href="https://www.linkedin.com/in/cdsnowden/"
+            title="Find me on LinkedIn"
+            target="_blank"
+          >LinkedIn</a>
+        </h2>
+      </div>
     </div>
   </section>
 </template>
@@ -25,20 +41,41 @@ export default {
     NeonExternalButton
   },
   data() {
-    return {};
+    return {
+      flicker: false
+    };
   },
   computed: {},
-  methods: {},
+  methods: {
+    // fire flicker on hover
+    hoverFlicker(e) {
+      this.flicker = true;
+      setTimeout(e => {
+        this.flicker = false;
+      }, 810);
+    }
+  },
   mounted() {
-    let title = document.querySelector("h1");
+    let subtitles = document.querySelectorAll("h2");
     Scrambler({
-      target: "h1 span",
+      target: "h1",
       random: [1000, 1500],
       speed: 120
     });
+    // fire the flicker as soon as scramble finishes
     setTimeout(e => {
-      title.classList.add("flicker-title");
-    }, 1500);
+      this.flicker = true;
+      setTimeout(e => {
+        this.flicker = false;
+      }, 810);
+    }, 2500);
+    // fire the flicker every 20 secs as a reminder
+    setInterval(e => {
+      this.flicker = true;
+      setTimeout(e => {
+        this.flicker = false;
+      }, 810);
+    }, 20000);    
   }
 };
 </script>

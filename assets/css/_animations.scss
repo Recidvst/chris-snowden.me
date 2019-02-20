@@ -28,7 +28,8 @@
     opacity: 1;
   }
 }
-@keyframes flickerRepeatBlue {
+// hover flicker for subtitles
+@keyframes flickerSubtitles {
   0% {
     opacity: 1;
   }
@@ -43,11 +44,11 @@
   }
   4% {
     opacity: 0.2;
-    text-shadow: 0 0 5px $white;
+    // text-shadow: 0 0 5px $white;
   }
   5% {
     opacity: 1;
-    text-shadow: 0 0 10px $blue-dark, 0 0 15px $blue-dark, 0 0 25px $blue-dark, 0 0 40px $blue-darker;
+    // text-shadow: 0 0 10px $blue-dark, 0 0 15px $blue-dark, 0 0 25px $blue-dark, 0 0 40px $blue-darker;
   }
   100% {
     opacity: 1;
@@ -63,6 +64,7 @@
   }
   20%{
     opacity: 0.4;
+    box-shadow: 0 0 15px 4px $blue, 0 0 120px 2px $blue-dark, inset 0 0 15px 4px $blue, inset 0 0 50px 2px $blue-dark;
   }
   30%{
     opacity: 0.1;
@@ -84,6 +86,7 @@
   }
   95%{
     opacity: 0.1;
+    box-shadow: 0 0 15px 4px $pink, 0 0 120px 2px $pink-dark, inset 0 0 15px 4px $pink, inset 0 0 50px 2px $pink-dark;
   }
   100%{
     opacity: 0.8;

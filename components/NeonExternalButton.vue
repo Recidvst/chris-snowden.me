@@ -2,7 +2,7 @@
   <a
     v-bind:href="this.url"
     v-bind:title="this.title"
-    v-bind:class="['button cta-button text-glow', {'fizzle' : this.flicker}]"
+    v-bind:class="['button neon-title text-glow', {'fizzle' : this.flicker}]"
     @mouseover="hoverFlicker($event)"
     target="_blank"
     role="button"
