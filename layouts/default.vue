@@ -1,8 +1,9 @@
 <template>
   <div>
-    <Header/>
+    <!-- <Header/> -->
     <nuxt/>
-    <Footer/>
+    <Lines/>
+    <!-- <Footer/> -->
   </div>
 </template>
 
@@ -11,11 +12,14 @@
 // components
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
+// svg lines
+import Lines from "~/components/Lines";
 
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    Lines
   },
   data() {
     return {};

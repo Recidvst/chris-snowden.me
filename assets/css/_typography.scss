@@ -23,7 +23,7 @@ h1, .title {
   font-family: $family-neon-primary;
   font-size: 5rem;
   font-weight: 100;
-  color: $pink;
+  color: $white;
   letter-spacing: 2px;
   text-shadow: 0 0 20px $pink, 0 0 20px $pink-dark;
   &.flicker-title {
@@ -36,10 +36,12 @@ h2 {
   display: block;
   margin: 10px 0 15px;
   font-family: $family-neon-secondary;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 100;
   letter-spacing: 1px;
-  text-shadow: 0 0 20px $blue-dark, 0 0 20px $blue-darker;
+  color: $white;
+  // text-shadow: 0 0 20px $blue-dark, 0 0 20px $blue-darker;
+  // text-shadow: 0 0 20px $pink, 0 0 20px $pink-dark;
 }
 h3 {
   display: block;

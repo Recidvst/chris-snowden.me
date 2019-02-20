@@ -58,30 +58,6 @@ export function validateEmail(email) {
 	return re.test(email);
 }
 
-// fetch headers
-export function setFetchHeaders(token) {
-	token = token || "";
-	return new Headers({
-		"Content-Type": "application/json",
-		"Access-Control-Origin": "*",
-		"x-access-token": token
-	});
-}
-
-// AUTH
-// Set JWT token in localStorage
-export function setJWTstorage(key, value) {
-	localStorage.setItem(key, value);
-}
-// Get JWT token from localStorage
-export function getJWTstorage(key) {
-	return localStorage.getItem(key);
-}
-// Delete JTW token from localStorage
-export function deleteJWTstorage(key) {
-	localStorage.removeItem(key);
-}
-
 // copy to clipboard
 export function copyToClipboard(str) {
 	const el = document.createElement("textarea");

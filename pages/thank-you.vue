@@ -11,6 +11,8 @@
 <script>
 // components
 import NeonButton from "~/components/NeonButton";
+// scripts
+import { Scrambler } from "~/node_modules/scrambling-letters/dist/scramble.min.js";
 
 export default {
   components: {
@@ -21,7 +23,17 @@ export default {
   },
   computed: {},
   methods: {},
-  mounted() {}
+  mounted() {
+    let title = document.querySelector("h1");
+    Scrambler({
+      target: "h1",
+      random: [500, 1000],
+      speed: 120
+    });
+    setTimeout(e => {
+      title.classList.add("flicker-title");
+    }, 1000);
+  }
 };
 </script>
 
