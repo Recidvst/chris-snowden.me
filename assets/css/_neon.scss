@@ -24,6 +24,7 @@
   text-shadow: 0 0 10px $blue-dark, 0 0 20px $blue-dark, 0 0 30px $blue-dark, 0 0 40px $blue-darker, 0 0 70px $blue-darker;
   font-family: $family-neon-primary;
   font-weight: 600;
+  line-height: 4rem;
   letter-spacing: 4px;
   transition: all .2s ease;    
   &:before {
@@ -61,6 +62,12 @@
       animation: none;
       animation: fizzleBorder ease-in-out .8s;
     }
+  }
+
+  // mobile tweaks
+  @media(max-width: 767px) {
+    text-shadow: 0 0 10px $blue-dark;
+    line-height: 2.5rem;
   }
   
 }

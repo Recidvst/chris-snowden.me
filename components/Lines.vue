@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     svgPaths() {
-      return [...document.querySelectorAll('svg path')];
+      return [...document.querySelectorAll('#svgLinesContainer path')];
     }
   },
   methods: {
@@ -55,16 +55,26 @@ export default {
 
   },
   mounted() {
-    this.svgPaths.forEach( (path) => {
-      // get path length and init stroke. Starts offest to hide lines
-      let length = path.getTotalLength(); 
-      path.style.strokeDasharray = length;
-      path.style.strokeDashoffset = length;	
-      path.style.strokeWidth = '2px';
-      setTimeout( (e) => { // trigger draw fn
-        this.triggerDraw(path, true);	
-      }, 250);
-    });
+    // only do the animation on desktop - too resource heavy
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      this.svgPaths.forEach( (path) => {
+        // get path length and init stroke. Starts offest to hide lines
+        let length = path.getTotalLength(); 
+        path.style.strokeDasharray = length;
+        path.style.strokeDashoffset = length;	
+        path.style.strokeWidth = '2px';
+        setTimeout( (e) => { // trigger draw fn
+          this.triggerDraw(path, true);	
+        }, 250);
+      });
+    }
+    else {
+      this.svgPaths.forEach( (path) => {
+        path.style.strokeDashoffset = 0;
+        path.style.stroke = `${this.randColour()}`; // colour change	
+        path.style.strokeWidth = '2px';
+      });
+    }
   }
 };
 </script>

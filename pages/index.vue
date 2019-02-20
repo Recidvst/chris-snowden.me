@@ -59,8 +59,8 @@ export default {
     let subtitles = document.querySelectorAll("h2");
     Scrambler({
       target: "h1",
-      random: [1000, 1500],
-      speed: 120
+      random: [1750, 3000],
+      speed: 100
     });
     // fire the flicker as soon as scramble finishes
     setTimeout(e => {
@@ -68,7 +68,7 @@ export default {
       setTimeout(e => {
         this.flicker = false;
       }, 810);
-    }, 2500);
+    }, 3500);
     // fire the flicker every 20 secs as a reminder
     setInterval(e => {
       this.flicker = true;
