@@ -19,9 +19,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/google-analytics": "^2.1.0",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.0.0",
-    "@nuxtjs/axios": "^5.0.0"
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

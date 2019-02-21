@@ -28,19 +28,14 @@ module.exports = {
       lang: 'en',
     },
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: "stylesheet",
-        href:
-          "https://fonts.googleapis.com/css?family=EB+Garamond|Hind+Siliguri"
-      }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#e22573' },
+  loading: { color: '#ed1cdc' },
 
   /*
   ** Global CSS
@@ -51,14 +46,16 @@ module.exports = {
   vendor: ["~/assets/js/utils.js"],/*
   ** Plugins to load before mounting the App
   */
-  plugins: [{ src: "~plugins/ga.js", ssr: false }],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ['@nuxtjs/google-analytics', {
+      id: process.env.GA_ID || ''
+    }]
   ],
   /*
   ** Axios module configuration
