@@ -51,9 +51,6 @@ export default {
       }
     }
   },
-  beforeMounted() {
-
-  },
   mounted() {
     // only do the animation on desktop - too resource heavy
     if (window.matchMedia("(min-width: 768px)").matches) {

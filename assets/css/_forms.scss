@@ -34,7 +34,7 @@
       }
       a, button, .button {
         display: block;
-        margin: 15px auto 30px;
+        margin: 15px auto 30px 0;
       }
 
       // input wrapper
@@ -47,6 +47,8 @@
           outline: none;
           padding: 20px 25px;
           color: $white;
+          border: 1px solid $white;
+          border-radius: 8px;
         }
         &:before {
           content: "";
@@ -58,14 +60,14 @@
           left: 0;
           border: 2px solid rgba(255,255,255, 0.9);
           border-radius: 8px;
-          box-shadow: 0 0 10px 2px $pink, 0 0 10px 2px $pink-dark, inset 0 0 10px 2px $pink, inset 0 0 10px 2px $pink-dark;
+          box-shadow: 0 0 10px 2px $blue, 0 0 10px 2px $blue-dark, inset 0 0 10px 2px $blue, inset 0 0 10px 2px $blue-dark;
           transition: all .2s ease;
           z-index: -1;
           opacity: 1;
         }
         &.active-input {
           &:before {
-            box-shadow: 0 0 10px 2px $blue, 0 0 10px 2px $blue-dark, inset 0 0 10px 2px $blue, inset 0 0 10px 2px $blue-dark;
+            box-shadow: 0 0 10px 2px $pink, 0 0 10px 2px $pink-dark, inset 0 0 10px 2px $pink, inset 0 0 10px 2px $pink-dark;
           }
         }
       }
@@ -80,5 +82,20 @@
       margin: 0;
       padding: 0;
     }
+  }
+}
+
+
+// form related bits
+ul.alternative-contact-methods {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  li {
+    display: inline-block;
+    float: left;
+    margin: 8px 10px;
   }
 }

@@ -3,26 +3,9 @@
     <div class="page-title-container">
       <h1 v-bind:class="['title neon-title', {'fizzle' : this.flicker}]" @mouseover="hoverFlicker($event)">Chris Snowden</h1>
       <div class="subtitles-container" role="navigation">
-        <h2 class="subtitle">          
-          <a
-            href="https://github.com/Recidvst"
-            title="Check out my Github"
-            target="_blank"
-          >Github</a>
-        </h2>
-        <h2 class="subtitle">
-          <a
-            href="mailto:cdsnowden@gmail.com"
-            title="Email me"
-          >Email</a>
-        </h2>
-        <h2 class="subtitle">
-          <a
-            href="https://www.linkedin.com/in/cdsnowden/"
-            title="Find me on LinkedIn"
-            target="_blank"
-          >LinkedIn</a>
-        </h2>
+        <a id="githubFixed" href="https://github.com/Recidvst" title="Find me on Github" target="_blank">
+          <img class="logo large-logo github" src="~/assets/images/GitHub-Mark-Light-64px.png" alt="Github logo"/>
+        </a>
       </div>
     </div>
   </section>

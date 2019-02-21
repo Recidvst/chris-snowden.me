@@ -46,6 +46,7 @@
   // button version
   &.button {
     font-size: 1rem;
+    line-height: 2rem;
     &:hover, &:focus, &:active {
       cursor: pointer;
       color: $blue;
@@ -68,6 +69,11 @@
   @media(max-width: 767px) {
     text-shadow: 0 0 10px $blue-dark;
     line-height: 2.5rem;
+    padding: 10px 0px 14px;
+    &:before {
+      display: none;
+      content: unset;
+    }
   }
   
 }

@@ -1,7 +1,8 @@
 <template>
   <header id="header">
     <nuxt-link class="logo-letters title" to="/" title="Homepage">C</nuxt-link>
-    <!-- <ul class="contact-icon-menu">
+    <div id="burger"></div>
+    <ul class="contact-icon-menu">
       <li class="animated fadeInUp">
         <a href="/" target="_blank">
           <i class="fa fa-github"></i>
@@ -17,7 +18,7 @@
           <i class="fa fa-rss"></i>
         </a>
       </li>
-    </ul>-->
+    </ul>
   </header>
 </template>
 

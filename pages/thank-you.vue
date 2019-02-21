@@ -1,9 +1,8 @@
 <template>
   <section class="page-container">
     <div class="page-title-container">
-      <h1 class="title">Thanks very much!</h1>
-      <h2>I'll get back to you asap</h2>
-      <NeonButton url="/" text="Go back" title="Back to the homepage"/>
+      <h1 class="title neon-title">Thank you!</h1>
+      <nuxt-link class="button button-simple" to="/" title="Homepage">Back to the homepage</nuxt-link>
     </div>
   </section>
 </template>
@@ -27,12 +26,23 @@ export default {
     let title = document.querySelector("h1");
     Scrambler({
       target: "h1",
-      random: [500, 1000],
-      speed: 120
+      random: [1750, 3000],
+      speed: 100
     });
+    // fire the flicker as soon as scramble finishes
     setTimeout(e => {
-      title.classList.add("flicker-title");
-    }, 1000);
+      this.flicker = true;
+      setTimeout(e => {
+        this.flicker = false;
+      }, 810);
+    }, 3500);
+    // fire the flicker every 20 secs as a reminder
+    setInterval(e => {
+      this.flicker = true;
+      setTimeout(e => {
+        this.flicker = false;
+      }, 810);
+    }, 20000);   
   }
 };
 </script>

@@ -6,6 +6,7 @@ header#header {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  background: #090713;
 
   position: fixed;
   top: 0;
@@ -15,6 +16,15 @@ header#header {
   z-index: 90;
   overflow: hidden;
 
+
+  // on mobile, stick to bottom!
+  @media(max-width: 767px) {
+    height: 60px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   ul {
     margin: 0;
@@ -26,31 +36,36 @@ header#header {
         color: $white;
       }
     }
-    &.header-menu {
-
-    }
-    &.contact-icon-menu {
-
-    }
   }
 
   // logo
   .logo-letters.title {
-    font-family: $family-neon-secondary;
+    font-family: $family-neon-complex;
     text-shadow: 0px 0px 1px $pink-dark;
     font-size: 50px;
     text-decoration: none;
-    margin: 0 auto 0 0;
-    padding: 2px 5px;
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 0 0;
+    padding: 4px 8px 10px;
     color: $pink;
+    background: #1f1b32;
+    text-align: center;
+    @media(max-width: 767px) {
+      margin: 0 auto 0 0;
+      width: 60px;
+    }
   }
 
-  // sticky
-  &.sticky {
-
+  // burger
+  #burger {
+    display: none;
+    margin: 0 0 0 auto;
+    padding: 8px;
+    color: $pink;
+    @media(max-width: 767px) {
+    display: block;
+    }
   }
 
-  // mobile
-  @media(max-width: 767px) {
-  }
 }

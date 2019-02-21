@@ -1,8 +1,8 @@
 <template>
   <section class="page-container">
     <div class="page-title-container">
-      <h1 class="title">Contact me</h1>
-      <h2>Get in touch using the form below</h2>
+      <h1 class="title neon-title">Contact me</h1>
+      <h2 class="subtitle">Get in touch using the form below</h2>
       <div id="contact-form-container">
         <form
           name="contact-form"
@@ -62,31 +62,22 @@
             <button
               type="submit"
               tabindex="4"
-              v-bind:class="['cta-button cta-button-small', {'fizzle' : this.submitFlicker}]"
-              @mouseover="hoverFlicker($event)"
+              v-bind:class="['button button-simple']"
               role="button"
             >Send</button>
           </div>
         </form>
       </div>
-      <h2>Alternatively try email or LinkedIn</h2>
-      <ul>
-        <li>
-          <a
+      <h2 class="subtitle">Alternatively try <a
             href="mailto:cdsnowden@gmail.com"
             title="Send an email to cdsnowden@gmail.com"
             tabindex="5"
-          >cdsnowden@gmail.com</a>
-        </li>
-        <li>
-          <a
+          >cdsnowden@gmail.com</a> or <a
             href="https://www.linkedin.com/in/cdsnowden"
             title="Find me on LinkedIn"
             target="_blank"
             tabindex="6"
-          >LinkedIn</a>
-        </li>
-      </ul>
+          >find me on LinkedIn</a></h2>
     </div>
   </section>
 </template>
@@ -131,12 +122,23 @@ export default {
     let title = document.querySelector("h1");
     Scrambler({
       target: "h1",
-      random: [500, 1000],
-      speed: 120
+      random: [1750, 3000],
+      speed: 100
     });
+    // fire the flicker as soon as scramble finishes
     setTimeout(e => {
-      title.classList.add("flicker-title");
-    }, 1000);
+      this.flicker = true;
+      setTimeout(e => {
+        this.flicker = false;
+      }, 810);
+    }, 3500);
+    // fire the flicker every 20 secs as a reminder
+    setInterval(e => {
+      this.flicker = true;
+      setTimeout(e => {
+        this.flicker = false;
+      }, 810);
+    }, 20000);   
   }
 };
 </script>
