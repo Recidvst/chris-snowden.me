@@ -2,19 +2,9 @@
 
 // fonts
 @font-face {
-  font-family: Neoneon;
-  src: url("../fonts/Neoneon.woff") format("woff"), 
-       url("../fonts/Neoneon.otf")  format("opentype");
-}
-@font-face {
   font-family: Axaxax;
   src: url("../fonts/Axaxax.woff") format("woff"), 
        url("../fonts/Axaxax.otf")  format("opentype");
-}
-@font-face {
-  font-family: Neon;
-  src: url("../fonts/Neon.woff") format("woff"), 
-       url("../fonts/Neon.otf")  format("opentype");
 }
 @font-face {
   font-family: Ironlounge;
@@ -25,8 +15,6 @@
 $family-primary: 'Open Sans', sans-serif;
 $family-neon-primary: 'Ironlounge', sans-serif;
 $family-neon-secondary: 'Axaxax', sans-serif;
-$family-neon-tertiary: 'Neoneon', sans-serif;
-$family-neon-complex: 'Neon', sans-serif;
 
 // titles
 h1 {

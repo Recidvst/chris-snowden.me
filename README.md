@@ -1,7 +1,7 @@
 # chris-snowden.me
 
-- Personal website/portfolio/resume
+- Personal website/contact page
 - Inspired by 80s neon aesthetic
-- Using Vue.js/Nuxt and Netlify
+- Using Vue.js/Nuxt.j and Netlify
 
-## In progress
+### Temporary
