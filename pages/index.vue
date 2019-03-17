@@ -59,7 +59,7 @@ export default {
                 copyTarget.parentElement.classList.add('clicked');
                 setTimeout( () => {
                     copyTarget.parentElement.classList.remove('clicked');
-                }, 1500);            
+                }, 1500);
             }
         }
     }

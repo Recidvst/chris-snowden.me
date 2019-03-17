@@ -21,7 +21,7 @@ export default {
     }
   },
   methods: {
-    randColour() {	// util fn to randomise icon colour	
+    randColour() {	// util fn to randomise icon colour
       let col = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
       while ( col === '#000000' ) col = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
       return col;
@@ -29,23 +29,23 @@ export default {
     triggerDraw(path, draw = true) {
       if (path === undefined) return false; // check for path
       // set random duration
-      let duration = Math.floor(Math.random() * (6000 - 2000) + 2000); 
+      let duration = Math.floor(Math.random() * (6000 - 2000) + 2000);
       let length = path.getTotalLength(); // path length
       path.style.transition = `stroke-dashoffset ${duration / 1000}s ease-in-out, stroke 1s ease-in`; // animate the stroke
 
       if (draw) { // draw in
-        path.style.strokeDashoffset = 0;	
+        path.style.strokeDashoffset = 0;
         path.style.stroke = `${this.randColour()}`; // colour change
       setTimeout( (e) => {
-          path.style.strokeDashoffset = length;  
+          path.style.strokeDashoffset = length;
           this.triggerDraw(path, false); // recusively call self
       }, duration);
       }
       else { // draw out
-        path.style.strokeDashoffset = length;	
+        path.style.strokeDashoffset = length;
         path.style.stroke = `${this.randColour()}`; // colour change
       setTimeout( (e) => {
-          path.style.strokeDashoffset = 0;   
+          path.style.strokeDashoffset = 0;
           this.triggerDraw(path, true); // recusively call self
       }, duration);
       }
@@ -56,19 +56,19 @@ export default {
     if (window.matchMedia("(min-width: 768px)").matches) {
       this.svgPaths.forEach( (path) => {
         // get path length and init stroke. Starts offest to hide lines
-        let length = path.getTotalLength(); 
+        let length = path.getTotalLength();
         path.style.strokeDasharray = length;
-        path.style.strokeDashoffset = length;	
+        path.style.strokeDashoffset = length;
         path.style.strokeWidth = '2px';
         setTimeout( (e) => { // trigger draw fn
-          this.triggerDraw(path, true);	
+          this.triggerDraw(path, true);
         }, 250);
       });
     }
     else {
       this.svgPaths.forEach( (path) => {
         path.style.strokeDashoffset = 0;
-        path.style.stroke = `${this.randColour()}`; // colour change	
+        path.style.stroke = `${this.randColour()}`; // colour change
         path.style.strokeWidth = '2px';
       });
     }
@@ -85,7 +85,7 @@ export default {
     width: 100%;
     max-width: 100%;
     max-height: 100%;
-    z-index: -1; 
+    z-index: -1;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -109,7 +109,7 @@ export default {
       stroke: transparent;
       stroke-width: 1px;
       fill: none;
-      opacity: 0.5 !important;
+      opacity: 0.9 !important;
     }
   }
 </style>

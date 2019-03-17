@@ -11,7 +11,7 @@
   "license": "MIT",
   "main": "app.js",
   "scripts": {
-    "dev": "nuxt",
+    "dev": "SET NODE_ENV=development & SET GA_ID=test & nuxt --port 3333",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
