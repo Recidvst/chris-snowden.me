@@ -31,7 +31,7 @@
 
 <script>
 // scripts
-import { Scrambler } from "~/node_modules/scrambling-letters/dist/scramble.min.js";
+import Scrambler from "~/node_modules/scrambling-letters/dist/scrambler.esm.js";
 import { copyToClipboard } from '~/assets/js/utils';
 
 export default {
