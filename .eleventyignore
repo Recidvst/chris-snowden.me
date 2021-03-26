@@ -16,7 +16,6 @@ nohup.out
 .eslintcache
 
 dist
-/src/compiled-assets/
 
 # misc
 .DS_Store

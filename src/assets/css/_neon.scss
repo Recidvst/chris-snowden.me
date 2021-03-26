@@ -1,0 +1,83 @@
+// neon styles for titles/buttons
+
+// basic flicker
+.flicker-title {
+  animation: flickerRepeatPink 8s linear infinite;
+  animation-delay: 1s;
+}
+
+// main neon sign effect text
+.neon-title {
+  position: relative;
+  display: block;
+  padding: 10px 30px 14px;
+  margin: 30px auto;
+  text-align: center;
+  z-index: 1;
+  max-width: 100%;
+  overflow: visible;
+  background: transparent;
+  border: none;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $blue;
+  text-shadow: 0 0 10px $blue-dark, 0 0 20px $blue-dark, 0 0 30px $blue-dark,
+    0 0 40px $blue-darker, 0 0 70px $blue-darker;
+  font-family: $family-neon-primary;
+  font-weight: 600;
+  line-height: 4rem;
+  letter-spacing: 4px;
+  transition: all 0.2s ease;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 0 15px 4px $pink, 0 0 120px 2px $pink-dark,
+      inset 0 0 15px 4px $pink, inset 0 0 50px 2px $pink-dark;
+    transition: all 0.2s ease;
+    z-index: -1;
+    opacity: 1;
+  }
+
+  // button version
+  &.button {
+    font-size: 1rem;
+    line-height: 2rem;
+    &:hover,
+    &:focus,
+    &:active {
+      cursor: pointer;
+      color: $blue;
+      &:before {
+        box-shadow: 0 0 15px 4px $blue, 0 0 120px 2px $blue-dark,
+          inset 0 0 15px 4px $blue, inset 0 0 50px 2px $blue-dark;
+      }
+    }
+  }
+
+  // fizzling hover animation
+  &.fizzle {
+    animation: fizzleText ease-in-out 0.8s;
+    &:before {
+      animation: none;
+      animation: fizzleBorder ease-in-out 0.8s;
+    }
+  }
+
+  // mobile tweaks
+  @media (max-width: 767px) {
+    text-shadow: 0 0 10px $blue-dark;
+    line-height: 2.5rem;
+    padding: 10px 0px 14px;
+    &:before {
+      display: none;
+      content: unset;
+    }
+  }
+}

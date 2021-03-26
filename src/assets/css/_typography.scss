@@ -1,0 +1,79 @@
+// typography
+
+// fonts
+@font-face {
+  font-family: Axaxax;
+  src: url('../fonts/Axaxax.woff') format('woff'),
+    url('../fonts/Axaxax.otf') format('opentype');
+}
+@font-face {
+  font-family: Ironlounge;
+  src: url('../fonts/Ironlounge.woff') format('woff'),
+    url('../fonts/Ironlounge.otf') format('opentype');
+}
+
+$family-primary: 'Open Sans', sans-serif;
+$family-neon-primary: 'Ironlounge', sans-serif;
+$family-neon-secondary: 'Axaxax', sans-serif;
+
+// titles
+h1 {
+  display: block;
+  margin: 15px 0;
+  font-family: $family-neon-primary;
+  font-size: 2rem;
+  font-weight: 100;
+  color: $white;
+  &.title {
+    font-size: 2.5rem;
+    min-width: 700px;
+    @media (max-width: 767px) {
+      font-size: 2rem;
+      min-width: 0;
+    }
+  }
+}
+
+h2 {
+  display: block;
+  margin: 10px 0 15px;
+  font-family: $family-neon-secondary;
+  font-size: 1rem;
+  font-weight: 100;
+  letter-spacing: 1px;
+  color: $white;
+  &:hover {
+    cursor: pointer;
+    animation: flickerSubtitles 8s linear;
+  }
+  &.subtitle {
+    display: inline-block;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 700px;
+    @media (max-width: 767px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+h3 {
+  display: block;
+  margin: 10px 0 15px;
+  font-family: $family-neon-secondary;
+  font-size: 1.5rem;
+  font-weight: 100;
+  letter-spacing: 1px;
+  text-shadow: 0 0 20px $blue-dark, 0 0 20px $blue-darker;
+}
+
+// links
+a {
+  color: $blue;
+  text-decoration: none;
+  &:hover,
+  &focus,
+  &:active {
+    color: $pink;
+  }
+}
