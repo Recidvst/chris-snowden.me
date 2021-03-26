@@ -1,39 +1,64 @@
 {
   "name": "chris-snowden.me",
-  "version": "1.0.0",
-  "description": "Personal website/portfolio/resume",
-  "author": "Chris Snowden <cdsnowden@gmail.com>",
+  "version": "0.0.1",
+  "description": "Personal website/portfolio - Inspired by 80s neon aesthetic - Using Eleventy with a sprinkling of Svelte and Netlify",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Recidvst/chris-snowden.me.git"
   },
-  "homepage": "https://github.com/Recidvst/chris-snowden.me#readme",
+  "author": "Chris Snowden <cdsnowden@gmail.com>",
   "license": "MIT",
-  "main": "app.js",
-  "scripts": {
-    "dev": "SET NODE_ENV=development & SET GA_ID=test & nuxt --port 3333",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+  "bugs": {
+    "url": "https://github.com/Recidvst/chris-snowden.me/issues"
   },
-  "dependencies": {
-    "@nuxtjs/axios": "^5.0.0",
-    "@nuxtjs/google-analytics": "^2.1.0",
-    "cross-env": "^5.2.0",
-    "dotenv": "^6.0.0",
-    "node-sass": "^4.9.3",
-    "nuxt": "^2.0.0",
-    "sass-loader": "^7.1.0",
-    "scrambling-letters": "^1.5.2"
+  "homepage": "https://github.com/Recidvst/chris-snowden.me#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:js": "eslint --ext \".js\" --ignore-path .gitignore .",
+    "lint:style": "stylelint \"**/*.{css,scss}\" --ignore-path .gitignore",
+    "lint": "npm run lint:js && npm run lint:style",
+    "release:major": "changelog -M -t v1.0.0 && git add CHANGELOG.md && git commit -m 'chore(release): updated CHANGELOG after major release' && npm version major -m 'chore(release): upgrade to major version %s'",
+    "release:minor": "changelog -m -t v1.0.0 && git add CHANGELOG.md && git commit -m 'chore(release): updated CHANGELOG after minor release' && npm version minor -m 'chore(release): upgrade to minor version %s'",
+    "release:patch": "changelog -p -t v1.0.0 && git add CHANGELOG.md && git commit -m 'chore(release): updated CHANGELOG after patch release' && npm version patch -m 'chore(release): upgrade to patch version %s'",
+    "postversion": "git checkout master && git push && git checkout develop && git push && git push --tags"
+  },
+  "lint-staged": {
+    "*.{js}": "eslint",
+    "*.{css}": "stylelint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --verbose && pretty-quick --staged --verbose",
+      "commit-msg": "commitlint -V -E HUSKY_GIT_PARAMS",
+      "post-commit": "echo '🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈'"
+    }
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^5.0.1",
+    "@commitlint/cli": "^12.1.0",
+    "@commitlint/config-conventional": "^12.0.1",
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.22.0",
     "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^2.0.0",
-    "eslint-plugin-vue": "^4.0.0",
-    "nodemon": "^1.11.0"
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-import-order-aesthetic": "^1.0.2",
+    "generate-changelog": "^1.8.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "stylelint": "^13.12.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-prettier": "^1.2.0"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "^8.2.0"
   }
 }
