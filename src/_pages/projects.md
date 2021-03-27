@@ -1,6 +1,6 @@
 ---
 title: Projects
-layout: default.ejs
+layout: default.njk
 ---
 
-# <%= title %>
+# {{ title }}

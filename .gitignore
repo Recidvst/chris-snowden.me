@@ -13,6 +13,7 @@ yarn-lock
 
 nohup.out
 
+.cache
 .eslintcache
 
 dist

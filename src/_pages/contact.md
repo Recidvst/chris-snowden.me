@@ -1,6 +1,6 @@
 ---
 title: Contact Me
-layout: default.ejs
+layout: default.njk
 ---
 
-# <%= title %>
+# {{ title }}
