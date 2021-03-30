@@ -1,6 +1,0 @@
----
-title: Homepage
-layout: default.njk
----
-
-# {{ title }}

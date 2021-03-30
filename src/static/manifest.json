@@ -1,0 +1,12 @@
+{
+  "name": "chris-snowden.me",
+  "short_name": "Chris Snowden",
+  "description": "Personal website/portfolio - Inspired by 80s neon aesthetic - Using Eleventy with a sprinkling of Svelte and Netlify",
+  "dir": "auto",
+  "lang": "en-GB",
+  "display": "standalone",
+  "orientation": "any",
+  "start_url": "/",
+  "background_color": "#090713",
+  "theme_color": "#090713"
+}

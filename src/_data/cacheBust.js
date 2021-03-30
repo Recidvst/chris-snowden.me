@@ -3,8 +3,8 @@ const md5File = require('md5-file');
 const cacheBust = () => {
   // A "map" of files to cache bust
   const files = {
-    mainCss: './src/compiled-assets/main.css',
-    mainJs: './src/compiled-assets/main.js',
+    mainCss: './src/assets/styles/main.scss',
+    mainJs: './src/assets/js/main.js',
   };
 
   return Object.entries(files).reduce((acc, [key, path]) => {

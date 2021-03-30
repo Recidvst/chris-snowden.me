@@ -5,10 +5,15 @@
 
   <body>
 
-    {{ content }}
+    <section class="page-container">
 
+      {{ content | safe }}
+
+    </section>
+
+    {% include 'lines.njk' %}
+
+    <script type="text/javascript" src="/main.js"></script>
   </body>
-
-  <script type="text/javascript" href="/main.js?{{ cacheBust.mainJs }}" />
 
 </html>
