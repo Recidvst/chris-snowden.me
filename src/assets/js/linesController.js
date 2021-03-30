@@ -15,18 +15,18 @@ export function triggerDraw(path, draw = true) {
   if (draw) { // draw in
     path.style.strokeDashoffset = 0;
     path.style.stroke = `${randColour()}`; // colour change
-  setTimeout( (e) => {
+    setTimeout( (e) => {
       path.style.strokeDashoffset = length;
       triggerDraw(path, false); // recusively call self
-  }, duration);
+    }, duration);
   }
   else { // draw out
     path.style.strokeDashoffset = length;
     path.style.stroke = `${randColour()}`; // colour change
-  setTimeout( (e) => {
+    setTimeout( (e) => {
       path.style.strokeDashoffset = 0;
       triggerDraw(path, true); // recusively call self
-  }, duration);
+    }, duration);
   }
 }
 

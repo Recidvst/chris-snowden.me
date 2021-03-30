@@ -1,0 +1,35 @@
+#svgLinesContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#svgLinesContainerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+#svgLines {
+  min-width: 2000px;
+  path {
+    stroke-dashoffset: 1000;
+    transition: stroke 1s ease-in;
+    stroke: #bde1ff; // fb
+    stroke: transparent;
+    stroke-width: 1px;
+    fill: none;
+    opacity: 0.9 !important;
+  }
+}

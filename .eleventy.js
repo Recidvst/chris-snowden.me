@@ -6,7 +6,7 @@ const pwaPlugin = require('eleventy-plugin-pwa')
 module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({"src/static": "/"}); // pass static files like the favicon
-  eleventyConfig.addPassthroughCopy({"src/fonts": "/"}); // pass fonts
+  eleventyConfig.addPassthroughCopy({"src/assets/fonts": "/fonts"}); // pass fonts
 
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {

@@ -1,4 +1,3 @@
-import Scrambler from "~/node_modules/scrambling-letters/dist/scrambler.esm.js";
 
 export function scramblerTrigger(target) {
   if (!target) return false;

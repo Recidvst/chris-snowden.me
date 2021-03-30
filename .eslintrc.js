@@ -46,19 +46,6 @@ module.exports = {
     // allow debugger during development
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'vue/multiline-html-element-content-newline': 0,
-    'vue/singleline-html-element-content-newline': 0,
-    'vue/no-v-html': 1,
-    'vue/max-attributes-per-line': [
-      1,
-      {
-        singleline: 5,
-        multiline: {
-          max: 1,
-          allowFirstLine: false,
-        },
-      }
-    ],
     'no-useless-escape': 0,
   },
 };
