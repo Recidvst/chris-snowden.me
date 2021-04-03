@@ -1,0 +1,38 @@
+.menu {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: transparent;
+  &.menu--header {
+    width: 100%;
+    justify-content: center;
+    height: 50px;
+    padding: 15px;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      li {
+        list-style-type: none;
+        a {
+          padding: 0 15px;
+          color: rgba(189, 225, 255, 0.8);
+          &:hover {
+            cursor: pointer;
+            color: rgba(189, 225, 255, 1);
+          }
+        }
+      }
+    }
+  }
+}

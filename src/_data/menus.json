@@ -1,0 +1,24 @@
+{
+  "headerMenu": [
+    {
+      "title": "Home",
+      "link": "/",
+      "metaTitle": "Homepage"
+    },
+    {
+      "title": "Projects",
+      "link": "/projects",
+      "metaTitle": "See recent projects"
+    },
+    {
+      "title": "About Me",
+      "link": "/about",
+      "metaTitle": "About me"
+    },
+    {
+      "title": "Contact",
+      "link": "/contact",
+      "metaTitle": "Contact me"
+    }
+  ]
+}

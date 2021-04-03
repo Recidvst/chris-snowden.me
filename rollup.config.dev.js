@@ -1,6 +1,5 @@
 import resolve from 'rollup-plugin-node-resolve';
 import { eslint } from 'rollup-plugin-eslint';
-import serve from 'rollup-plugin-serve';
 import babel from 'rollup-plugin-babel';
 import scss from 'rollup-plugin-scss';
 
@@ -19,25 +18,12 @@ export default {
       include: ["/**/*.css", "/**/*.scss", "/**/*.sass"],
       output: "./dist/main.css",
       failOnError: true,
-      watch: 'src/styles',
+      watch: './src/assets/styles',
       runtime: require("sass"),
     }),
     eslint(),
     babel({
       exclude: 'node_modules/**',
-    }),
-    serve({
-      contentBase: 'dist',
-      open: false,
-      port: 8080,
-      // execute function after server has begun listening
-      onListening: function (server) {
-        const address = server.address()
-        const host = address.address === '::' ? 'localhost' : address.address
-        // by using a bound function, we can access options as `this`
-        const protocol = this.https ? 'https' : 'http'
-        console.log(`Server listening at ${protocol}://${host}:${address.port}/`)
-      },
     })
   ],
 }

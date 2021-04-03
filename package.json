@@ -19,7 +19,7 @@
     "prestart": "npm run clean",
     "prebuild": "npm run clean",
     "start": "npm-run-all --parallel dev:*",
-    "dev:eleventy": "eleventy --watch",
+    "dev:eleventy": "eleventy --serve",
     "dev:rollup": "rollup --watch --config rollup.config.dev.js",
     "build": "run-s prod:*",
     "prod:eleventy": "eleventy",
