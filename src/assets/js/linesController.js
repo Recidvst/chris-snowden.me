@@ -43,7 +43,7 @@ export function linesStart() {
         path.style.strokeWidth = '2px';
         setTimeout( (e) => { // trigger draw fn
           triggerDraw(path, true);
-        }, 250);
+        }, 50);
       });
     }
     else {

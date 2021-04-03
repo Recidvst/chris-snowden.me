@@ -9,14 +9,14 @@ export function flickerAction(target) {
   }, 810);
 }
 
-// trigger flicker every 20 secs
-export function regularFlicker() {
+// trigger flicker every x secs(20 is a good default)
+export function regularFlicker(interval = 20000) {
   const neonItems = [...document.querySelectorAll('.neon-title')];
   if (neonItems && Array.isArray(neonItems)) {
     neonItems.forEach( (item) => {
       setInterval(e => {
         flickerAction(item);
-      }, 20000);
+      }, interval);
     });
   }
 }

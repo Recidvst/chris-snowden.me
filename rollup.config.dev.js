@@ -1,8 +1,8 @@
 import resolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
 import { eslint } from 'rollup-plugin-eslint';
-import scss from 'rollup-plugin-scss';
 import serve from 'rollup-plugin-serve';
+import babel from 'rollup-plugin-babel';
+import scss from 'rollup-plugin-scss';
 
 export default {
   input: 'src/assets/js/main.js',
@@ -10,7 +10,7 @@ export default {
     {
       name: 'Scrambler',
       file: `dist/main.js`,
-      format: 'iife'
+      format: 'iife',
     }
   ],
   plugins: [
@@ -24,7 +24,7 @@ export default {
     }),
     eslint(),
     babel({
-      exclude: 'node_modules/**'
+      exclude: 'node_modules/**',
     }),
     serve({
       contentBase: 'dist',
@@ -37,7 +37,7 @@ export default {
         // by using a bound function, we can access options as `this`
         const protocol = this.https ? 'https' : 'http'
         console.log(`Server listening at ${protocol}://${host}:${address.port}/`)
-      }
+      },
     })
-  ]
+  ],
 }
