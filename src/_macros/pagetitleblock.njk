@@ -1,0 +1,8 @@
+{% macro pagetitleblock(params) %}
+  <section class="page-title-container">
+    <h1 class="title neon-title">{{ params.title }}</h1>
+    <div class="page-title-container__subtitles">
+      {{ params.slot | safe }}
+    </div>
+  </section>
+{% endmacro %}

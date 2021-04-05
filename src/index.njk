@@ -3,9 +3,16 @@ title: Chris Snowden
 layout: default.njk
 ---
 
-<div class="page-title-container">
-  <h1 class="title neon-title">{{ title }}</h1>
-  <h2>Front-end web developer from the UK</h2>
-  <p>Currently specialising in Vue.js, Nuxt.js, Node.js, WordPress</p>
-  <p>Getting interested in Svelte.js, Jest, 11ty, Python, Go</p>
-</div>
+{%- from "./_macros/pagetitleblock.njk" import pagetitleblock -%}
+
+<!-- Declaring Slot Content for the page title block-->
+{% set titleContent %}
+    <h2>Front-end web developer from the UK</h2>
+    <p>Currently specialising in Vue.js, Nuxt.js, Node.js, WordPress</p>
+    <p>Getting interested in Svelte.js, Jest, 11ty, Python, Go</p>
+{% endset %}
+
+{{ pagetitleblock({
+  title: title,
+  slot: titleContent
+}) }}

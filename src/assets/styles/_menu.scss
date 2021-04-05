@@ -11,7 +11,6 @@
   &.menu--header {
     width: 100%;
     justify-content: center;
-    height: 50px;
     padding: 15px;
 
     ul {
@@ -24,12 +23,20 @@
       padding: 0;
       li {
         list-style-type: none;
+        padding: 30px 0;
         a {
-          padding: 0 15px;
-          color: rgba(189, 225, 255, 0.8);
+          display: inline-block;
+          font-family: 'Roboto Mono';
+          font-size: 24px;
+          padding: 0 30px;
+          color: $red;
           &:hover {
             cursor: pointer;
-            color: rgba(189, 225, 255, 1);
+            color: $blue-bright;
+          }
+          @media (max-width: 767px) {
+            padding: 0 15px;
+            font-size: 0.8rem;
           }
         }
       }

@@ -1,14 +1,44 @@
 // basics
 $black: #333;
 $white: #fff;
+
+// colours
+$blue: #21bfc2;
+$blue-bright: #33ced8;
+$blue-gray: #a0b3c6;
+$blue-faded: #6c6f93;
+$cyan: #21bfc2;
+
+$green: #27d796;
+$green-pale: #60af73;
+$green-bright: #09f7a0;
+
+$red: #e9436f;
+$red-pale: #e95379;
+$red-pale-2: #d95468;
+$red-bright: #f43e5c;
+
+$yellow: #f0be72;
+$yellow-brown: #fab28e;
+
+$purple: #8931b9;
+$purple-pale: #b877db;
+
+// colours for the neon animation //
 // pinks
-$darker-black: #0d0d0d;
-$pink: #ed1cdc;
-$pink-dark: #790072;
+$neon-pink: #ed1cdc;
+$neon-pink-dark: #790072;
 // blues
-$blue: #bde1ff;
-$blue-dark: #0080e2;
-$blue-darker: #004097;
+$neon-blue: #bde1ff;
+$neon-blue-dark: #0080e2;
+$neon-blue-darker: #004097;
 // blacks
-$blue-black: #1d1836;
-$purple-black: #090713;
+$neon-blue-black: #1d1836;
+$neon-purple-black: #090713;
+
+// fonts
+$family-primary: 'Raleway', sans-serif;
+$family-secondary: 'Hind Siliguri', sans-serif;
+$family-tertiary: 'Roboto Mono', sans-serif;
+$family-neon-primary: 'Ironlounge', sans-serif;
+$family-neon-secondary: 'Axaxax', sans-serif;
