@@ -1,7 +1,9 @@
 const fs = require("fs");
 const HumanReadable = require('human-readable-numbers');
 const htmlmin = require("html-minifier");
-const pwaPlugin = require('eleventy-plugin-pwa')
+const pwaPlugin = require('eleventy-plugin-pwa');
+const { PurgeCSS } = require('purgecss');
+const environment = require('./src/_data/environment.js');
 
 module.exports = function(eleventyConfig) {
 
@@ -29,8 +31,12 @@ module.exports = function(eleventyConfig) {
 		return HumanReadable.toHumanString(num);
 	});
 
+  eleventyConfig.addFilter("cssmin", function(code) {
+    return new CleanCSS({}).minify(code).styles;
+  });
+
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
-    if( process.env.ELEVENTY_PRODUCTION && outputPath.endsWith(".html") ) {
+    if( environment.isProd && outputPath.endsWith(".html") ) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
@@ -40,6 +46,25 @@ module.exports = function(eleventyConfig) {
     }
 
     return content;
+  });
+
+  eleventyConfig.addTransform('purge-and-inline-css', async (content, outputPath) => {
+    if (!environment.isProd || !outputPath.endsWith('.html')) {
+      return content;
+    }
+
+    const purgeCSSResults = await new PurgeCSS().purge({
+      content: [{ raw: content }],
+      css: ['./dist/main.css'],
+      keyframes: true,
+      variables: true,
+      fontFace: true,
+      safelist: [
+        'tbc...'
+      ]
+    });
+
+    return content.replace('<!-- INJECT INLINE CSS -->', '<style>' + purgeCSSResults[0].css + '</style>');
   });
 
   return {

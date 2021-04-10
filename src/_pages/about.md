@@ -5,8 +5,8 @@ layout: default.njk
 
 # {{ title }}
 
-Currently specialising in Vue.js, Nuxt.js, Node.js, WordPress
+Currently specialising in Vue.js, Nuxt.js, Node.js and WordPress
 
-Skilled with JS (ES6+), jQUery, CSS (SCSS), templating with CMSs, SPAs, Static sites, CI/CD integration, unit testing
+Skilled in JS (ES6+), jQuery, CSS (SCSS), templating with CMSs, SPAs, Static sites, CI/CD integration, unit testing
 
-Getting interested in Svelte.js, Jest, 11ty, Python, Go
+Getting interested in Svelte.js, 11ty, Python and Go

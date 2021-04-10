@@ -1,10 +1,13 @@
 import { flickerAction, regularFlicker, hoverWatch } from './neonController';
 import { scramblerTrigger } from './scramblerController';
 import { linesStart } from './linesController';
+import { listen, prefetch } from "quicklink";
 // import scss (for rollup build)
 import '../styles/main.scss'; // eslint-disable-line import-order-aesthetic/order-import-by-length
 
 document.addEventListener("DOMContentLoaded", function() {
+  // trigger quicklink (prefetch URLs)
+  listen();
   // start the neon lines in background
   linesStart();
   // set off the scrambling function and flicker function on the main page title

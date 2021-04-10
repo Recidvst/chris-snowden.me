@@ -1,7 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
 import { eslint } from 'rollup-plugin-eslint';
 import uglify from 'rollup-plugin-uglify-es';
+import babel from 'rollup-plugin-babel';
 import scss from 'rollup-plugin-scss';
 
 export default {
@@ -10,7 +10,8 @@ export default {
     {
       name: 'Scrambler',
       file: `dist/main.js`,
-      format: 'iife'
+      format: 'iife',
+      sourcemap: true,
     }
   ],
   plugins: [
@@ -19,13 +20,18 @@ export default {
       include: ["/**/*.css", "/**/*.scss", "/**/*.sass"],
       output: "./dist/main.css",
       failOnError: true,
-      watch: 'src/styles',
+      watch: './src/assets/styles',
       runtime: require("sass"),
+      outputStyle: "compressed",
+      sourceMapEmbed: false,
+      sourceMap: true,
     }),
     eslint(),
     babel({
-      exclude: 'node_modules/**'
+      exclude: 'node_modules/**',
     }),
-    uglify(),
-  ]
+    uglify({
+      sourcemap: true,
+    })
+  ],
 }
