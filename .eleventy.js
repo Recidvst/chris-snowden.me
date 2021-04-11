@@ -1,7 +1,6 @@
 const fs = require("fs");
 const HumanReadable = require('human-readable-numbers');
 const htmlmin = require("html-minifier");
-const pwaPlugin = require('eleventy-plugin-pwa');
 const { PurgeCSS } = require('purgecss');
 const environment = require('./src/_data/environment.js');
 
@@ -24,8 +23,6 @@ module.exports = function(eleventyConfig) {
       }
     }
   });
-
-  eleventyConfig.addPlugin(pwaPlugin)
 
 	eleventyConfig.addFilter("humanReadableNum", function(num) {
 		return HumanReadable.toHumanString(num);
