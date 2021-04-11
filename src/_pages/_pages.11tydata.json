@@ -1,3 +1,4 @@
 {
-  "permalink": "{{ page.filePathStem.replace('/_pages', '') }}/"
+  "permalink": "{{ page.filePathStem.replace('/_pages', '') }}/",
+  "priority": 0.9
 }
