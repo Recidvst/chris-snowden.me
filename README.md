@@ -1,24 +1,31 @@
 # [chris-snowden.me](https://www.chris-snowden.me/ 'Personal website URL')
 
-> Personal website/portfolio - Inspired by 80s neon aesthetic
+> Personal website/portfolio - Inspired by vaporwave/outrun aesthetic
 
 ## Stack
 
-- Eleventy to generate the static site
+- [Eleventy](https://www.11ty.dev/ 'Eleventy docs site')
+  - Generate the static site pages
+  - Run local dev server
   - Pass through static assets
   - Minify CSS
   - Minify HTML
   - Implement PurgeCSS and dynamic inlining
-- Rollup for building assets
+  - Build service worker
+- [Rollup](https://rollupjs.org/guide/en/ 'Rollup docs site')
   - Transpile ES6
   - Compile SCSS
   - Lint JS
   - Minify JS
   - Compile sourcemaps
-- Svelte for components
+- [Svelte](https://svelte.dev/ 'Svelte docs site')
   - Fetching GitHub repo data
-  - Displaying dynamic widgets
-- Netlify for hosting
+  - Displaying dynamic widget components
+- [Commitlint](https://github.com/conventional-changelog/commitlint 'Commitlint GitHub repo') and [Husky](https://github.com/typicode/husky 'Husky GitHub repo')
+  - Enforcing a consistent commit style
+  - Linting & beautifying before committing
+- [Netlify](https://www.netlify.com/ 'Netlify website')
+  - Hosting
   - CI/CD
 
-# In progress
+> In progress
