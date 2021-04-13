@@ -13,16 +13,18 @@
   {% include 'meta.njk' %}
 
   <link rel="manifest" href="/manifest.json" />
+
+  {% if environment.isProd and environment.siteVersion > '1.0.0' %}
   <script>
-    {# if ("serviceWorker" in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker
-        .register("/service-worker.js")
-        .then(function() {
-          console.log("ServiceWorker has been registered!");
-        })
-        .catch(console.error);
+    alert('alive');
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then(function() {
+        console.log("ServiceWorker has been registered!");
+      })
+      .catch(console.error);
     });
-    } #}
   </script>
+  {% endif %}
 </head>
