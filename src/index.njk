@@ -5,6 +5,7 @@ priority: 1
 ---
 
 {%- from "./_includes/_macros/pagetitleblock.njk" import pagetitleblock -%}
+{%- from "./_includes/_macros/svelte/github_repos_widget.njk" import githubreposwidget -%}
 
 <!-- Declaring Slot Content for the page title block-->
 {% set titleContent %}
@@ -18,3 +19,9 @@ priority: 1
   title: title,
   slot: titleContent
 }) }}
+
+<div class="widget-wrapper widget-wrapper--horizontal">
+  <div class="widget-wrapper__inner">
+    {{ githubreposwidget() }}
+  </div>
+</div>

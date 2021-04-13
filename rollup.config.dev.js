@@ -8,7 +8,7 @@ export default {
   input: 'src/assets/js/main.js',
   output: [
     {
-      name: 'Scrambler',
+      name: 'Main',
       file: `dist/main.js`,
       format: 'iife',
       sourcemap: true,
