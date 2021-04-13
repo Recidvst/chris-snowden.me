@@ -17,7 +17,6 @@
   {% if environment.isProd and environment.siteVersion > '1.0.0' %}
   <script>
     window.addEventListener('load', () => {
-    alert('alive');
     navigator.serviceWorker
       .register("/service-worker.js")
       .then(function() {

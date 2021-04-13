@@ -5,6 +5,7 @@ import { terser } from 'rollup-plugin-terser';
 import replace from '@rollup/plugin-replace';
 import svelte from 'rollup-plugin-svelte';
 import css from 'rollup-plugin-css-only';
+import { config } from 'dotenv';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -47,6 +48,11 @@ export default {
 
     replace({
       'process.env.NODE_ENV': (!production) ? JSON.stringify('production') : JSON.stringify('development'),
+      process: JSON.stringify({
+        env: {
+          ...config().parsed,
+        },
+      }),
       __buildDate__: () => JSON.stringify(new Date()),
       preventAssignment: true,
     }),
