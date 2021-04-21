@@ -1,16 +1,46 @@
 // import nodemailer
-let nodemailer = require("nodemailer");
+var nodemailer = require("nodemailer");
+var handlebars = require("handlebars");
+var fs = require('fs');
 
 const sendMail = async function(params) {
   const subject = params.subject || false;
   const message = params.message || false;
+  const senderEmail = params.email || false;
+  const senderName = params.name || false;
   const MAILUSR = params.MAILUSR || false;
   const MAILPWD = params.MAILPWD || false;
   const CCEMAIL = params.CCEMAIL || false;
 
-  if (subject && message && MAILUSR && MAILPWD) {
+  if (subject && message && senderEmail && senderName && MAILUSR && MAILPWD) {
 
-    let preMessage = '<h1>Received a contact form submission from chris-snowden.me</h1></br>';
+    var readHTMLFile = function(path, callback) {
+      fs.readFile(path, {encoding: 'utf-8'}, function (err, html) {
+        if (err) {
+          throw err;
+        }
+        else {
+          callback(null, html);
+        }
+      });
+    };
+
+    // require the email template
+    const htmlTemplate = await readHTMLFile(__dirname + './htmlEmailTemplate.html');
+    // compile with handlebars
+    var template = handlebars.compile(htmlTemplate);
+
+    // set template variables
+    let preMessage = 'Received a contact form submission from chris-snowden.me';
+    var replacements = {
+      messageHeader: preMessage,
+      messageSubject: message,
+      messageBody: message,
+      messageSenderEmail: senderEmail,
+      messageSenderName: senderName,
+    };
+    // get completed html
+    var htmlToSend = template(replacements);
 
     // Create a SMTP transporter object
     let mailer = nodemailer.createTransport({
@@ -29,8 +59,8 @@ const sendMail = async function(params) {
       from: `Form submission from chris-snowden.me<${MAILUSR}>`,
       to: `${MAILUSR}`,
       subject: `${subject}`,
-      text: `${preMessage}<br/>${message}`,
-      html: `${preMessage}<p>${message}</p>`,
+      text: `${preMessage} - ${message}`,
+      html: htmlToSend,
       priority: 'high',
     };
 

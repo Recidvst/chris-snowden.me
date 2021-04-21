@@ -17,7 +17,7 @@ module.exports = async function (context, req) {
   let mailStatus;
 
   // throw errors if missing details
-  if (!data || !data.subject || !data.message) {
+  if (!data || data.message || !data.email || !data.name) {
     mailStatus = Error(`Nodemailer send failed. Reason: failed to pass subject and/or message. At: ${new Date().toISOString()}\r\n`);
   }
   if (!MAILUSR || !MAILPWD) {
@@ -26,8 +26,10 @@ module.exports = async function (context, req) {
 
   // trigger mail send
   mailStatus = await sendMail({
-    subject: data.subject,
+    subject: data.subject || 'General Enquiry',
     message: data.message,
+    email: data.email,
+    name: data.name,
     MAILUSR,
     MAILPWD,
     CCEMAIL,
