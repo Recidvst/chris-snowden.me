@@ -1,13 +1,55 @@
 module.exports = async function (context, req) {
   context.log('JavaScript HTTP trigger function processed a request.');
 
-  const name = (req.query.name || (req.body && req.body.name));
-  const responseMessage = name
-    ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-    : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+  // env vars
+  const MAILUSR = process.env["GMAILACCOUNT"] || false;
+  const MAILPWD = process.env["GMAILPASSWORD"] || false;
+  const CCEMAIL = process.env["CCADDRESS"] || false;
+
+  // import mail function
+  const sendMail = require('./sendMail.js');
+
+  // get data from POST request
+  const data = (req.query.mailData || (req.body && req.body.mailData));
+  context.log(data);
+
+  // init status var
+  let mailStatus;
+
+  // throw errors if missing details
+  if (!data || !data.subject || !data.message) {
+    mailStatus = Error(`Nodemailer send failed. Reason: failed to pass subject and/or message. At: ${new Date().toISOString()}\r\n`);
+  }
+  if (!MAILUSR || !MAILPWD) {
+    mailStatus = Error(`Nodemailer send failed. Reason: failed to provide valid SMTP address and password. At: ${new Date().toISOString()}\r\n`);
+  }
+
+  // trigger mail send
+  mailStatus = await sendMail({
+    subject: data.subject,
+    message: data.message,
+    MAILUSR,
+    MAILPWD,
+    CCEMAIL,
+  });
+  context.log(mailStatus);
+
+  let responseMessage;
+  let responseStatus = 200;
+
+  // if failure
+  if (mailStatus instanceof Error) {
+    responseStatus = 500;
+    responseMessage = 'Sorry, something went wrong with the request - the email was not sent.';
+  }
+  // if success
+  else {
+    responseMessage = 'Success! The email was sent.';
+  }
 
   context.res = {
-    // status: 200, /* Defaults to 200 */
+    status: responseStatus,
     body: responseMessage,
   };
+
 }
