@@ -1,6 +1,10 @@
 # [chris-snowden.me](https://www.chris-snowden.me/ 'Personal website URL')
 
+[![status](https://img.shields.io/website?url=https%3A%2F%2Fchris-snowden.me%2F)](https://www.chris-snowden.me/)
+
 > Personal website/portfolio - Inspired by vaporwave/outrun aesthetic
+
+---
 
 ## Stack
 
@@ -24,8 +28,21 @@
 - [Commitlint](https://github.com/conventional-changelog/commitlint 'Commitlint GitHub repo') and [Husky](https://github.com/typicode/husky 'Husky GitHub repo')
   - Enforcing a consistent commit style
   - Linting & beautifying before committing
+- [Azure](https://azure.microsoft.com/en-gb/ 'Azure website')
+  - Serverless function for contact form
 - [Netlify](https://www.netlify.com/ 'Netlify website')
   - Hosting
   - CI/CD
 
 > In progress
+
+### TODO
+
+- Create/style/wire up contact form + social links + copy
+- Finish functionality and style repo widget
+- Finalise colour pallette
+- Add projects page & copy
+- Add resume page & copy
+- Add analytics
+- Run Lighthouse and optimise performance
+- Configure existing deploy pipeline
