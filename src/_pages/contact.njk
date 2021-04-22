@@ -1,0 +1,18 @@
+---
+title: Contact Me
+layout: default.njk
+priority: 2
+---
+
+{%- from "../_includes/_macros/pagetitleblock.njk" import pagetitleblock -%}
+{%- from "../_includes/_macros/forms.njk" import contactform -%}
+
+{{ pagetitleblock({
+  title: title,
+  slot: titleContent,
+  scrambleFast: true
+}) }}
+
+{{ contactform({
+  title: 'Get in touch'
+}) }}

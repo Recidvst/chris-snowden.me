@@ -43,10 +43,11 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   if (mainTitle) {
+    var fasterScramble = mainTitle.hasAttribute('data-scrambler-fast');
     scramblerTrigger({
       target: '.title.neon-title',
-      random: [3000, 6000],
-      speed: 100,
+      random: fasterScramble ? [1000, 2000] : [3000, 6000],
+      speed: fasterScramble ? 80 : 100,
       afterAll: function() {
         flickerAction(mainTitle);
       },

@@ -38,6 +38,15 @@
             padding: 0 15px;
             font-size: 0.8rem;
           }
+          // disable active
+          &.active {
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            &:hover {
+              cursor: default;
+              color: $red;
+            }
+          }
         }
       }
     }

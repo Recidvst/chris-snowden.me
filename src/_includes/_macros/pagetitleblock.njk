@@ -1,6 +1,6 @@
 {% macro pagetitleblock(params) %}
   <section class="page-title-container">
-    <h1 class="title neon-title">{{ params.title }}</h1>
+    <h1 class="title neon-title" {{ 'data-scrambler-fast' if params.scrambleFast }}>{{ params.title }}</h1>
     <div class="page-title-container__subtitles">
       {{ params.slot | safe }}
     </div>
