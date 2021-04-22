@@ -62,4 +62,30 @@ document.addEventListener("DOMContentLoaded", function() {
   // these are applied to all items with the 'neon-title' class
   regularFlicker(20000);
   hoverWatch();
+
+  // listen for form submission
+  function logSubmit(event) {
+    log.textContent = `Form Submitted! Time stamp: ${event.timeStamp}`;
+    event.preventDefault();
+  }
+
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm && contactForm.tagName.toLowerCase() === 'form') {
+    contactForm.addEventListener('submit', (form) => {
+      form.preventDefault();
+      let formData = new FormData(contactForm);
+      console.log(formData);
+
+      // send request
+      fetch('http://localhost:7071/api/sendMail', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    });
+  }
 });

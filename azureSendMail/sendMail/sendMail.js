@@ -14,24 +14,13 @@ const sendMail = async function(params) {
 
   if (subject && message && senderEmail && senderName && MAILUSR && MAILPWD) {
 
-    var readHTMLFile = function(path, callback) {
-      fs.readFile(path, {encoding: 'utf-8'}, function (err, html) {
-        if (err) {
-          throw err;
-        }
-        else {
-          callback(null, html);
-        }
-      });
-    };
-
-    // require the email template
-    const htmlTemplate = await readHTMLFile(__dirname + './htmlEmailTemplate.html');
+    // parse the email template
+    const htmlTemplate = await fs.readFileSync(__dirname + '/htmlEmailTemplate.html',"utf-8");
     // compile with handlebars
-    var template = handlebars.compile(htmlTemplate);
+    const template = handlebars.compile(htmlTemplate);
 
     // set template variables
-    let preMessage = 'Received a contact form submission from chris-snowden.me';
+    let preMessage = 'Portfolio contact form';
     var replacements = {
       messageHeader: preMessage,
       messageSubject: message,
@@ -56,7 +45,7 @@ const sendMail = async function(params) {
 
     // Message object
     let emailMessage = {
-      from: `Form submission from chris-snowden.me<${MAILUSR}>`,
+      from: `Portfolio form submission received <${MAILUSR}>`,
       to: `${MAILUSR}`,
       subject: `${subject}`,
       text: `${preMessage} - ${message}`,
