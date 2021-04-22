@@ -115,13 +115,13 @@
         font-weight: 400;
         line-height: 1.4;
         margin: 0;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
       }
 
       h1 {
-        font-size: 35px;
+        font-size: 25px;
         font-weight: 300;
-        text-align: center;
+        text-align: left;
         text-transform: capitalize;
       }
 
@@ -361,15 +361,16 @@
                     <tr>
                       <td>
                         <h1>{{ messageHeader }}</h1>
+                        <hr />
                         <br />
-                        <h2>Subject</h2>
+                        <h2>Subject:</h2>
                         <p>{{ messageSubject }}</p>
-                        <h2>Message</h2>
-                        <p>{{ messageBody }}</p>
-                        <h2>Sender Name</h2>
+                        <h2>Sender Name:</h2>
                         <p>{{ messageSenderEmail }}</p>
-                        <h2>Sender Email</h2>
+                        <h2>Sender Email:</h2>
                         <p>{{ messageSenderName }}</p>
+                        <h2>Message:</h2>
+                        <p>{{ messageBody }}</p>
                       </td>
                     </tr>
                   </table>
