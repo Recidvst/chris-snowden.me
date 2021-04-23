@@ -70,20 +70,31 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function sendContactForm() {
-    const contactForm = document.getElementById('contact-form');
+    const contactForm = document.getElementById('contactForm');
+    const popupMessage = document.getElementById('contactFormStatusMessage');
     if (contactForm && contactForm.tagName.toLowerCase() === 'form') {
+      contactForm.reset();
       contactForm.addEventListener('submit', async (form) => {
         form.preventDefault();
+        // reset status message
+        if (popupMessage) {
+          popupMessage.querySelector('p').innerHTML = '';
+          popupMessage.classList.remove('active');
+        }
+
         // get form fields data
         let formData = new FormData(contactForm);
         // convert to JSON
         let formObject = {};
         formData.forEach((value, key) => formObject[key] = value);
-        console.log(formObject);
 
         // send request
         let result;
         try {
+          if (formObject.faxnumber) {
+            throw new Error('Bad bot!');
+          }
+
           result = await fetch('http://localhost:7071/api/sendMail', {
             method: 'POST',
             body: JSON.stringify(formObject),
@@ -94,19 +105,27 @@ document.addEventListener("DOMContentLoaded", function() {
           });
         }
         catch(err) {
-          console.error(err);
           result = err;
+          // show message to say failure
+          if (popupMessage) {
+            popupMessage.querySelector('p').innerHTML = 'Whoops!: <br/>' + err;
+            popupMessage.classList.add('active');
+          }
         }
         finally {
-          console.log('finally..');
+          // reset form fields
+          setTimeout( () => {
+            contactForm.reset();
+            popupMessage.classList.remove('active');
+          }, 7000);
         }
 
-        console.warn(result);
-        if ( (result.ok || result.statusText === 'OK') && result.status === 200) {
-
-          // TODO: don't forget to add email validation and a honeypot
-          // add message to say success/failure
-          // clear out form fields
+        if ( result && (result.ok || result.statusText === 'OK') && result.status === 200) {
+          // show message to say success
+          if (popupMessage) {
+            popupMessage.querySelector('p').innerHTML = 'Success! Your message has been sent. <br/> I will get back to you as soon as possible.';
+            popupMessage.classList.add('active');
+          }
         }
       });
     }

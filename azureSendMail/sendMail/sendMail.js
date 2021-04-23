@@ -23,7 +23,7 @@ const sendMail = async function(params) {
     let preMessage = 'Portfolio contact form';
     var replacements = {
       messageHeader: preMessage,
-      messageSubject: message,
+      messageSubject: subject,
       messageBody: message,
       messageSenderEmail: senderEmail,
       messageSenderName: senderName,

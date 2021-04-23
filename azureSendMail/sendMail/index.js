@@ -8,12 +8,8 @@ module.exports = async function (context, req) {
   const sendMail = require('./sendMail.js');
 
   // get data from POST request
-  context.log(context.req.body);
-  context.log(JSON.stringify(context.req.body));
   let body = JSON.stringify(context.req.body);
-  context.log(JSON.parse(body));
-  let data = JSON.parse(body) ;
-  context.log(body, data);
+  let data = JSON.parse(body);
 
   // init status var
   let mailStatus;

@@ -1,16 +1,16 @@
 {% macro contactform(params) %}
 
-  <form id="contact-form" method="post">
+  <form id="contactForm" class="form contact-form" method="post">
     <h2>{{ params.title }}</h2>
     <p>Fill out the form below and I will get back to you asap 🙌</p>
 
     <fieldset>
       <label for="name">Name</label>
-      <input placeholder="John Doe" name="name" type="text" required autofocus>
+      <input placeholder="John Doe" name="name" type="text" required autofocus autocomplete="name">
     </fieldset>
     <fieldset>
       <label for="email">Email</label>
-      <input placeholder="john.doe@gmail.com" name="email" type="email" required>
+      <input placeholder="john.doe@gmail.com" name="email" type="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autocomplete="email">
     </fieldset>
     <fieldset>
       <label for="subject">Enquiry type</label>
@@ -20,9 +20,36 @@
       <label for="message">Message</label>
       <textarea placeholder="Hello!" name="message" required></textarea>
     </fieldset>
+    <fieldset class="fax-number">
+      <label for="faxnumber">Fax Nnmber</label>
+      <input placeholder="Fax number..." name="faxnumber" type="text" autocomplete="off"></input>
+    </fieldset>
     <fieldset>
       <button name="submit" type="submit" id="contact-form-submit" data-submit="...Sending">Submit</button>
     </fieldset>
   </form>
+
+  <div id="contactFormStatusMessage" class="contact-form__status-message">
+    <p></p>
+  </div>
+
+  <style>
+  .fax-number, input[name="faxnumber"] {
+    display: inline;
+    position: absolute;
+    overflow: hidden;
+    height: 0 !important;
+    width: 0 !important;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+  }
+  .contact-form__status-message {
+    display: none;
+  }
+  .contact-form__status-message.active {
+    display: block;
+  }
+  </style>
 
 {% endmacro %}
