@@ -69,23 +69,47 @@ document.addEventListener("DOMContentLoaded", function() {
     event.preventDefault();
   }
 
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm && contactForm.tagName.toLowerCase() === 'form') {
-    contactForm.addEventListener('submit', (form) => {
-      form.preventDefault();
-      let formData = new FormData(contactForm);
-      console.log(formData);
+  function sendContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm && contactForm.tagName.toLowerCase() === 'form') {
+      contactForm.addEventListener('submit', async (form) => {
+        form.preventDefault();
+        // get form fields data
+        let formData = new FormData(contactForm);
+        // convert to JSON
+        let formObject = {};
+        formData.forEach((value, key) => formObject[key] = value);
+        console.log(formObject);
 
-      // send request
-      fetch('http://localhost:7071/api/sendMail', {
-        method: 'POST',
-        body: formData,
-      })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-    });
+        // send request
+        let result;
+        try {
+          result = await fetch('http://localhost:7071/api/sendMail', {
+            method: 'POST',
+            body: JSON.stringify(formObject),
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+          });
+        }
+        catch(err) {
+          console.error(err);
+          result = err;
+        }
+        finally {
+          console.log('finally..');
+        }
+
+        console.warn(result);
+        if ( (result.ok || result.statusText === 'OK') && result.status === 200) {
+
+          // TODO: don't forget to add email validation and a honeypot
+          // add message to say success/failure
+          // clear out form fields
+        }
+      });
+    }
   }
+  sendContactForm();
 });

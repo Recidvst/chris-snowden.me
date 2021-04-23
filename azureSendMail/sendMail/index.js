@@ -8,8 +8,12 @@ module.exports = async function (context, req) {
   const sendMail = require('./sendMail.js');
 
   // get data from POST request
+  context.log(context.req.body);
+  context.log(JSON.stringify(context.req.body));
   let body = JSON.stringify(context.req.body);
-  let data = JSON.parse(body);
+  context.log(JSON.parse(body));
+  let data = JSON.parse(body) ;
+  context.log(body, data);
 
   // init status var
   let mailStatus;
@@ -44,7 +48,7 @@ module.exports = async function (context, req) {
   // if failure
   if (mailStatus instanceof Error) {
     responseStatus = 500;
-    responseMessage = 'Sorry, something went wrong with the request - the email was not sent.';
+    responseMessage = mailStatus;
   }
   // if success
   else {
@@ -55,7 +59,5 @@ module.exports = async function (context, req) {
     status: responseStatus,
     body: responseMessage,
   };
-
-  context.done();
 
 }
