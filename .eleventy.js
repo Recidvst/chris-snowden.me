@@ -8,6 +8,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({"src/static": "/"}); // pass static files like the favicon
   eleventyConfig.addPassthroughCopy({"src/assets/fonts": "/fonts"}); // pass fonts
+  eleventyConfig.addPassthroughCopy({"src/assets/images": "/images"}); // pass images (will process these later)
   // pass through svelte components js & css
   eleventyConfig.addPassthroughCopy({"src/svelteComponents/github_repos_widget/public/build": "/svelteComponents/github_repos_widget"});
 

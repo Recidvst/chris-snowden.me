@@ -43,13 +43,19 @@
   font-weight: bold;
   font-style: normal;
 }
-// NES font
-@font-face {
-  font-family: Press Start 2p;
-  src: url('../fonts/PressStart2P-Regular.ttf') format('ttf');
-  font-weight: bold;
-  font-style: normal;
-}
+// NES fonts
+// @font-face {
+//   font-family: 'Press Start 2P';
+//   src: url('../fonts/PressStart2P-Regular.ttf') format('ttf');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: 'kongtext';
+//   src: url('../fonts/kongtext.ttf') format('ttf');
+//   font-weight: normal;
+//   font-style: normal;
+// }
 
 * {
   font-family: 'Raleway';

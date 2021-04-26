@@ -78,13 +78,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // watch form and when fields are filled out, set them to 'is-success' to turn them green and then back to normal if emptied. Can we go red if errored when using default html validation?
       // button should be is-disabled by default and then remove when all fields validated
+      // little progress bar that moves each time a field is filled?! maybe a bit much...
 
       contactForm.addEventListener('submit', async (form) => {
         form.preventDefault();
         // reset status message
         if (popupMessage) {
           popupMessage.querySelector('p').innerHTML = '';
-          popupMessage.classList.remove('active');
+          popupMessage.classList.remove('active error success');
         }
 
         // get form fields data
@@ -114,14 +115,14 @@ document.addEventListener("DOMContentLoaded", function() {
           // show message to say failure
           if (popupMessage) {
             popupMessage.querySelector('p').innerHTML = 'Whoops!: <br/>' + err;
-            popupMessage.classList.add('active');
+            popupMessage.classList.add('active error');
           }
         }
         finally {
           // reset form fields
           setTimeout( () => {
             contactForm.reset();
-            popupMessage.classList.remove('active');
+            popupMessage.classList.remove('active error success');
           }, 7000);
         }
 
@@ -129,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
           // show message to say success
           if (popupMessage) {
             popupMessage.querySelector('p').innerHTML = 'Success! Your message has been sent. <br/> I will get back to you as soon as possible.';
-            popupMessage.classList.add('active');
+            popupMessage.classList.add('active success');
           }
         }
       });

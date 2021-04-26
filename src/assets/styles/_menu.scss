@@ -31,7 +31,7 @@
           padding: 0 30px;
           color: $red;
           &:hover {
-            cursor: pointer;
+            // cursor: pointer;
             color: $blue-bright;
           }
           @media (max-width: 767px) {

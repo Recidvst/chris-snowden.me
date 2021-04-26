@@ -7,7 +7,7 @@
         {% set urlTrailingSlash = menuItem.link + '/' %}
       {% endif %}
       <li>
-        <a href="{{ menuItem.link }}" title="{{ menuItem.metaTitle }}" class="{{ 'active' if urlTrailingSlash == page.url }}">{{ menuItem.title }}</a>
+        <a href="{{ menuItem.link }}" title="{{ menuItem.metaTitle }}" class="nes-pointer {{ 'active' if urlTrailingSlash == page.url }}">{{ menuItem.title }}</a>
       </li>
     {% endfor  %}
   </ul>
