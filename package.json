@@ -94,6 +94,7 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
+    "nes.css": "^2.3.0",
     "quicklink": "^2.1.0",
     "scrambling-letters": "^1.6.2"
   }

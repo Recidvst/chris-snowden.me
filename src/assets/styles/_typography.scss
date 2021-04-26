@@ -43,6 +43,13 @@
   font-weight: bold;
   font-style: normal;
 }
+// NES font
+@font-face {
+  font-family: Press Start 2p;
+  src: url('../fonts/PressStart2P-Regular.ttf') format('ttf');
+  font-weight: bold;
+  font-style: normal;
+}
 
 * {
   font-family: 'Raleway';
@@ -58,7 +65,6 @@ h1 {
   color: $white;
   &.neon-title {
     font-family: $family-neon-primary;
-    font-size: 2.5rem;
     min-width: 700px;
     @media (max-width: 767px) {
       font-size: 2rem;
@@ -71,7 +77,7 @@ h2 {
   display: block;
   margin: 10px 0 15px;
   font-family: 'Raleway';
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 400;
   letter-spacing: 1px;
   color: $yellow;
@@ -83,7 +89,6 @@ h2 {
   }
   &.subtitle {
     display: inline-block;
-    font-size: 1.5rem;
     width: 100%;
     max-width: 700px;
     @media (max-width: 767px) {
@@ -96,7 +101,7 @@ h3 {
   display: block;
   margin: 10px 0 15px;
   font-family: 'Raleway';
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 100;
   letter-spacing: 1px;
   color: $green;

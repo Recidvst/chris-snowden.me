@@ -43,9 +43,10 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   if (mainTitle) {
+    flickerAction(mainTitle);
     var fasterScramble = mainTitle.hasAttribute('data-scrambler-fast');
     scramblerTrigger({
-      target: '.title.neon-title',
+      target: '.title.neon-title.scramble',
       random: fasterScramble ? [1000, 2000] : [3000, 6000],
       speed: fasterScramble ? 80 : 100,
       afterAll: function() {
@@ -69,11 +70,15 @@ document.addEventListener("DOMContentLoaded", function() {
     event.preventDefault();
   }
 
-  function sendContactForm() {
+  function handleContactForm() {
     const contactForm = document.getElementById('contactForm');
     const popupMessage = document.getElementById('contactFormStatusMessage');
     if (contactForm && contactForm.tagName.toLowerCase() === 'form') {
       contactForm.reset();
+
+      // watch form and when fields are filled out, set them to 'is-success' to turn them green and then back to normal if emptied. Can we go red if errored when using default html validation?
+      // button should be is-disabled by default and then remove when all fields validated
+
       contactForm.addEventListener('submit', async (form) => {
         form.preventDefault();
         // reset status message
@@ -130,5 +135,5 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }
   }
-  sendContactForm();
+  handleContactForm();
 });

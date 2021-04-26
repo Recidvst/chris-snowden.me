@@ -2,10 +2,17 @@
 title: Contact Me
 layout: default.njk
 priority: 2
+formtitle: Get In Touch
 ---
 
 {%- from "../_includes/_macros/pagetitleblock.njk" import pagetitleblock -%}
 {%- from "../_includes/_macros/forms.njk" import contactform -%}
+
+<!-- Declaring Slot Content for the page title block-->
+{% set titleContent %}
+  <h2>{{ formtitle }}</h2>
+  <p>hello world</p>
+{% endset %}
 
 {{ pagetitleblock({
   title: title,

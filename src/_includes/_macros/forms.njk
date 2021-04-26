@@ -1,31 +1,29 @@
 {% macro contactform(params) %}
 
-  <form id="contactForm" class="form contact-form" method="post">
-    <h2>{{ params.title }}</h2>
-    <p>Fill out the form below and I will get back to you asap 🙌</p>
-
-    <fieldset>
+  <form id="contactForm" class="form contact-form nes-form nes-container is-dark with-title" method="post">
+    <h3 class="title">Fill out the form below and I will get back to you asap 🙌</h3>
+    <fieldset class="nes-field">
       <label for="name">Name</label>
-      <input placeholder="John Doe" name="name" type="text" required autofocus autocomplete="name">
+      <input placeholder="John Doe" name="name" type="text" required autofocus autocomplete="name" class="nes-input is-dark">
     </fieldset>
-    <fieldset>
+    <fieldset class="nes-field">
       <label for="email">Email</label>
-      <input placeholder="john.doe@gmail.com" name="email" type="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autocomplete="email">
+      <input placeholder="john.doe@gmail.com" name="email" type="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autocomplete="email" class="nes-input is-dark">
     </fieldset>
-    <fieldset>
+    <fieldset class="nes-field">
       <label for="subject">Enquiry type</label>
-      <input placeholder="Just saying hi" name="subject" type="text">
+      <input placeholder="Just saying hi" name="subject" type="text" class="nes-input is-dark">
     </fieldset>
-    <fieldset>
+    <fieldset class="nes-field">
       <label for="message">Message</label>
-      <textarea placeholder="Hello!" name="message" required></textarea>
+      <textarea placeholder="Hello!" name="message" required class="nes-input is-dark"></textarea>
     </fieldset>
     <fieldset class="fax-number">
       <label for="faxnumber">Fax Nnmber</label>
-      <input placeholder="Fax number..." name="faxnumber" type="text" autocomplete="off"></input>
+      <input placeholder="Fax number..." name="faxnumber" type="text" autocomplete="off" class="nes-input is-dark"></input>
     </fieldset>
-    <fieldset>
-      <button name="submit" type="submit" id="contact-form-submit" data-submit="...Sending">Submit</button>
+    <fieldset class="nes-field">
+      <button name="submit" type="submit" id="contact-form-submit" data-submit="...Sending" class="nes-btn is-dark">Submit</button>
     </fieldset>
   </form>
 
@@ -49,6 +47,39 @@
   }
   .contact-form__status-message.active {
     display: block;
+  }
+  .contact-form.nes-form {
+    position: relative;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #212529;
+    padding: 1rem;
+    margin: 30px 0;
+  }
+  .contact-form.nes-form.nes-container.with-title>.title {
+    margin: -40px 0 1rem;
+    font-size: 1rem;
+    padding: .5rem .75rem;
+    color: #fff;
+    text-align: center;
+  }
+  .contact-form.nes-form fieldset {
+    display: block;
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  .contact-form.nes-form label {
+    color: #fff;
+  }
+  .contact-form.nes-form .nes-btn {
+    background: #e9436f;
+    color: #fff;
+  }
+  .contact-form.nes-form .nes-btn:after {
+    box-shadow: inset -4px -4px #bb244c;
   }
   </style>
 

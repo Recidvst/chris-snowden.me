@@ -40,6 +40,9 @@ body {
     margin: 0;
     padding: 15px 30px;
     z-index: 1;
+    @media (max-width: 767px) {
+      padding: 15px 15px;
+    }
   }
 
   // main title blocks on pages
