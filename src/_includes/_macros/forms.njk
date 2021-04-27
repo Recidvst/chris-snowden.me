@@ -20,10 +20,13 @@
     </fieldset>
     <fieldset class="fax-number">
       <label for="faxnumber">Fax Nnmber</label>
-      <input placeholder="Fax number..." name="faxnumber" type="text" autocomplete="off" class="nes-input is-dark nes-pointer"></input>
+      <input placeholder="Fax number..." name="faxnumber" type="text" autocomplete="off" class="nes-input fax-number is-dark nes-pointer"></input>
     </fieldset>
     <fieldset class="nes-field">
       <button name="submit" type="submit" id="contact-form-submit" data-submit="...Sending" class="nes-btn is-dark nes-pointer">Submit</button>
+    </fieldset>
+    <fieldset class="nes-field">
+      <progress id="contactFormProgressBar" class="nes-progress" value="0" max="100"></progress>
     </fieldset>
   </form>
 
@@ -113,6 +116,16 @@
   }
   .contact-form.nes-form .nes-btn:after {
     box-shadow: inset -4px -4px #bb244c;
+  }
+  .contact-form.nes-form .nes-progress {
+    height: 20px;
+    {# background-color: #c6bbbb; #}
+  }
+  .contact-form.nes-form .nes-progress::-webkit-progress-bar {
+    background-color: #c6bbbb;
+  }
+  .contact-form.nes-form .nes-progress::-webkit-progress-value {
+    background: #e9436f;
   }
   </style>
 

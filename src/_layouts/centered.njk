@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include 'head.njk' %}
+
+  <body>
+
+    {% include 'menu.njk' %}
+
+    <section class="page-container page-container--centred">
+
+      {{ content | safe }}
+
+    </section>
+
+    {% include 'lines.njk' %}
+
+    <script type="text/javascript" src="/main.js"></script>
+  </body>
+
+</html>

@@ -29,6 +29,9 @@
   line-height: 4rem;
   letter-spacing: 4px;
   transition: all 0.2s ease;
+  &.centered {
+    margin: 30px auto;
+  }
   &:before {
     content: '';
     display: block;
