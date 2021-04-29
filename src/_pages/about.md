@@ -5,7 +5,7 @@ layout: default.njk
 
 # {{ title }}
 
-Currently specialising in Vue.js, Nuxt.js, Node.js and WordPress
+Currently working in Vue.js, Nuxt.js, Node.js and WordPress
 
 Skilled in JS (ES6+), jQuery, CSS (SCSS), templating with CMSs, SPAs, Static sites, CI/CD integration, unit testing
 

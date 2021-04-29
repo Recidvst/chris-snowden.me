@@ -1,5 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
+import sveltePreprocess from 'svelte-preprocess';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import replace from '@rollup/plugin-replace';
@@ -44,6 +45,7 @@ export default {
         // enable run-time checks when not in production
         dev: !production,
       },
+      preprocess: sveltePreprocess(),
     }),
 
     replace({
