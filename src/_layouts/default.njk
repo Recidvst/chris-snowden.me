@@ -13,6 +13,11 @@
 
     </section>
 
+    {%- from "../_includes/_macros/socialicons.njk" import socialicons -%}
+    {{ socialicons({
+      fixed: true
+    }) }}
+
     {% include 'lines.njk' %}
 
     <script type="text/javascript" src="/main.js"></script>

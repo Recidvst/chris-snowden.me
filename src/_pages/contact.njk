@@ -6,6 +6,7 @@ formtitle: Get In Touch
 ---
 
 {%- from "../_includes/_macros/pagetitleblock.njk" import pagetitleblock -%}
+{%- from "../_includes/_macros/socialicons.njk" import socialicons -%}
 {%- from "../_includes/_macros/forms.njk" import contactform -%}
 
 <!-- Declaring Slot Content for the page title block-->
@@ -22,3 +23,5 @@ formtitle: Get In Touch
 {{ contactform({
   title: 'Get in touch'
 }) }}
+
+{{ socialicons() }}

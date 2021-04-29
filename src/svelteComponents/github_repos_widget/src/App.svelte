@@ -95,7 +95,7 @@
 <section class="page-container widget-container">
   <div class="github-repos-widget">
     <div class="github-repos-widget__inner">
-      <h2>Featured Open Source Projects</h2>
+      <h2>Featured Open Source Projects <i class="nes-icon trophy"></i></h2>
 
       {#await fetchGithubReposKeyInfo('Recidvst')}
         <p>...loading...</p>
@@ -149,6 +149,9 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    @media (max-width: 1023px) {
+      flex-direction: column;
+    }
   }
   .projects-list__item {
     padding: 10px 20px 10px 0px;

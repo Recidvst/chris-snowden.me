@@ -37,3 +37,42 @@ button {
     }
   }
 }
+
+.social-icons {
+  // fixed to side version
+  &.fixed {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    @media (max-width: 1023px) {
+      top: 100%;
+      right: 0;
+      transform: translate(0, -100%);
+    }
+  }
+  a {
+    display: inline-block;
+    padding: 5px 10px;
+    &:hover {
+      .nes-icon {
+        filter: hue-rotate(89deg);
+      }
+    }
+  }
+  .nes-icon {
+    transform-origin: center center;
+    transform: scale(3);
+    margin-right: 32px;
+    margin-bottom: 32px;
+    transition: all 0.25s ease;
+    @media (max-width: 1023px) {
+      transform: scale(2);
+      margin-right: 16px;
+      margin-bottom: 16px;
+    }
+  }
+}
