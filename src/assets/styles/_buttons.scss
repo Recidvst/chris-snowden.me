@@ -43,15 +43,15 @@ button {
   &.fixed {
     position: fixed;
     top: 50%;
+    top: calc(50% - 100px);
     right: 0;
-    transform: translate(0, -50%);
     display: flex;
     flex-direction: column;
     z-index: 10;
     @media (max-width: 1023px) {
       top: 100%;
+      top: calc(100% - 200px);
       right: 0;
-      transform: translate(0, -100%);
     }
   }
   a {
@@ -68,7 +68,7 @@ button {
     transform: scale(3);
     margin-right: 32px;
     margin-bottom: 32px;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
     @media (max-width: 1023px) {
       transform: scale(2);
       margin-right: 16px;
