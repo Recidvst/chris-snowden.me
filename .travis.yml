@@ -8,7 +8,7 @@ cache:
 jobs:
   include:
     - stage: build svelte mini app 🛠️
-      before_script: cd src\svelteComponents\github_repos_widget
+      before_script: cd src/svelteComponents/github_repos_widget
       script:
         - npm run build
 
