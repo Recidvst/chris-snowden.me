@@ -14,13 +14,13 @@ jobs:
       script:
         - npm run build
 
-    - stage: build main app deps 🌱
+    - stage: install main app deps 🌱
       before_script:
         - cd ~
       script:
         - npm ci
 
-    - stage: build service worker 🧰
+    - stage: generate service worker 🧰
       script:
         - npm run generate:serviceworker
 
