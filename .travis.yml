@@ -15,8 +15,6 @@ jobs:
         - npm run build
 
     - stage: install main app deps 🌱
-      before_script:
-        - cd ~
       script:
         - npm ci
 
