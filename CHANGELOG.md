@@ -1,3 +1,9 @@
+#### 1.0.3 (2021-05-01)
+
+##### Bug Fixes
+
+- **svelte:** we need to commit the svelte build files otherwise they are not available to netlify ([a3fd7e07](https://github.com/Recidvst/chris-snowden.me/commit/a3fd7e07dc9d4e121ae0ba4d2ad932e448a2ef31))
+
 #### 1.0.2 (2021-05-01)
 
 ##### Bug Fixes
