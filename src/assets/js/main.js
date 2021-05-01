@@ -25,13 +25,16 @@ document.addEventListener("DOMContentLoaded", function() {
   let recursiveScramblerIndex = 0;
   function recursiveScrambler(limit, curIndex) {
     if (curIndex >= limit) {
+      setTimeout( () => {
+        flickerAction(mainTitle);
+      }, 500);
       return;
     }
     let ind = curIndex;
 
     scramblerTrigger({
       target: `.neon-subtitle__${ind}`,
-      random: [750, 1500],
+      random: [600, 1200],
       speed: 80,
       beforeAll: function() {
         document.querySelector(`.neon-subtitle__${ind}`).classList.remove('hidden');
@@ -44,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   if (mainTitle) {
-    flickerAction(mainTitle);
     var fasterScramble = mainTitle.hasAttribute('data-scrambler-fast');
     scramblerTrigger({
       target: '.title.neon-title.scramble',

@@ -7,6 +7,6 @@ layout: default.njk
 
 Currently working in Vue.js, Nuxt.js, Node.js and WordPress
 
-Skilled in JS (ES6+), jQuery, CSS (SCSS), templating with CMSs, SPAs, Static sites, CI/CD integration, unit testing
+Skilled in JS (ES6+), SCSS, SPAs, templating with CMSs, static sites, CI/CD, unit testing
 
 Getting interested in Svelte.js, 11ty, Python and Go

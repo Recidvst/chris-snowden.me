@@ -1,31 +1,17 @@
 <script>
+  // components
+	import RepoDetails from './RepoDetails.svelte';
+
   // constants
-  const NPM_API = 'https://api.npmjs.org/'
-  const GITHUB_API = 'https://api.github.com/'
+  const NPM_API = 'https://api.npmjs.org/';
+  const GITHUB_API = 'https://api.github.com/';
 
-  const NPM_DOWNLOADS_PATH = 'downloads/point/2014-02-01:2021-04-13/'
-  const GITHUB_USERS_PATH = 'users/'
-
-  // utils
-  let deSlugify = function (slug) {
-    var words = slug.split('-')
-
-    for (var i = 0; i < words.length; i++) {
-      var word = words[i]
-      words[i] = word.charAt(0).toUpperCase() + word.slice(1)
-    }
-
-    return words.join(' ')
-  }
-  let capitalise = function(string) {
-    return string.toUpperCase();
-  }
+  const NPM_DOWNLOADS_PATH = 'downloads/point/2014-02-01:2021-04-13/';
+  const GITHUB_USERS_PATH = 'users/';
 
   // HTTP REQUESTS
   const fetchNPMPackageDownloads = async (packageName) => {
-    const response = await fetch(
-      `${NPM_API}${NPM_DOWNLOADS_PATH}${packageName}`
-    )
+    const response = await fetch(`${NPM_API}${NPM_DOWNLOADS_PATH}${packageName}`);
     const data = await response.json();
     if (data?.downloads) {
       return data.downloads
@@ -115,17 +101,7 @@
       {:then repos}
         <ul class="projects-list">
           {#each repos as repo, i}
-            <li class="projects-list__item">
-              <div class="badges">
-                {#if repo.stargazers.stargazers_count > 0}<a class="badge stars" href="{ repo.stargazers.stargazers_niceurl }" title="View stargazers on GitHub" target="_blank" rel="noopener noreferrer"><span class="badge__icon star">⭐</span>{repo.stargazers.stargazers_count}</a>{/if}
-                {#if repo.npm_downloads > 0}<a class="badge downloads" href="https://www.npmjs.com/package/{repo.name}" title="View package on NPM" target="_blank" rel="noopener noreferrer"><span class="badge__icon downloads">📂</span>{repo.npm_downloads}</a>{/if}
-                {#if repo.forks.forks_count > 0 }<a class="badge forked" href="{ repo.forks.forks_niceurl }" title="View forks on GitHub" target="_blank" rel="noopener noreferrer"><span class="badge__icon forked">↗️</span>{repo.forks.forks_count}</a>{/if}
-                {#if repo.watchers.watchers_count > 0 }<a class="badge watchers" href="{ repo.watchers.watchers_niceurl }" title="View watchers on GitHub" target="_blank" rel="noopener noreferrer"><span class="badge__icon eye">👁️</span>{repo.watchers.watchers_count}</a>{/if}
-                {#if repo.license?.key}<a class="badge license" href="{ repo.license.url }" title="View license on GitHub" target="_blank" rel="noopener noreferrer">{capitalise(repo.license.key)}</a>{/if}
-              </div>
-              {#if repo.name}<a href="{repo.html_url}" title="Visit GitHub repo for {deSlugify(repo.name)}" class="projects-list__link" target="_blank">{deSlugify(repo.name)}</a>{/if}
-              {#if repo.description}<p class="projects-list__desc">{repo.description} </p>{/if}
-            </li>
+            <RepoDetails repo={repo}/>
           {/each}
         </ul>
       {:catch error}
@@ -137,6 +113,7 @@
 
 <style lang="scss">
   .widget-container {
+    flex: 0 0 auto;
     margin-top: auto;
   }
   .github-repos-widget {
@@ -166,56 +143,6 @@
     padding: 0;
     @media (max-width: 1023px) {
       flex-direction: column;
-    }
-  }
-  .projects-list__item {
-    padding: 10px 20px 10px 0px;
-    max-width: 300px;
-    overflow: hidden;
-  }
-  .projects-list__link {
-    color: #e9436f;
-    font-family: 'Roboto Mono';
-    &:hover {
-      color: #33ced8;
-    }
-  }
-  .projects-list__desc {
-    font-size: .9rem;
-    font-family: 'Roboto Mono';
-  }
-  .badges {
-    display: block;
-    margin-bottom: 5px;
-  }
-  .badge {
-    display: inline-block;
-    color: black;
-    padding: 2px 6px;
-    margin-bottom: 6px;
-    font-family: 'Roboto Mono';
-    &.license {
-      background: #e9436f;
-    }
-    &.stars {
-      background: goldenrod;
-    }
-    &.downloads {
-      background: #33ced8;
-    }
-    &.forked {
-      background: #b877db;
-    }
-    &.watchers {
-      background: #fab28e;
-    }
-  }
-  .badge__icon {
-    display: inline-block;
-    font-size: 0.8em;
-    transform: translateY(-1px);
-    &.star {
-      transform: translateY(-2px);
     }
   }
 </style>
