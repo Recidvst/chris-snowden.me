@@ -28,10 +28,13 @@ jobs:
 
     - stage: deploy to netlify 🚀
       before_deploy:
+        - echo 'Ready to deploy'
         - npm install netlify-cli -g
       deploy:
         provider: script
         edge: true
-        script: netlify deploy --dir=dist --prod -site $NETLIFY_SITE_ID -auth $NETLIFY_ACCESS_TOKEN
+        script: netlify deploy --dir=dist --prod
         on:
           branch: master
+      after_deploy:
+        - echo 'Deployment complete'
