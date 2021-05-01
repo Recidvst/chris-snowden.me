@@ -38,11 +38,7 @@
 
 ### TODO
 
-- Create/style/wire up contact form + social links + copy
-- Finish functionality and style repo widget
-- Finalise colour pallette
 - Add projects page & copy
-- Add resume page & copy
 - Add analytics
 - Run Lighthouse and optimise performance
-- Configure existing deploy pipeline
+- Finish/tweak PWA
