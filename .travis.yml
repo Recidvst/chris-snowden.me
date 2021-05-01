@@ -8,17 +8,23 @@ cache:
 jobs:
   include:
     - stage: build svelte mini app 🛠️
-      before_script: cd src/svelteComponents/github_repos_widget
+      before_script:
+        - cd src/svelteComponents/github_repos_widget
+        - npm ci
       script:
         - npm run build
 
+    - stage: build main app deps 🌱
+      before_script:
+        - cd ~
+      script:
+        - npm ci
+
     - stage: build service worker 🧰
-      before_script: cd ~
       script:
         - npm run generate:serviceworker
 
     - stage: build eleventy app 🏗️
-      before_script: cd ~
       script:
         - npm run build
 
