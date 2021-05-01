@@ -1,6 +1,7 @@
 # [chris-snowden.me](https://www.chris-snowden.me/ 'Personal website URL')
 
 [![status](https://img.shields.io/website?url=https%3A%2F%2Fchris-snowden.me%2F)](https://www.chris-snowden.me/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/33e22402-e05e-4954-9147-88c67e91d94e/deploy-status)](https://app.netlify.com/sites/chris-snowden/deploys)
 
 > Personal website/portfolio - Inspired by vaporwave/outrun aesthetic
 
