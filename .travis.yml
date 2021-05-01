@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+  - 14.15.0
+cache:
+  directories:
+    - node_modules
+
+jobs:
+  include:
+    - stage: build svelte mini app 🛠️
+      before_script: cd src\svelteComponents\github_repos_widget
+      script:
+        - npm run build
+
+    - stage: build service worker 🧰
+      before_script: cd ~
+      script:
+        - npm run generate:serviceworker
+
+    - stage: build eleventy app 🏗️
+      before_script: cd ~
+      script:
+        - npm run build
+
+    - stage: deploy to netlify 🚀
+      before_deploy:
+        - npm install netlify-cli -g
+      deploy:
+        provider: script
+        edge: true
+        script: netlify deploy --dir=dist --prod -site $NETLIFY_SITE_ID -auth $NETLIFY_ACCESS_TOKEN
+        on:
+          branch: master
