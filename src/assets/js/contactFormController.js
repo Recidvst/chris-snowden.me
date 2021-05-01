@@ -30,6 +30,15 @@ function progressBarUpdate(form) {
 }
 
 export default function() {
+  // mail endpoint
+  let azureMailEndpoint;
+  if (process.env.NODE_ENV === 'development') {
+    azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_DEV;
+  }
+  else {
+    azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_PROD;
+  }
+
   const contactForm = document.getElementById('contactForm');
   const popupMessage = document.getElementById('contactFormStatusMessage');
   if (contactForm && contactForm.tagName.toLowerCase() === 'form') {
@@ -64,7 +73,7 @@ export default function() {
           throw new Error('Bad bot!');
         }
 
-        result = await fetch('http://localhost:7071/api/sendMail', {
+        result = await fetch(azureMailEndpoint, {
           method: 'POST',
           body: JSON.stringify(formObject),
           headers: {
