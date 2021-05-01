@@ -32,11 +32,11 @@ function progressBarUpdate(form) {
 export default function() {
   // mail endpoint
   let azureMailEndpoint;
-  if (process.env.NODE_ENV === 'development') {
-    azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_DEV;
+  if (process.env.NODE_ENV === 'production') {
+    azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_PROD;
   }
   else {
-    azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_PROD;
+    azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_DEV;
   }
 
   const contactForm = document.getElementById('contactForm');
@@ -72,7 +72,6 @@ export default function() {
         if (formObject.faxnumber) {
           throw new Error('Bad bot!');
         }
-
         result = await fetch(azureMailEndpoint, {
           method: 'POST',
           body: JSON.stringify(formObject),
