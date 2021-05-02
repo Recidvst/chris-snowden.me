@@ -5,36 +5,30 @@ cache:
   directories:
     - node_modules
 
-jobs:
-  include:
-    - stage: build svelte mini app 🛠️
-      before_script:
-        - cd src/svelteComponents/github_repos_widget
-        - npm ci
-      script:
-        - npm run build
+before_script:
+  - echo 'ready to start building 👍'
+  - cd src/svelteComponents/github_repos_widget
+  - npm ci
 
-    - stage: install main app deps 🌱
-      script:
-        - npm ci
+script:
+  - cd ../../..
+  - echo 'building svelte mini app 🛠️'
+  - npm run build
+  - echo 'generating service worker 🧰'
+  - npm run generate:serviceworker
+  - echo 'building eleventy app 🏗️'
+  - npm run build
 
-    - stage: generate service worker 🧰
-      script:
-        - npm run generate:serviceworker
+before_deploy:
+  - echo 'ready to deploy to netlify 🚀'
+  - npm install netlify-cli -g
 
-    - stage: build eleventy app 🏗️
-      script:
-        - npm run build
+deploy:
+  provider: script
+  edge: true
+  script: netlify deploy --dir=dist --prod --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN
+  on:
+    branch: master
 
-    - stage: deploy to netlify 🚀
-      before_deploy:
-        - echo 'Ready to deploy'
-        - npm install netlify-cli -g
-      deploy:
-        provider: script
-        edge: true
-        script: netlify deploy --dir=dist --prod --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN
-        on:
-          branch: master
-      after_deploy:
-        - echo 'Deployment complete'
+after_deploy:
+  - echo 'Deployment complete'
