@@ -1,3 +1,40 @@
+### 1.1.0 (2021-05-02)
+
+##### Build System / Dependencies
+
+- **env:** update package files to pull in env values correctly | switch off sw for now as broken ([aec39c95](https://github.com/Recidvst/chris-snowden.me/commit/aec39c95894a56b4b540a26c9167494bc31d565e))
+
+##### Continuous Integration
+
+- **build:**
+  - got to install svelte app deps ([d04041e2](https://github.com/Recidvst/chris-snowden.me/commit/d04041e25b0f7555e3bacf482d0a4bce9180bc88))
+  - travis and netlify not playing nice with env vars so fuck it, netlify alone ([124038a6](https://github.com/Recidvst/chris-snowden.me/commit/124038a68b834e6972f1ae5dd54b3ca36d1a949e))
+  - specific install stage ([40d20383](https://github.com/Recidvst/chris-snowden.me/commit/40d203832fc68c7ad43416506c98782fdb7a250c))
+  - fix bad path in travis file ([2c8336c4](https://github.com/Recidvst/chris-snowden.me/commit/2c8336c4d235c280b4c8ffe415e1db341cd127ed))
+  - init travis for building and deploying to netlify ([d73ae5e0](https://github.com/Recidvst/chris-snowden.me/commit/d73ae5e0dc2ca4ed18efce25027dc15b1f711dbe))
+- **travis:**
+  - adding secret env variables ([8e5a1f66](https://github.com/Recidvst/chris-snowden.me/commit/8e5a1f66dff7a9591610d1de63d6756b4c7360f1))
+  - moving away from stages as files are not persisted ([0d9feddd](https://github.com/Recidvst/chris-snowden.me/commit/0d9fedddfa6466d0708436fefb8616392f584348))
+  - try auth again.... grr ([34e4a229](https://github.com/Recidvst/chris-snowden.me/commit/34e4a2290c1d5b67a2eb4adcfdda8c86f694cc04))
+  - remove netlify auth flags (done automatically?) ([79c12f9d](https://github.com/Recidvst/chris-snowden.me/commit/79c12f9d0ea0d187219441315b44158fdf5c9c56))
+- **svelte:** travis complaining about dev deps ([e7e16160](https://github.com/Recidvst/chris-snowden.me/commit/e7e1616063ef5b00d821faa8477b43c44d150974))
+
+##### New Features
+
+- **azure:** add error serialisation to return better errors from function app ([65e8bcd8](https://github.com/Recidvst/chris-snowden.me/commit/65e8bcd877da580e6ea99d98b91d4d31a6ff09d1))
+- **meta:** add preload meta tag ([3c69009d](https://github.com/Recidvst/chris-snowden.me/commit/3c69009d8d6958c95cdd7ae8c7f92eb2ea12f5f2))
+
+##### Bug Fixes
+
+- **style:**
+  - improve style of form success message ([214a7bae](https://github.com/Recidvst/chris-snowden.me/commit/214a7bae864628e5f3f457eb14f16012ab96b207))
+  - improve repo details on mobile ([8f111816](https://github.com/Recidvst/chris-snowden.me/commit/8f111816098589c01c31f449bcf6e633a00501d6))
+- **travis:** remove bad cd cmd ([71807c83](https://github.com/Recidvst/chris-snowden.me/commit/71807c839c55671c2e60caf4e7b6e25e38532c3f))
+- **build:**
+  - missing package lock files (2) ([1902a975](https://github.com/Recidvst/chris-snowden.me/commit/1902a97500fa1b1398b57cc74f150859cea498ca))
+  - missing package lock files ([f543dcff](https://github.com/Recidvst/chris-snowden.me/commit/f543dcff07e6a15bee01d20a74918304e579a51f))
+- **svelte:** actually, don't show built svelte files.. ([2590df44](https://github.com/Recidvst/chris-snowden.me/commit/2590df44cae5729c86d0ada5e02d6a0b16f66713))
+
 #### 1.0.3 (2021-05-01)
 
 ##### Bug Fixes
