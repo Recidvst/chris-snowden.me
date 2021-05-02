@@ -11,10 +11,10 @@ before_script:
   - npm ci
 
 script:
-  - cd ../../..
   - echo 'building svelte mini app 🛠️'
   - npm run build
   - echo 'generating service worker 🧰'
+  - cd ../../..
   - npm run generate:serviceworker
   - echo 'building eleventy app 🏗️'
   - npm run build
@@ -26,7 +26,7 @@ before_deploy:
 deploy:
   provider: script
   edge: true
-  script: netlify deploy --dir=dist --prod --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN
+  script: netlify deploy --dir=dist --prod --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN
   on:
     branch: master
 
