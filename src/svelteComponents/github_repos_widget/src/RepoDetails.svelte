@@ -39,7 +39,7 @@
   </div>
 
   {#if repo.name}
-    <a href="{repo.html_url}" title="Visit GitHub repo for {deSlugify(repo.name)}" class="projects-list__link" target="_blank">
+    <a href="{repo.html_url}" title="Visit GitHub repo for {deSlugify(repo.name)}" class="projects-list__link" target="_blank" rel="noopener noreferrer">
       {deSlugify(repo.name)}
     </a>
   {/if}

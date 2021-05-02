@@ -34,24 +34,24 @@ export function linesStart() {
   const svgPaths = [...document.querySelectorAll('#svgLinesContainer path')];
   if (svgPaths && Array.isArray(svgPaths)) {
     // only do the animation on desktop - too resource heavy
-    if (window.matchMedia("(min-width: 768px)").matches) {
-      svgPaths.forEach( (path) => {
-        // get path length and init stroke. Starts offest to hide lines
-        let length = path.getTotalLength();
-        path.style.strokeDasharray = length;
-        path.style.strokeDashoffset = length;
-        path.style.strokeWidth = '2px';
-        setTimeout( (e) => { // trigger draw fn
-          triggerDraw(path, true);
-        }, 50);
-      });
-    }
-    else {
-      svgPaths.forEach( (path) => {
-        path.style.strokeDashoffset = 0;
-        path.style.stroke = `${randColour()}`; // colour change
-        path.style.strokeWidth = '2px';
-      });
-    }
+    // if (window.matchMedia("(min-width: 768px)").matches) { // TODO: remove this? is it OK on mobile now?
+    svgPaths.forEach( (path) => {
+      // get path length and init stroke. Starts offest to hide lines
+      let length = path.getTotalLength();
+      path.style.strokeDasharray = length;
+      path.style.strokeDashoffset = length;
+      path.style.strokeWidth = '2px';
+      setTimeout( (e) => { // trigger draw fn
+        triggerDraw(path, true);
+      }, 50);
+    });
+    // }
+    // else {
+    //   svgPaths.forEach( (path) => {
+    //     path.style.strokeDashoffset = 0;
+    //     path.style.stroke = `${randColour()}`; // colour change
+    //     path.style.strokeWidth = '2px';
+    //   });
+    // }
   }
 }
