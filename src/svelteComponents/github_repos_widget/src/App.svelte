@@ -24,8 +24,6 @@
     headers.append('Accept', 'application/vnd.github.v3+json')
     headers.append('Accept', 'application/vnd.github.mercy-preview+json')
     headers.append('Authorization', 'token ' + process.env.GITHUB_ACCESS_TOKEN);
-    console.log(process.env);
-    console.log(process.env.GITHUB_ACCESS_TOKEN);
 
     const response = await fetch(
       `${GITHUB_API}${GITHUB_USERS_PATH}${githubUser}/repos?per_page=100&sort=updated&direction=desc`, { // topic:rails

@@ -30,3 +30,6 @@ config.js
 
 # Local Netlify folder
 .netlify
+
+# Netlify settings (contains .env vars)
+netlify.toml

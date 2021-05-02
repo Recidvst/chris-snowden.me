@@ -2309,7 +2309,7 @@
       https://opensource.org/licenses/MIT.
     */
     /**
-     * The Router can be used to {"env":{"AZURE_MAIL_ENDPOINT_PROD":"https://portfolio-functions.azurewebsites.net/api/sendMail","AZURE_MAIL_ENDPOINT_DEV":"http://localhost:7071/api/sendMail"}} a FetchEvent through one or more
+     * The Router can be used to process a FetchEvent through one or more
      * [Routes]{@link module:workbox-routing.Route} responding  with a Request if
      * a matching route exists.
      *
@@ -2492,7 +2492,7 @@
 
         if (responsePromise instanceof Promise && (this._catchHandler || catchHandler)) {
           responsePromise = responsePromise.catch(async err => {
-            // If there's a route catch handler, {"env":{"AZURE_MAIL_ENDPOINT_PROD":"https://portfolio-functions.azurewebsites.net/api/sendMail","AZURE_MAIL_ENDPOINT_DEV":"http://localhost:7071/api/sendMail"}} that first
+            // If there's a route catch handler, process that first
             if (catchHandler) {
 
               try {

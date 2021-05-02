@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "build": "rollup --config rollup.config.prod.js",
+    "dev": "rollup --config rollup.config.dev.js -w",
     "start": "sirv public --no-clear"
   },
   "dependencies": {
