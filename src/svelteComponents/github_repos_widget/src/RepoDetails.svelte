@@ -50,9 +50,13 @@
 
 <style lang="scss">
   .projects-list__item {
-    padding: 10px 20px 10px 0px;
+    flex: 1 1 200px;
     max-width: 300px;
     overflow: hidden;
+    padding: 10px 20px 10px 0px;
+    @media (max-width: 1023px) {
+      padding: 10px 0px 10px 0px;
+    }
   }
   .projects-list__link {
     color: #e9436f;
