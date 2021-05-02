@@ -24,7 +24,7 @@
     "prod:rollup": "rollup --config rollup.config.prod.js",
     "prod:eleventy": "eleventy",
     "generate:serviceworker": "rollup --config rollup.config.pwa.js",
-    "generate:svelteapps": "cd src/svelteComponents/github_repos_widget && npm run build && cd ../../..",
+    "generate:svelteapps": "cd src/svelteComponents/github_repos_widget && npm ci && npm run build && cd ../../..",
     "release": "run-s clean generate:serviceworker generate:svelteapps build",
     "lint:js": "eslint --ext \".js\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{css,scss}\" --ignore-path .gitignore",
