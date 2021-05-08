@@ -77,12 +77,8 @@
   // mobile tweaks
   @media (max-width: 767px) {
     text-shadow: 0 0 10px $neon-blue-dark;
-    line-height: 2.5rem;
+    line-height: 2.8rem;
     padding: 10px 0px 14px;
     margin-top: 0px;
-    &:before {
-      display: none;
-      content: unset;
-    }
   }
 }

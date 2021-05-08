@@ -55,6 +55,7 @@
     overflow: hidden;
     padding: 10px 20px 10px 0px;
     @media (max-width: 1023px) {
+    flex: 1 1 auto;
       padding: 10px 0px 10px 0px;
     }
   }

@@ -91,7 +91,7 @@
 </script>
 
 
-<section class="page-container widget-container">
+<section class="widget-container">
   <div class="github-repos-widget">
     <div class="github-repos-widget__inner">
       <h2>Featured Open Source Projects <i class="nes-icon trophy"></i></h2>
@@ -113,8 +113,23 @@
 
 <style lang="scss">
   .widget-container {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     flex: 0 0 auto;
+    width: 100%;
+    z-index: 1;
+    margin: 0px;
     margin-top: auto;
+    padding: 15px 45px 30px;
+    @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 15px 30px 30px 45px;
+    }
+    @media (max-width: 767px) {
+      padding: 15px 30px 30px;
+    }
   }
   .github-repos-widget {
     position: relative;
@@ -125,6 +140,9 @@
     flex: 1 0 auto;
     padding: 15px;
     border: 4px solid #e9436f;
+    @media (min-width: 768px) and (max-width: 1023px) {
+      width: 100%;
+    }
   }
   .github-repos-widget__inner {
     display: block;

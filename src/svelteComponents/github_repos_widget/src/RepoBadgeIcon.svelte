@@ -8,7 +8,7 @@
     icon = '⭐';
     break;
   case 'downloads':
-    icon = '📂';
+    icon = '⬇️';
     break;
   case 'forked':
     icon = '↗️';
