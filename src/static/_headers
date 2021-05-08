@@ -1,0 +1,54 @@
+# Cache fonts forever
+/fonts/*
+  Cache-Control: public
+  Cache-Control: max-age=365000000
+  Cache-Control: immutable
+
+# Cache favicon forever
+/favicon.ico
+  Cache-Control: public
+  Cache-Control: max-age=365000000
+  Cache-Control: immutable
+
+# Cache robots.txt forever
+/favicon.ico
+  Cache-Control: public
+  Cache-Control: max-age=365000000
+  Cache-Control: immutable
+
+# Cache manifest for a week
+/manifest.json
+  Cache-Control: public
+  Cache-Control: max-age=604800
+
+# Cache service worker for a week
+/service-worker.js
+  Cache-Control: public
+  Cache-Control: max-age=604800
+
+/service-worker.js.map
+  Cache-Control: public
+  Cache-Control: max-age=604800
+
+# Cache css for a week
+/main.css
+  Cache-Control: public
+  Cache-Control: max-age=604800
+
+/main.js.map
+  Cache-Control: public
+  Cache-Control: max-age=604800
+
+# Cache js for a week
+/main.js
+  Cache-Control: public
+  Cache-Control: max-age=604800
+
+/main.js.map
+  Cache-Control: public
+  Cache-Control: max-age=604800
+
+# Cache svelte apps for a week
+/svelteComponents/**/*
+  Cache-Control: public
+  Cache-Control: max-age=604800
