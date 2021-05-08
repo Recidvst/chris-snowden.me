@@ -1,3 +1,13 @@
+#### 1.1.2 (2021-05-08)
+
+##### New Features
+
+- **cache:** use 11ty cache plugin to fetch google font and avoid a css network request ([33371875](https://github.com/Recidvst/chris-snowden.me/commit/3337187544934409663b6170a409bb8a81e9b5db))
+
+##### Bug Fixes
+
+- **svelte:** no need for map file to be passed ([8ea3c2e2](https://github.com/Recidvst/chris-snowden.me/commit/8ea3c2e2ec64a27adf0f87dbcd435e236e11b234))
+
 #### 1.1.1 (2021-05-08)
 
 ##### New Features
