@@ -1,3 +1,17 @@
+#### 1.1.1 (2021-05-08)
+
+##### New Features
+
+- **contact:** add basic scroll to message when form completed ([28b6c625](https://github.com/Recidvst/chris-snowden.me/commit/28b6c6254a0526bd8bc78d66732246119832ae16))
+- **cache:** adding headers file with cache rule ([c62893ee](https://github.com/Recidvst/chris-snowden.me/commit/c62893ee911bf44a5e410d63acca57c8eb1d924d))
+- **meta:**
+  - adding noreferrer noopener | allow lines on mobile again (2) ([45855eab](https://github.com/Recidvst/chris-snowden.me/commit/45855eab6f8cb8b9a02f589dbb542716504febaa))
+  - adding noreferrer noopener | allow lines on mobile again ([98d3a96e](https://github.com/Recidvst/chris-snowden.me/commit/98d3a96e47266fa63f4166ec1dbaecbc692dbefd))
+
+##### Bug Fixes
+
+- **styling:** tweak some styling to fix layout issues ([58aff596](https://github.com/Recidvst/chris-snowden.me/commit/58aff5967b95d3a4766b1727545eeec30e091896))
+
 ### 1.1.0 (2021-05-02)
 
 ##### Build System / Dependencies
