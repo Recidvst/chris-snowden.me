@@ -3,4 +3,9 @@ module.exports = {
   isProd: process.env.ELEVENTY_ENV === 'production' || process.env.NODE_ENV === 'production',
   eleventyEnv: process.env.ELEVENTY_ENV,
   siteVersion: process.env.SITE_VERSION || 0,
+  analytics: {
+    gtag: {
+      ID: 'UA-79424773-6',
+    },
+  },
 };

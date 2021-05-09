@@ -1,0 +1,9 @@
+{% if environment.isProd %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ environment.analytics.gtag.ID }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ environment.analytics.gtag.ID }}');
+  </script>
+{% endif %}
