@@ -1,3 +1,9 @@
+#### 1.1.3 (2021-05-09)
+
+##### New Features
+
+- **analytics:** add google analytics to site ([d113b67b](https://github.com/Recidvst/chris-snowden.me/commit/d113b67b221373eb6dcd6af44e2288bc971c81cd))
+
 #### 1.1.2 (2021-05-08)
 
 ##### New Features
