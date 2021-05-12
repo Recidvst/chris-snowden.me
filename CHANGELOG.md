@@ -8,6 +8,16 @@
 
 - **styles:** add dynamically added classes to the purgecss safelist ([9e478c26](https://github.com/Recidvst/chris-snowden.me/commit/9e478c26b5f51af15ea1c52cab929b17e0509eda))
 
+#### 1.1.4 (2021-05-12)
+
+##### New Features
+
+- **svelte:** add a skeleton loading component for the github repos widget ([718014f1](https://github.com/Recidvst/chris-snowden.me/commit/718014f1bcc3526340b8807e8bc2717bdd7dda79))
+
+##### Bug Fixes
+
+- **styles:** add dynamically added classes to the purgecss safelist ([9e478c26](https://github.com/Recidvst/chris-snowden.me/commit/9e478c26b5f51af15ea1c52cab929b17e0509eda))
+
 #### 1.1.3 (2021-05-09)
 
 ##### New Features
