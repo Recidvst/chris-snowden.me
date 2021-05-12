@@ -1,6 +1,7 @@
 <script>
   // components
 	import RepoDetails from './RepoDetails.svelte';
+	import RepoDetailsSkeleton from './RepoDetailsSkeleton.svelte';
 
   // constants
   const NPM_API = 'https://api.npmjs.org/';
@@ -95,9 +96,12 @@
   <div class="github-repos-widget">
     <div class="github-repos-widget__inner">
       <h2>Featured Open Source Projects <i class="nes-icon trophy"></i></h2>
-
       {#await fetchGithubReposKeyInfo('Recidvst')}
-        <p>...loading...</p>
+        <ul class="projects-list">
+          {#each [1,2,3,4] as item}
+            <RepoDetailsSkeleton/>
+          {/each}
+        </ul>
       {:then repos}
         <ul class="projects-list">
           {#each repos as repo, i}

@@ -41,6 +41,5 @@
 ### TODO
 
 - Add projects page & copy
-- Add analytics
-- Run Lighthouse and optimise performance
+- Improve styling/animation
 - Finish/tweak PWA

@@ -36,7 +36,7 @@
     "release:major": "cross-env changelog -M -a -x chore -t v%npm_package_version% && git add CHANGELOG.md && git commit -m \"chore(release): updated CHANGELOG after major release\" && npm --no-git-tag-version version major",
     "release:minor": "cross-env changelog -m -a -x chore -t v%npm_package_version% && git add CHANGELOG.md && git commit -m \"chore(release): updated CHANGELOG after minor release\" && npm --no-git-tag-version version minor",
     "release:patch": "cross-env changelog -p -a -x chore -t v%npm_package_version% && git add CHANGELOG.md && git commit -m \"chore(release): updated CHANGELOG after patch release\" && npm --no-git-tag-version version patch",
-    "postversion": "node -e \"const versionMessage = 'chore(release): upgrade site to version ' + '%npm_package_version%'; require('child_process').execSync('cross-env git add . && git commit -m \\\"' + versionMessage + '\\\"', { stdio:[0, 1, 2] })\" && git tag v%npm_package_version && git push --tags"
+    "postversion": "cross-env node -e \"const versionMessage = 'chore(release): upgrade site to version ' + %npm_package_version%; require('child_process').execSync('cross-env git add . && git commit -m \\\"' + versionMessage + '\\\"', { stdio:[0, 1, 2] })\" && git tag v%npm_package_version% && git push --tags"
   },
   "lint-staged": {
     "*.{js}": "eslint",
