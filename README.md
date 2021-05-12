@@ -36,8 +36,6 @@
   - Hosting
   - CI/CD
 
-> In progress
-
 ### TODO
 
 - Add projects page & copy
