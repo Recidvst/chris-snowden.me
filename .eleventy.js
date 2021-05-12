@@ -60,7 +60,11 @@ module.exports = function(eleventyConfig) {
       variables: true,
       fontFace: true,
       safelist: [
-        'tbc...'
+        'fizzle',
+        'hidden',
+        /^neon-subtitle(.*)?$/,
+        'active',
+        'error',
       ]
     });
 
