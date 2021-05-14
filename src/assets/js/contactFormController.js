@@ -54,6 +54,7 @@ export default function() {
 
   const contactForm = document.getElementById('contactForm');
   const popupMessage = document.getElementById('contactFormStatusMessage');
+  const loadingIcon = document.getElementById('loadingIconCircles');
   if (contactForm && contactForm.tagName.toLowerCase() === 'form') {
     // set fields to empty
     contactForm.reset();
@@ -66,9 +67,10 @@ export default function() {
     contactForm.addEventListener('submit', async (form) => {
       form.preventDefault();
       // reset status message
-      if (popupMessage) {
+      if (popupMessage && loadingIcon) {
         popupMessage.querySelector('p').innerHTML = '';
         popupMessage.classList.remove('active', 'error', 'success');
+        loadingIcon.classList.add('active');
       }
 
       // get form fields data
@@ -95,9 +97,10 @@ export default function() {
       catch(err) {
         result = err;
         // show message to say failure
-        if (popupMessage) {
+        if (popupMessage && loadingIcon) {
           popupMessage.querySelector('p').innerHTML = 'Whoops!: <br/>' + err;
           popupMessage.classList.add('active', 'error');
+          loadingIcon.classList.remove('active');
           scrollToMessage();
         }
       }
@@ -106,14 +109,16 @@ export default function() {
         setTimeout( () => {
           contactForm.reset();
           popupMessage.classList.remove('active', 'error', 'success');
+          loadingIcon.classList.remove('active');
         }, 7000);
       }
 
       if ( result && (result.ok || result.statusText === 'OK') && result.status === 200) {
         // show message to say success
-        if (popupMessage) {
+        if (popupMessage && loadingIcon) {
           popupMessage.querySelector('p').innerHTML = 'Success! Your message has been sent. <br/> I will get back to you as soon as possible.';
           popupMessage.classList.add('active', 'success');
+          loadingIcon.classList.remove('active');
           scrollToMessage();
         }
       }

@@ -1,3 +1,6 @@
+
+{%- from "../_macros/svgs/loading-circles.njk" import loadingcirclessvg -%}
+
 {% macro contactform(params) %}
 
   <form id="contactForm" class="form contact-form nes-form nes-container is-dark with-title" method="post">
@@ -28,6 +31,13 @@
     <fieldset class="nes-field">
       <progress id="contactFormProgressBar" class="nes-progress" value="0" max="100"></progress>
     </fieldset>
+
+    {{ loadingcirclessvg({
+      width: '150',
+      height: '150',
+      colour: '#33ced8'
+    }) }}
+
   </form>
 
   <div id="contactFormStatusMessage" class="contact-form__status-message">

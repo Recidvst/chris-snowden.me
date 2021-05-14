@@ -127,13 +127,7 @@
     z-index: 1;
     margin: 0px;
     margin-top: auto;
-    padding: 15px 45px 30px;
-    @media (min-width: 768px) and (max-width: 1023px) {
-    padding: 15px 30px 30px 45px;
-    }
-    @media (max-width: 767px) {
-      padding: 15px 30px 30px;
-    }
+    padding: 15px 10px;
   }
   .github-repos-widget {
     position: relative;

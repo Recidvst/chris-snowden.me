@@ -59,13 +59,20 @@ module.exports = function(eleventyConfig) {
       keyframes: true,
       variables: true,
       fontFace: true,
-      safelist: [
-        'fizzle',
-        'hidden',
-        /^neon-subtitle(.*)?$/,
-        'active',
-        'error',
-      ]
+      safelist: {
+        standard: [
+          'fizzle',
+          'hidden',
+          /^neon-subtitle(.*)?$/,
+          'active',
+          'error',
+          /^nes-icon(.*)?$/,
+          'trophy',
+        ],
+        deep: [
+          /^nes-icon(.*)?$/,
+        ]
+      }
     });
 
     return content.replace('<!-- INJECT INLINE CSS -->', '<style>' + purgeCSSResults[0].css + '</style>');
