@@ -18,6 +18,11 @@
       fixed: true
     }) }}
 
+    {%- from "../_includes/_macros/speedlify.njk" import speedlifywebcomponent -%}
+    {{ speedlifywebcomponent({
+      url: page.url
+    }) }}
+
     {% include 'lines.njk' %}
 
     <script type="text/javascript" src="/main.js"></script>

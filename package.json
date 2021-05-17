@@ -88,6 +88,7 @@
     "rollup-plugin-uglify-es": "0.0.1",
     "sass": "^1.32.8",
     "scrambling-letters": "^1.6.2",
+    "speedlify-score": "^2.0.2",
     "stylelint": "^13.12.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^21.0.0",
