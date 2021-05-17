@@ -7,18 +7,21 @@
   font-family: Ironlounge;
   src: url('../fonts/Ironlounge.woff') format('woff'),
     url('../fonts/Ironlounge.otf') format('opentype');
+  font-display: swap;
 }
 // subsidiary neon font
 @font-face {
   font-family: Axaxax;
   src: url('../fonts/Axaxax.woff') format('woff'),
     url('../fonts/Axaxax.otf') format('opentype');
+  font-display: swap;
 }
 // main lower headings and paragraph font
 @font-face {
   font-family: Raleway;
   src: url('../fonts/Raleway-Regular.woff') format('woff'),
     url('../fonts/Raleway-Regular.ttf') format('ttf');
+  font-display: swap;
   font-weight: normal;
   font-style: normal;
 }
@@ -26,6 +29,7 @@
   font-family: Raleway;
   src: url('../fonts/Raleway-700.woff') format('woff'),
     url('../fonts/Raleway-700.ttf') format('ttf');
+  font-display: swap;
   font-weight: bold;
   font-style: normal;
 }
@@ -33,6 +37,7 @@
   font-family: Roboto Mono;
   src: url('../fonts/Roboto-Mono-Regular.woff') format('woff'),
     url('../fonts/Roboto-Mono-Regular.ttf') format('opentype');
+  font-display: swap;
   font-weight: normal;
   font-style: normal;
 }
@@ -40,6 +45,7 @@
   font-family: Roboto Mono;
   src: url('../fonts/Roboto-Mono-700.woff') format('woff'),
     url('../fonts/Roboto-Mono-700.ttf') format('opentype');
+  font-display: swap;
   font-weight: bold;
   font-style: normal;
 }

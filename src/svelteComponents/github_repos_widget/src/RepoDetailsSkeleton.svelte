@@ -21,6 +21,7 @@
     <SkeletonBlock tag="p" width="280px" effect='fade' />
     <SkeletonBlock tag="p" width="260px" effect='fade' />
     <SkeletonBlock tag="p" width="220px" effect='fade' />
+    <SkeletonBlock tag="p" width="240px" effect='fade' />
   </div>
 </li>
 
