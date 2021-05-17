@@ -1,3 +1,18 @@
+#### 1.1.5 (2021-05-17)
+
+##### New Features
+
+- **performance:** add preconnect for npm, github, ga ([65fa31df](https://github.com/Recidvst/chris-snowden.me/commit/65fa31df2e0595531bd7618aa7a006ef3b9490d9))
+- **contact:** add a loading icon when form submitted | also add missing safelist items ([c9e7253f](https://github.com/Recidvst/chris-snowden.me/commit/c9e7253fbf2714b725680ef91f0fe6b41588a44d))
+
+##### Bug Fixes
+
+- **docs:** remove duplicated changelog entry ([51477b4a](https://github.com/Recidvst/chris-snowden.me/commit/51477b4a619ad8e9f04902b84415a67c4c0b63c5))
+
+##### Refactors
+
+- **performance:** tweak preload links | add font-display rule ([85a584b6](https://github.com/Recidvst/chris-snowden.me/commit/85a584b6e90903df95e6288f8c539d126b368286))
+
 #### 1.1.4 (2021-05-12)
 
 ##### New Features
