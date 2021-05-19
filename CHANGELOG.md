@@ -1,3 +1,11 @@
+#### 1.1.6 (2021-05-19)
+
+##### New Features
+
+- **speedlify:**
+  - fix issues with speedlify-score component and add to separate page for now ([bf49a95e](https://github.com/Recidvst/chris-snowden.me/commit/bf49a95ead23be14e5730b269d4138371f8fdf32))
+  - init speedlify-score web component code and logic. Needs testing. ([cf83f44d](https://github.com/Recidvst/chris-snowden.me/commit/cf83f44ddcc4c90a142522245f7648379ed90939))
+
 #### 1.1.5 (2021-05-17)
 
 ##### New Features
