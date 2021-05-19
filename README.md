@@ -18,6 +18,7 @@
   - Minify HTML
   - Implement PurgeCSS and dynamic inlining
   - Build service worker
+  - Build sitemap
 - [Rollup](https://rollupjs.org/guide/en/ 'Rollup docs site')
   - Transpile ES6
   - Compile SCSS
@@ -35,6 +36,8 @@
 - [Netlify](https://www.netlify.com/ 'Netlify website')
   - Hosting
   - CI/CD
+- [Speedlify](https://github.com/zachleat/speedlify 'Speedlify GitHub repo')
+  - Automated lighthouse speed testing
 
 ### TODO
 

@@ -16,7 +16,8 @@ module.exports = async function() {
     let htmlEnd = '</style>';
     return htmlStart + fontCSS + htmlEnd;
   }
-  catch {
+  catch(err) {
+    console.error(err);
     return false;
   }
 };

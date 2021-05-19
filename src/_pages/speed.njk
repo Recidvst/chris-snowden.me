@@ -1,0 +1,12 @@
+---
+title: Speed Scores
+layout: centered.njk
+ignore: true
+---
+
+  {%- from "../_includes/_macros/speedlify.njk" import speedlifywebcomponent -%}
+  {{ speedlifywebcomponent({
+    url: page.url,
+    speedlifyJSON: speedlify,
+    useHomepage: true
+  }) }}
