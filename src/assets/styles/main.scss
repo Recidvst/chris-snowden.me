@@ -1,7 +1,7 @@
 // util
 @import './variables';
 @import './typography';
-@import './scaffold';
+@import './layout';
 @import './animations';
 
 // components
@@ -32,6 +32,37 @@ html {
     box-sizing: border-box;
   }
   scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  margin: 0 auto;
+  color: $neon-blue;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  // set limits
+  max-width: 2560px;
+  @media (max-width: 2559px) {
+    max-width: 100vw;
+  }
+
+  background: $neon-purple-black; // base
+  background: linear-gradient(
+    to left top,
+    #090713,
+    #100d1c,
+    #141224,
+    #18152d,
+    #1d1836
+  ); // gradient
+  // gradient + pattern
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231d1836' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"),
+    linear-gradient(to left top, #090713, #100d1c, #141224, #18152d, #1d1836);
 }
 
 .hidden {

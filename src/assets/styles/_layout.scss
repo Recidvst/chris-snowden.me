@@ -1,0 +1,45 @@
+// default page wrapper
+.page-container {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1 0 auto;
+  width: 100%;
+  margin: 0;
+  padding: 15px 30px;
+  z-index: 1;
+  @media (max-width: 767px) {
+    padding: 15px 15px;
+  }
+
+  &.page-container--centred {
+    align-items: center;
+  }
+}
+
+// main title blocks on pages
+.page-title-container {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0 15px;
+
+  &.centered {
+    text-align: center;
+  }
+
+  .page-title-container__subtitles {
+    display: block;
+    width: 100%;
+    background: rgba(33, 37, 41, 0.75);
+    padding: 15px;
+    > p {
+      font-size: 1.25rem;
+    }
+  }
+}
