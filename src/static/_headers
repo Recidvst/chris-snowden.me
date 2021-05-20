@@ -3,7 +3,7 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   X-XSS-Protection: 1; mode=block
-  Content-Security-Policy: default-src 'self'; style-src 'self' unsafe-inline; script-src 'self' unsafe-inline *.npmjs.org *.github.com *.google-analytics.com *.googletagmanager.com; connect-src *.github.com; font-src 'self' data: *.gstatic.com *.googleapis.com;
+  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' *.npmjs.org *.github.com *.google-analytics.com *.googletagmanager.com; connect-src *.npmjs.org *.github.com *.google-analytics.com *.googletagmanager.com; font-src 'self' data: *.gstatic.com *.googleapis.com;
 
 # Cache fonts forever
 /fonts/*
