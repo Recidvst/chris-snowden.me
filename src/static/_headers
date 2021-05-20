@@ -1,8 +1,9 @@
 # Security headers
-X-Content-Type-Options: nosniff
-X-Frame-Options: SAMEORIGIN
-X-XSS-Protection: 1
-Content Security Policy: default-src 'self' *.google-analytics.com *.googletagmanager.com *.gstatic.com *.googleapis.com *.npmjs.org *.github.com
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Content-Security-Policy: default-src 'self'; script-src 'self' *.npmjs.org *.github.com *.google-analytics.com *.googletagmanager.com; font-src 'self' *.gstatic.com *.googleapis.com;
 
 # Cache fonts forever
 /fonts/*
