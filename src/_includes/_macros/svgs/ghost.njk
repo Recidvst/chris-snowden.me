@@ -1,0 +1,160 @@
+{% macro ghostanimationsvg(params) %}
+
+<svg class="ghost" onclick="flyAway(this)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 110 137.5" version="1.1" x="0px" y="0px"><title>Ghost</title><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M83.0693512,58.9382439 C82.4797379,65.9528732 81.2416058,71.8733698 79.3549548,76.6997337 C76.1246455,84.9633969 65.4881444,94.396819 47.4454514,105 C48.1086063,97.3649765 47.523312,92.063386 45.6895685,89.0952285 C40.4182105,80.5628354 31.7156642,72.94433 29.2273078,66.575223 C28.4975291,64.7073081 27.7319803,62.0966477 27.1285459,59.056183 C14.9719647,51.8271513 9.28626847,45.4977114 10.0714571,40.067863 C10.8535715,34.6592746 16.9537433,32.3174069 28.3719727,33.0422598 C33.0072205,18.0675705 43.1772424,5 54.7192872,5 C66.8066335,5 75.5897317,14.3599753 81.0685817,33.0799258 C92.847097,32.2422913 99.1337508,34.5716037 99.9285429,40.067863 C100.709458,45.4681615 95.089728,51.7582869 83.0693516,58.9382393 L83.0693512,58.9382439 Z M44.6192232,34.418254 C47.944383,34.418254 50.6399576,31.7239226 50.6399576,28.4002963 C50.6399576,25.07667 47.944383,22.3823385 44.6192232,22.3823385 C41.2940633,22.3823385 38.5984887,25.07667 38.5984887,28.4002963 C38.5984887,31.7239226 41.2940633,34.418254 44.6192232,34.418254 Z M64.1866102,34.418254 C67.51177,34.418254 70.2073446,31.7239226 70.2073446,28.4002963 C70.2073446,25.07667 67.51177,22.3823385 64.1866102,22.3823385 C60.8614503,22.3823385 58.1658757,25.07667 58.1658757,28.4002963 C58.1658757,31.7239226 60.8614503,34.418254 64.1866102,34.418254 Z M55.1555085,59.9945745 C59.3119583,59.9945745 62.6814265,55.2794944 62.6814265,49.4631484 C62.6814265,43.6468024 59.3119583,38.9317224 55.1555085,38.9317224 C50.9990587,38.9317224 47.6295904,43.6468024 47.6295904,49.4631484 C47.6295904,55.2794944 50.9990587,59.9945745 55.1555085,59.9945745 Z" fill="#000000"/></g></svg>
+
+<style>
+svg.ghost {
+  position: fixed;
+  top: 25px;
+  right: 15px;
+  height: 100px;
+  width: 100px;
+  z-index: 100;
+  opacity: 0.75;
+  filter: sepia(0.2);
+  transform-origin: center;
+  transition: all .33s linear;
+
+  visibility: hidden;
+  opacity: 0;
+  transform: rotate(180deg) translate(150%, 150%);
+}
+
+svg.ghost, svg.ghost g, svg.ghost path {
+  stroke: {{ params.colour }};
+  fill: {{ params.colour }};
+}
+
+svg.ghost:hover {
+  filter: grayscale(0.4) brightness(0.95);
+}
+
+@keyframes shakeAnim {
+  10% {
+    opacity: 1;
+  }
+  10%, 90% {
+    transform: rotate(-15deg) translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: rotate(-15deg) translate3d(2px, 0, 0);
+  }
+
+  30%, 70% {
+    transform: rotate(-15deg) translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: rotate(-15deg) translate3d(4px, 0, 0);
+  }
+  50% {
+    transform: rotate(-15deg) translate3d(-4px, 0, 0);
+    opacity: 0.25;
+  }
+  100% {
+    transform: rotate(-15deg) translate3d(0px, 0, 0);
+    opacity: 1;
+  }
+}
+@keyframes flyAwayAnim {
+  10% {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(-15deg) translate3d(0px, 0, 0);
+  }
+  10%, 90% {
+    transform: rotate(-15deg) translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: rotate(-15deg) translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: rotate(-15deg) translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: rotate(-10deg) translate3d(4px, 0, 0);
+  }
+  70% {
+    transform: rotate(-7deg) translate(-25vw, 0);
+    opacity: 1;
+  }
+  80% {
+    transform: rotate(-5deg) translate(-50vw, 0);
+    opacity: 0.75;
+  }
+  90% {
+    transform: rotate(0deg) translate(-75vw, 0);
+    visibility: visible;
+  }
+  100% {
+    transform: rotate(3deg) translate(-100vw, 0);
+    opacity: 0.25;
+    visibility: hidden;
+  }
+}
+
+svg.ghost.fly-away {
+  transform: rotate(-15deg) translate3d(0px, 0, 0);
+  animation-name: flyAwayAnim;
+  animation-duration: 1.3s;
+  animation-delay: .1s;
+  animation-timing-function: linear;
+  animation-direction: forwards;
+}
+
+svg.ghost.shake {
+  animation-name: shakeAnim;
+  animation-duration: 1s;
+  animation-delay: .2s;
+  animation-timing-function: linear;
+}
+
+svg.ghost.active {
+  visibility: visible;
+  opacity: 0.75;
+  transform: rotate(-15deg) translate(0, 0);
+}
+</style>
+
+<script type="text/javascript">
+
+function flyAway(ghost) {
+  if (!ghost) return false;
+
+  ghost.classList.remove('shake');
+  clearInterval(controlShake);
+  ghost.classList.add('fly-away');
+  setTimeout( function() {
+    ghost.classList.remove('active');
+  }, 100);
+  setTimeout( function() {
+    ghost.classList.remove('fly-away');
+  }, 2000);
+}
+
+(function triggerGhostShake(ghost) {
+  controlShake = function() {
+    ghost.classList.add('shake');
+    setTimeout( function() {
+      ghost.classList.remove('shake');
+    }, 1000);
+  };
+  var ghostInterval = setInterval(controlShake, 5000);
+})(document.getElementsByClassName('ghost')[0]);
+
+(function triggerGhostAfterMidnight(ghost) {
+  if (!ghost) return false;
+  // don't compete with logic within light sensor functionality
+  if ( 'AmbientLightSensor' in window || window.AmbientLightSensor ) return false;
+
+  var curHour = (new Date()).getHours();
+  if (curHour >= 21) {
+    setTimeout( function() {
+      ghost.classList.add('active');
+    }, 1500);
+  }
+})(document.getElementsByClassName('ghost')[0]);
+
+</script>
+
+{% endmacro %}

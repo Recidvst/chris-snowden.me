@@ -37,4 +37,11 @@
     });
   </script>
   {% endif %}
+
+
+  {%- from "../_includes/_macros/svgs/ghost.njk" import ghostanimationsvg -%}
+    {{ ghostanimationsvg({
+      colour: '#b877db'
+  }) }}
+
 </head>
