@@ -1,3 +1,11 @@
+#### 1.2.1 (2021-05-21)
+
+##### New Features
+
+- **sensors:**
+  - add an animated ghost svg, triggered when dark or after 9pm ([0969160b](https://github.com/Recidvst/chris-snowden.me/commit/0969160be37802932da8691584cbcc07f081bd62))
+  - add ambient light sensor watcher ([b9620056](https://github.com/Recidvst/chris-snowden.me/commit/b9620056b1817a5df41cdb048df9f58a45e2f0cc))
+
 ### 1.2.0 (2021-05-21)
 
 ##### New Features
