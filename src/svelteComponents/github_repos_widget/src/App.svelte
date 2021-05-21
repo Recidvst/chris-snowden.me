@@ -1,4 +1,7 @@
 <script>
+  // app prop
+  export let direction;
+
   // components
 	import RepoDetails from './RepoDetails.svelte';
 	import RepoDetailsSkeleton from './RepoDetailsSkeleton.svelte';
@@ -92,8 +95,8 @@
 </script>
 
 
-<section class="widget-container">
-  <div class="github-repos-widget">
+<section class="widget-container widget-container--{direction}">
+  <div class="github-repos-widget github-repos-widget--{direction}">
     <div class="github-repos-widget__inner">
       <h2>Featured Open Source Projects <i class="nes-icon trophy"></i></h2>
       {#await fetchGithubReposKeyInfo('Recidvst')}
@@ -105,7 +108,7 @@
       {:then repos}
         <ul class="projects-list">
           {#each repos as repo, i}
-            <RepoDetails repo={repo}/>
+            <RepoDetails repo={repo} direction={direction}/>
           {/each}
         </ul>
       {:catch error}
@@ -128,6 +131,9 @@
     margin: 0px;
     margin-top: auto;
     padding: 15px 10px;
+    &.widget-container--column {
+      max-width: 360px;
+    }
   }
   .github-repos-widget {
     position: relative;
@@ -141,6 +147,12 @@
     @media (min-width: 768px) and (max-width: 1023px) {
       width: 100%;
     }
+
+    &.github-repos-widget--column {
+      .projects-list {
+        flex-direction: column;
+      }
+    }
   }
   .github-repos-widget__inner {
     display: block;
@@ -148,7 +160,9 @@
       font-family: 'Roboto Mono';
       line-height: 2rem;
     }
-
+    .nes-icon.trophy {
+      transform: scale(2) translateY(3px);
+    }
   }
   .projects-list {
     display: flex;

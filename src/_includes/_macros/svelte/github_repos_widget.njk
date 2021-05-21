@@ -1,5 +1,5 @@
-{% macro githubreposwidget() %}
-  <div id="github_repos_widget_wrapper"></div>
+{% macro githubreposwidget(params) %}
+  <div id="github_repos_widget_wrapper" class="github_repos_widget_wrapper" data-direction="{{params.direction}}"></div>
 
   <script type="text/javascript" src="/svelteComponents/github_repos_widget/bundle.js" async defer></script>
 
@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/svelteComponents/github_repos_widget/bundle.css" />
 
   <style>
-  #github_repos_widget_wrapper {
+  .github_repos_widget_wrapper {
     margin-top: auto;
   }
   </style>

@@ -8,9 +8,10 @@
 
   // expose props
 	export let repo;
+  export let direction;
 </script>
 
-<li class="projects-list__item">
+<li class="projects-list__item projects-list__item--{direction}">
   <div class="badges">
     {#if repo.stargazers.stargazers_count > 0}
       <a class="badge stars" href="{ repo.stargazers.stargazers_niceurl }" title="View stargazers on GitHub" target="_blank" rel="noopener noreferrer">
@@ -55,7 +56,11 @@
     overflow: hidden;
     padding: 10px 20px 10px 0px;
     @media (max-width: 1023px) {
-    flex: 1 1 auto;
+      flex: 1 1 auto;
+      padding: 10px 0px 10px 0px;
+    }
+    &.projects-list__item--column {
+      flex: 1 1 auto;
       padding: 10px 0px 10px 0px;
     }
   }

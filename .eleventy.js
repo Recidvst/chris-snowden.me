@@ -40,6 +40,11 @@ module.exports = function(eleventyConfig) {
     (url, text, title) => `<a href="${url}" title="${title}" target="_blank" rel="noopener noreferrer">${text}</a>`
   );
 
+  eleventyConfig.addCollection("projects",
+  collection => collection
+    .getAllSorted()
+    .filter(item => item.url && item.inputPath.startsWith('./src/posts/') && item.inputPath.indexOf('projects_') > -1))
+
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
     if( environment.isProd && outputPath.endsWith(".html") ) {
       let minified = htmlmin.minify(content, {
