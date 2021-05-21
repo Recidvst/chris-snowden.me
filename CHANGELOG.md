@@ -1,3 +1,24 @@
+### 1.2.0 (2021-05-21)
+
+##### New Features
+
+- **projects:**
+  - add final(ish) draft project page copy | style up the page | some general tweaks ([dd8a52cf](https://github.com/Recidvst/chris-snowden.me/commit/dd8a52cfe43f1d217e5849094f94978f60105141))
+  - add new projects page with first draft of content ([9f00d375](https://github.com/Recidvst/chris-snowden.me/commit/9f00d375543be2b390367fef2c0f63a10d83ee58))
+- **netlify:** add security headers ([246b37c5](https://github.com/Recidvst/chris-snowden.me/commit/246b37c5ae3230628604000eb428dc6aff8e5c32))
+
+##### Bug Fixes
+
+- **netlify:**
+  - fix blocked analytics image resource ([2e1f8236](https://github.com/Recidvst/chris-snowden.me/commit/2e1f8236cdb39dd45b21c39b036b799e92a1a4a3))
+  - csp unsafe needs quotes.. ([0d15efd8](https://github.com/Recidvst/chris-snowden.me/commit/0d15efd872e85ef6e24c8895b0eb1acc42a2b525))
+  - allow unsafe csp header for now, will use hashes later ([f3673f2b](https://github.com/Recidvst/chris-snowden.me/commit/f3673f2ba0d926bf1bda76bab3a11773fc817fbd))
+  - security headers to be set for all pages specifically, fix content security syntax ([ecbc0cc5](https://github.com/Recidvst/chris-snowden.me/commit/ecbc0cc5f2dfe5b2ce13ce3c7325a7c5b1944d5d))
+
+##### Refactors
+
+- **styles:** small css tidy ([ca46b3dc](https://github.com/Recidvst/chris-snowden.me/commit/ca46b3dc43d8b837c8afb0419a5047a5a9776d80))
+
 #### 1.1.6 (2021-05-19)
 
 ##### New Features
