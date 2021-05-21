@@ -1,4 +1,5 @@
 import { flickerAction, regularFlicker, hoverWatch } from './neonController';
+import ambientLightController from './ambientLightController.js';
 import { scramblerTrigger } from './scramblerController';
 import handleContactForm from "./contactFormController";
 import { linesStart } from './linesController';
@@ -75,4 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // handle contact form submissions
   handleContactForm();
+
+  // handle ambient light fun widget
+  ambientLightController();
 });

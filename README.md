@@ -41,6 +41,5 @@
 
 ### TODO
 
-- Add projects page & copy
 - Improve styling/animation
-- Finish/tweak PWA
+- Fix/tweak PWA
