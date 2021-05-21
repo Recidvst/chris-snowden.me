@@ -35,6 +35,11 @@ module.exports = function(eleventyConfig) {
     return new CleanCSS({}).minify(code).styles;
   });
 
+  eleventyConfig.addShortcode(
+    'externalLink',
+    (url, text, title) => `<a href="${url}" title="${title}" target="_blank" rel="noopener noreferrer">${text}</a>`
+  );
+
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
     if( environment.isProd && outputPath.endsWith(".html") ) {
       let minified = htmlmin.minify(content, {
