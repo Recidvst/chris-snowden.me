@@ -2,13 +2,10 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import sveltePreprocess from 'svelte-preprocess';
 import commonjs from '@rollup/plugin-commonjs';
-import { terser } from 'rollup-plugin-terser';
 import replace from '@rollup/plugin-replace';
 import svelte from 'rollup-plugin-svelte';
 import css from 'rollup-plugin-css-only';
 import { config } from 'dotenv';
-
-const production = !process.env.ROLLUP_WATCH;
 
 function serve() {
   let server;
@@ -32,7 +29,7 @@ function serve() {
 }
 
 export default {
-  input: (production) ? 'src/main.js' : 'src/main-dev.js',
+  input: 'src/main-dev.js',
   output: {
     sourcemap: true,
     format: 'iife',
@@ -43,13 +40,13 @@ export default {
     svelte({
       compilerOptions: {
         // enable run-time checks when not in production
-        dev: !production,
+        dev: true,
       },
       preprocess: sveltePreprocess(),
     }),
 
     replace({
-      'process.env.NODE_ENV': (!production) ? JSON.stringify('production') : JSON.stringify('development'),
+      'process.env.NODE_ENV': JSON.stringify('development'),
       process: JSON.stringify({
         env: {
           ...config().parsed,
@@ -76,15 +73,12 @@ export default {
 
     // In dev mode, call `npm run start` once
     // the bundle has been generated
-    !production && serve(),
+    serve(),
 
     // Watch the `public` directory and refresh the
     // browser on changes when not in production
-    !production && livereload('public'),
+    livereload('public')
 
-    // If we're building for production (npm run build
-    // instead of npm run dev), minify
-    production && terser()
   ],
   watch: {
     clearScreen: false,

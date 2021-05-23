@@ -1,5 +1,6 @@
 
 export default function() {
+  console.log('ambient light fn');
 
   if ( 'AmbientLightSensor' in window || window.AmbientLightSensor ) {
     console.log('ambient light sensor available');

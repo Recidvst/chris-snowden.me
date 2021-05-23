@@ -2,6 +2,10 @@
   // app prop
   export let direction;
 
+  // cache util
+  import { putCacheItemManually } from './utils/cache/add';
+  import { getCacheItem } from './utils/cache/get';
+
   // components
 	import RepoDetails from './RepoDetails.svelte';
 	import RepoDetailsSkeleton from './RepoDetailsSkeleton.svelte';
@@ -15,22 +19,48 @@
 
   // HTTP REQUESTS
   const fetchNPMPackageDownloads = async (packageName) => {
-    const response = await fetch(`${NPM_API}${NPM_DOWNLOADS_PATH}${packageName}`);
+    const npmTargetURL = `${NPM_API}${NPM_DOWNLOADS_PATH}${packageName}`;
+
+    const inCacheResults = await getCacheItem('chris-snowden.me/npm', npmTargetURL);
+    // return early if cache found
+    if (inCacheResults) {
+      return {
+        number: inCacheResults
+      };
+    }
+
+    const response = await fetch(`${npmTargetURL}`);
     const data = await response.json();
     if (data?.downloads) {
-      return data.downloads
+      // add results to browser cache
+      putCacheItemManually('chris-snowden.me/npm', npmTargetURL, JSON.stringify(data.downloads), '30');
+      return {
+        number: data.downloads
+      }
     }
-    return 0
+    return {
+      number: 0
+    }
   }
 
   const fetchGithubReposKeyInfo = async (githubUser) => {
+
+    const githubTargetURL = `${GITHUB_API}${GITHUB_USERS_PATH}${githubUser}/repos?per_page=100&sort=updated&direction=desc`;
+
+    const inCacheResults = await getCacheItem('chris-snowden.me/github', githubTargetURL);
+
+    // return early if cache found
+    if (inCacheResults) {
+      return inCacheResults;
+    }
+
     let headers = new Headers()
     headers.append('Accept', 'application/vnd.github.v3+json')
     headers.append('Accept', 'application/vnd.github.mercy-preview+json')
     headers.append('Authorization', 'token ' + process.env.GITHUB_ACCESS_TOKEN);
 
     const response = await fetch(
-      `${GITHUB_API}${GITHUB_USERS_PATH}${githubUser}/repos?per_page=100&sort=updated&direction=desc`, { // topic:rails
+      githubTargetURL, {
         method: 'GET',
         headers
       }
@@ -44,7 +74,10 @@
         if (repo.topics.includes('featured') && (repo.stargazers_count > 1 || repo.topics.includes('npm'))) {
           let npmDownloads = 0;
           if (repo.topics?.length && repo.topics.includes('npm')) {
-            npmDownloads = await fetchNPMPackageDownloads(repo.name)
+            const NPMResults = await fetchNPMPackageDownloads(repo.name);
+            if (NPMResults && NPMResults?.number) {
+              npmDownloads = NPMResults.number;
+            }
           }
           let obj = {
             'name': repo.name,
@@ -74,7 +107,7 @@
       }, Promise.resolve([]));
 
       // sort by npm_downloads > stargazers_count > alphabetical
-      return featuredRepos.sort( (a, b) => {
+      const returnedRepos = featuredRepos.sort( (a, b) => {
         if (a.npm_downloads < b.npm_downloads) {
           return 1;
         }
@@ -88,6 +121,10 @@
           return (a.name > b.name) ? 1 : -1;
         }
       });
+
+      // add results to browser cache
+      putCacheItemManually('chris-snowden.me/github', githubTargetURL, JSON.stringify(returnedRepos), '30');
+      return returnedRepos;
     }
     return false
   }

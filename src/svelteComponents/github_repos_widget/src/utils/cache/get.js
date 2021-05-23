@@ -3,9 +3,9 @@ import { deleteCacheItem } from './delete';
 import isValidURL from './isValidURL';
 
 // READ CACHE ITEM (AND CONVERT BUFFER TO USABLE OBJECTURL)
-async function getCacheItem(cacheName = window.location.hostname, imageURL) {
+async function getCacheItem(cacheName = window.location.hostname, cacheURL) {
   // return new Promise( async function(resolve) {
-  if (!isCacheAvailable || typeof imageURL === 'undefined' || !isValidURL(imageURL) ) return false;
+  if (!isCacheAvailable || typeof cacheURL === 'undefined' || !isValidURL(cacheURL) ) return false;
 
   const options = {
     ignoreSearch: false,
@@ -13,8 +13,8 @@ async function getCacheItem(cacheName = window.location.hostname, imageURL) {
     ignoreVary: false,
   };
 
-  const cache = await caches.open(`${cacheName}__imgaide`);
-  const response = await cache.match(imageURL, options);
+  const cache = await caches.open(`${cacheName}`);
+  const response = await cache.match(cacheURL, options);
   // if cache item found
   if (response) {
     // parse response
@@ -34,20 +34,13 @@ async function getCacheItem(cacheName = window.location.hostname, imageURL) {
     }
 
     // if invalidated, delete cache item and resolve
-    if (responseJSON.timestamp < (today - 60000)) {
+    if (responseJSON.timestamp < (today - invalidateTimestamp)) {
       deleteCacheItem();
       return false;
     }
 
-    if (!responseJSON.error && responseJSON.buffer) {
-      // returned from the cache as type ArrayBuffer (Node)
-      const buffer = responseJSON.buffer.data || responseJSON.buffer
-      // cache is stored as a buffer, so need to pull it out as such and convert
-      const arrayBufferView = new Uint8Array(buffer);
-      // convert to an ObjectURL
-      const ObjectURL = await bufferToImageURL(arrayBufferView);
-
-      return ObjectURL;
+    if (!responseJSON.error && responseJSON.data) {
+      return JSON.parse(responseJSON.data);
     }
     else {
       return false;
@@ -56,7 +49,6 @@ async function getCacheItem(cacheName = window.location.hostname, imageURL) {
   else {
     return false;
   }
-  // });
 }
 
 export {

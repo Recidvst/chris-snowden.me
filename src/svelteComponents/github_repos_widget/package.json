@@ -5,7 +5,7 @@
   "scripts": {
     "build": "rollup --config rollup.config.prod.js",
     "dev": "rollup --config rollup.config.dev.js -w",
-    "start": "sirv public --no-clear"
+    "start": "sirv public --no-clear --single "
   },
   "dependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
