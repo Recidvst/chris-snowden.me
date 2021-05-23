@@ -2,20 +2,21 @@
 export default function() {
 
   if ( 'AmbientLightSensor' in window || window.AmbientLightSensor ) {
-    // console.log('ambient light sensor available');
+    console.log('ambient light sensor available');
 
     // create sensor
     const sensor = new AmbientLightSensor();
-    sensor.start();
 
     // catch errors
     sensor.addEventListener('error', error => {
-      // console.error(error);
+      console.error(error);
     });
 
     // watch for illumination change
     sensor.addEventListener('reading', () => {
+      console.log('reading');
       const illuminance = sensor.illuminance;
+      console.log('illuminance', illuminance);
       const ghost = document.getElementsByClassName('ghost')[0];
 
       // add/remove classes depending on illumination levels
@@ -38,6 +39,9 @@ export default function() {
         }
       }
     });
+
+    // start sensor
+    sensor.start();
   }
 
 };
