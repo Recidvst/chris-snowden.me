@@ -33,7 +33,7 @@
     const data = await response.json();
     if (data?.downloads) {
       // add results to browser cache
-      putCacheItemManually('chris-snowden.me/npm', npmTargetURL, JSON.stringify(data.downloads), '30');
+      putCacheItemManually('chris-snowden.me/npm', npmTargetURL, JSON.stringify(data.downloads), '7'); // one week cache
       return {
         number: data.downloads
       }
@@ -123,7 +123,7 @@
       });
 
       // add results to browser cache
-      putCacheItemManually('chris-snowden.me/github', githubTargetURL, JSON.stringify(returnedRepos), '30');
+      putCacheItemManually('chris-snowden.me/github', githubTargetURL, JSON.stringify(returnedRepos), '7'); // one week cache
       return returnedRepos;
     }
     return false
