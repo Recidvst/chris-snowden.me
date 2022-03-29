@@ -1,3 +1,9 @@
+#### 1.2.4 (2022-03-29)
+
+##### New Features
+
+- **contact:** update security policy headers to check if breaking form ([b8d95ff8](https://github.com/Recidvst/chris-snowden.me/commit/b8d95ff859ce9e7b20d4cad9b53e93280718fb2f))
+
 #### 1.2.3 (2022-03-29)
 
 ##### New Features
