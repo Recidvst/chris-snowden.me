@@ -1,3 +1,9 @@
+#### 1.2.3 (2022-03-29)
+
+##### New Features
+
+- **projects:** update main blurb ([b74f7999](https://github.com/Recidvst/chris-snowden.me/commit/b74f799902d120aa76a29606c960e5a40d9bd84d))
+
 #### 1.2.2 (2022-03-29)
 
 ##### New Features
