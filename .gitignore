@@ -33,3 +33,6 @@ config.js
 
 # Netlify settings (contains .env vars)
 netlify.toml
+
+# IDE
+.idea/

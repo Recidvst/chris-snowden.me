@@ -1,13 +1,14 @@
 
 export default function() {
   try {
-    // check if browser has permission.  We don't ask if it doesn't because this is just a little easter egg not a bit of functionality
-    if (navigator?.permissions) {
+    // check if browser has permission. We don't ask if it doesn't because this is just a little easter egg, not a bit of actual functionality
+    if (navigator && navigator.permissions) {
       navigator.permissions.query({name:'ambient-light-sensor'}).then(function(result) {
         if (result.state === 'granted') {
 
           // is the AmbientLightSensor available in the browser?
           if ( 'AmbientLightSensor' in window || window.AmbientLightSensor ) {
+            // eslint-disable-next-line
             console.log('ambient light sensor available');
 
             // create sensor
@@ -15,6 +16,7 @@ export default function() {
 
             // catch errors
             sensor.addEventListener('error', error => {
+              // eslint-disable-next-line
               console.error(error);
             });
 

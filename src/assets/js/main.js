@@ -8,7 +8,6 @@ import { listen, prefetch } from "quicklink";
 import '../styles/main.scss'; // eslint-disable-line import-order-aesthetic/order-import-by-length
 
 document.addEventListener("DOMContentLoaded", function() {
-  console.log('ambientLightController1', ambientLightController);
   // trigger quicklink (prefetch URLs)
   listen();
 
@@ -79,6 +78,5 @@ document.addEventListener("DOMContentLoaded", function() {
   handleContactForm();
 
   // handle ambient light fun widget
-  console.log('ambientLightController2', ambientLightController);
   ambientLightController();
 });
