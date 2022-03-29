@@ -1,3 +1,18 @@
+#### 1.2.2 (2022-03-29)
+
+##### New Features
+
+- **projects:** remove work page for now ([e8c816fc](https://github.com/Recidvst/chris-snowden.me/commit/e8c816fc57aba47c7c809c69032b1e506ee8da0f))
+- **caching:** init custom browser caching for github and npm data ([21280973](https://github.com/Recidvst/chris-snowden.me/commit/21280973ce3d009c4a46fa6d434d156d498b7c52))
+
+##### Bug Fixes
+
+- **sensors:** testing ambient light sensor ([b24d3224](https://github.com/Recidvst/chris-snowden.me/commit/b24d32246a3835865ff5a5d6a842eac356a9956e))
+
+##### Refactors
+
+- **sensors:** add further check to the ambientlightsensor function - btw this basically doesn't work ([df83ed6b](https://github.com/Recidvst/chris-snowden.me/commit/df83ed6bb4c8a594ae93caac4592d1deab0e787d))
+
 #### 1.2.1 (2021-05-21)
 
 ##### New Features
