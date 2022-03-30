@@ -1,3 +1,9 @@
+### 1.3.0 (2022-03-30)
+
+##### New Features
+
+- **mail:** migrate from gmail to mailgun for SMTP ([96ec57c4](https://github.com/Recidvst/chris-snowden.me/commit/96ec57c4724d23b8ba7fb1dff96ac902561a94a9))
+
 #### 1.2.5 (2022-03-30)
 
 ##### Build System / Dependencies
