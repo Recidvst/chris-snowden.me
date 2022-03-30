@@ -1,3 +1,9 @@
+#### 1.3.1 (2022-03-30)
+
+##### Build System / Dependencies
+
+- **deps:** upgrade svelte widget dependencies ([9f942d35](https://github.com/Recidvst/chris-snowden.me/commit/9f942d35fa1b16f1e2e9e83d236cf5bbf01f4e39))
+
 ### 1.3.0 (2022-03-30)
 
 ##### New Features
