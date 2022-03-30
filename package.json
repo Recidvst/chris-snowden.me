@@ -1,6 +1,6 @@
 {
   "name": "chris-snowden.me",
-  "version": "1.2.5",
+  "version": "1.3.0",
   "description": "Personal website/portfolio - Inspired by 80s neon aesthetic - Using Eleventy with a sprinkling of Svelte and Netlify",
   "repository": {
     "type": "git",
