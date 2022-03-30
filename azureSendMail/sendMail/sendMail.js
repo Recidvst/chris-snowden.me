@@ -1,18 +1,22 @@
 // import nodemailer
+const mg = require('nodemailer-mailgun-transport');
 var nodemailer = require("nodemailer");
 var handlebars = require("handlebars");
 var fs = require('fs');
+
 
 const sendMail = async function(params) {
   const subject = params.subject || false;
   const message = params.message || false;
   const senderEmail = params.email || false;
   const senderName = params.name || false;
+  const MAILSENDADDRESS = params.MAILSENDADDRESS || false;
   const MAILUSR = params.MAILUSR || false;
-  const MAILPWD = params.MAILPWD || false;
+  const MAILGUNDOMAIN = params.MAILGUNDOMAIN || false;
+  const MAILGUNAPIKEY = params.MAILGUNAPIKEY || false;
   const CCEMAIL = params.CCEMAIL || false;
 
-  if (subject && message && senderEmail && senderName && MAILUSR && MAILPWD) {
+  if (subject && message && senderEmail && senderName && MAILUSR && MAILGUNAPIKEY && MAILSENDADDRESS) {
 
     // parse the email template
     const htmlTemplate = await fs.readFileSync(__dirname + '/htmlEmailTemplate.html',"utf-8");
@@ -31,21 +35,19 @@ const sendMail = async function(params) {
     // get completed html
     var htmlToSend = template(replacements);
 
-    // Create a SMTP transporter object
-    let mailer = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: 'Yes',
+    // Create a transporter object using mailgun api
+    const mgAuth = {
       auth: {
-        user: MAILUSR,
-        pass: MAILPWD,
+        api_key: MAILGUNAPIKEY,
+        domain: MAILGUNDOMAIN,
       },
-      debug: true, // show debug output
-    });
+      host: 'api.eu.mailgun.net',
+    }
+    const nodemailerMailgun = nodemailer.createTransport(mg(mgAuth));
 
     // Message object
     let emailMessage = {
-      from: `Portfolio form submission received <${MAILUSR}>`,
+      from: `Portfolio form submission received <${MAILSENDADDRESS}>`,
       to: `${MAILUSR}`,
       subject: `${subject}`,
       text: `${preMessage} - ${message}`,
@@ -57,9 +59,11 @@ const sendMail = async function(params) {
       emailMessage.cc = `${CCEMAIL}`;
     }
 
-    await mailer.sendMail(emailMessage, (err, info) => {
+    await nodemailerMailgun.sendMail(emailMessage, (err, info) => {
+      console.log("SEND?");
+      console.log(err, info);
       if (err) {
-        return Error(`Nodemailer send failed. Reason: ${err.message} at: ${new Date().toISOString()}\r\n`);
+        return Error(`Nodemailer/Mailgun send failed. Reason: ${err.message} at: ${new Date().toISOString()}\r\n`);
       }
       return true;
 

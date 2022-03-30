@@ -4,24 +4,25 @@ module.exports = async function (context, req) {
   const {serializeError} = require('serialize-error');
 
   // env vars
-  const MAILUSR = process.env["GMAILACCOUNT"] || false;
-  const MAILPWD = process.env["GMAILPASSWORD"] || false;
+  const MAILUSR = process.env['MAILUSR'] || false;
+  const MAILSENDADDRESS = process.env['MAILSENDADDRESS'] || false;
+  const MAILGUNDOMAIN = process.env["MAILGUNDOMAIN"] || false;
+  const MAILGUNAPIKEY = process.env["MAILGUNAPIKEY"] || false;
   const CCEMAIL = process.env["CCADDRESS"] || false;
-  console.log(MAILUSR, MAILPWD, CCEMAIL);
 
   const sendMail = require('./sendMail.js');
 
   // get data from POST request
   let body = JSON.stringify(context.req.body);
   let data = JSON.parse(body);
-  console.log(body, data);
+  console.log(data);
 
   // init status var
   let mailStatus;
 
   // throw errors if req body missing/badly formatted
-  if (!MAILUSR || !MAILPWD) {
-    mailStatus = Error(`Nodemailer send failed. Reason: failed to provide valid SMTP address and password. At: ${new Date().toISOString()}\r\n`);
+  if (!MAILGUNAPIKEY || !MAILSENDADDRESS ||!MAILGUNDOMAIN || !MAILUSR) {
+    mailStatus = Error(`Nodemailer send failed. Reason: failed to provide valid Mailgun SMTP API details. At: ${new Date().toISOString()}\r\n`);
   }
   else if (!body || !data || typeof data !== 'object') {
     mailStatus = Error(`Nodemailer send failed. Reason: request failed at data parse stage. Did you send JSON and set content-type header? At: ${new Date().toISOString()}\r\n`);
@@ -38,7 +39,9 @@ module.exports = async function (context, req) {
       email: data.email,
       name: data.name,
       MAILUSR,
-      MAILPWD,
+      MAILSENDADDRESS,
+      MAILGUNDOMAIN,
+      MAILGUNAPIKEY,
       CCEMAIL,
     });
   }
