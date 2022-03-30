@@ -1,3 +1,9 @@
+#### 1.2.5 (2022-03-30)
+
+##### Build System / Dependencies
+
+- **deps:** upgrade dependencies ([3a20f2e2](https://github.com/Recidvst/chris-snowden.me/commit/3a20f2e2a30e2fe3d734bb32221674d965d97f57))
+
 #### 1.2.4 (2022-03-29)
 
 ##### New Features
