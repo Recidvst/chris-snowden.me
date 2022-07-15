@@ -20,7 +20,7 @@
     "sass": "^1.32.12",
     "sirv-cli": "^1.0.0",
     "skeleton-elements": "^3.3.0",
-    "svelte": "^3.0.0",
+    "svelte": "^3.49.0",
     "svelte-preprocess": "^4.7.2"
   }
 }
