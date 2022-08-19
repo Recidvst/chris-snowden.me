@@ -60,8 +60,6 @@ const sendMail = async function(params) {
     }
 
     await nodemailerMailgun.sendMail(emailMessage, (err, info) => {
-      console.log("SEND?");
-      console.log(err, info);
       if (err) {
         return Error(`Nodemailer/Mailgun send failed. Reason: ${err.message} at: ${new Date().toISOString()}\r\n`);
       }
