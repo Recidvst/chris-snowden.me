@@ -39,7 +39,7 @@ export function linesStart() {
   const svgPaths = [...document.querySelectorAll('#svgLinesContainer path')];
   if (svgPaths && Array.isArray(svgPaths)) {
     svgPaths.forEach((path) => {
-      path.style.strokeDasharray = length;
+      path.style.strokeDasharray = path.getTotalLength();
       path.style.strokeWidth = '2px';
       setTimeout(() => {
         triggerDraw(path, true);
