@@ -1,3 +1,13 @@
+#### 1.3.2 (2023-11-26)
+
+##### New Features
+
+- **mail:** hide contact page and disable mail send for now as cancelling mailgun ([a22f837a](https://github.com/Recidvst/chris-snowden.me/commit/a22f837a9b1eb8966f84253741ca708e14a89d1e))
+
+##### Bug Fixes
+
+- **mail:** ignore contact page from sitemap as hiding for now ([d2157b0c](https://github.com/Recidvst/chris-snowden.me/commit/d2157b0c738f58803dd8616bb4ecf517c809ab95))
+
 #### 1.3.1 (2022-03-30)
 
 ##### Build System / Dependencies
