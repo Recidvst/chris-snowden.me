@@ -5,7 +5,7 @@
   <script lang="ts">
   	export let name: string;
   </script>
- 
+
   As well as validating the code for CI.
   */
 
@@ -13,26 +13,26 @@
   rm -rf test-template template && git clone sveltejs/template test-template && node scripts/setupTypeScript.js test-template
 */
 
-const fs = require("fs")
-const path = require("path")
 const { argv } = require("process")
+const path = require("path")
+const fs = require("fs")
 
 const projectRoot = argv[2] || path.join(__dirname, "..")
 
 // Add deps to pkg.json
 const packageJSON = JSON.parse(fs.readFileSync(path.join(projectRoot, "package.json"), "utf8"))
 packageJSON.devDependencies = Object.assign(packageJSON.devDependencies, {
-  "svelte-check": "^1.0.0",
-  "svelte-preprocess": "^4.0.0",
-  "@rollup/plugin-typescript": "^8.0.0",
-  "typescript": "^4.0.0",
-  "tslib": "^2.0.0",
-  "@tsconfig/svelte": "^1.0.0"
+  "svelte-check": "1.0.0",
+  "svelte-preprocess": "4.0.0",
+  "@rollup/plugin-typescript": "8.0.0",
+  "typescript": "4.0.0",
+  "tslib": "2.0.0",
+  "@tsconfig/svelte": "1.0.0",
 })
 
 // Add script for checking
 packageJSON.scripts = Object.assign(packageJSON.scripts, {
-  "validate": "svelte-check"
+  "validate": "svelte-check",
 })
 
 // Write the package JSON
