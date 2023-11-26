@@ -118,6 +118,10 @@
   .page-title-container__subtitles {
     display: block;
     width: 100%;
+    max-width: 700px;
+    @media (max-width: 767px) {
+      max-width: 100%;
+    }
     background: rgba(33, 37, 41, 0.75);
     padding: 15px;
     > p {
