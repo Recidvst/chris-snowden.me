@@ -5,10 +5,10 @@
 <style>
 svg.ghost {
   position: fixed;
-  top: 25px;
-  right: 15px;
-  height: 100px;
-  width: 100px;
+  bottom: 40px;
+  right: 40px;
+  height: 75px;
+  width: 75px;
   z-index: 100;
   opacity: 0.75;
   filter: sepia(0.2);
@@ -148,9 +148,9 @@ function flyAway(ghost) {
   if ( 'AmbientLightSensor' in window || window.AmbientLightSensor ) return false;
 
   var curHour = (new Date()).getHours();
-  if (curHour >= 21) {
+  if (curHour >= 17) {
     setTimeout( function() {
-      ghost.classList.add('active');
+        ghost.classList.add('active');
     }, 1500);
   }
 })(document.getElementsByClassName('ghost')[0]);
