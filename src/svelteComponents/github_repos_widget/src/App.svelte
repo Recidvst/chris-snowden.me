@@ -167,7 +167,7 @@
     z-index: 1;
     margin: 0px;
     margin-top: auto;
-    padding: 15px 10px;
+    padding: 15px;
     &.widget-container--column {
       max-width: 360px;
     }
@@ -175,12 +175,9 @@
   .github-repos-widget {
     position: relative;
     display: block;
-    background: #212529;
-    background: rgba(33, 37, 41, 0.75);
     color: white;
     flex: 1 0 auto;
     padding: 15px;
-    border: 4px solid #e9436f;
     @media (min-width: 768px) and (max-width: 1023px) {
       width: 100%;
     }

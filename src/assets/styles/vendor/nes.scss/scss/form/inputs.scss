@@ -3,7 +3,7 @@
   @mixin border-style($border, $outline) {
     @include compact-border-image(rgb(233, 67, 111));
 
-    outline-color: #e9436f82;
+    outline-color: rgb(233 67 111 / 75%) 82;
   }
 
   @include compact-rounded-corners();

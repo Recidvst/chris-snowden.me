@@ -1,36 +1,74 @@
-#svgLinesContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
+.svgLinesContainer {
+  position: relative;
+  height: auto;
   width: 100%;
-  max-width: 100%;
   max-height: 100%;
-  z-index: -1;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-attachment: fixed;
+  margin: 0 auto 30px;
+  padding: 30px 0;
+  max-width: 1200px;
+  @media (max-width: 1200px) {
+    max-width: 100%;
+  }
+  @media (max-width: 767px) {
+    padding: 30px 30px;
+  }
 }
-#svgLinesContainerOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 0;
-  background: rgba(0, 0, 0, 0.25);
-}
-#svgLines {
-  min-width: 2000px;
+.svgLines {
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: -50px;
+  @media (max-width: 1200px) {
+    margin-left: 0;
+  }
+  svg {
+    max-width: 100%;
+    max-height: 100%;
+    overflow: visible;
+  }
   path {
     stroke-dashoffset: 1000;
     transition: stroke 1s ease-in;
-    stroke: #bde1ff; // fb
+    stroke: #bde1ff;
     stroke: transparent;
     stroke-width: 1px;
     fill: none;
-    opacity: 0.9 !important;
+    opacity: 1 !important;
+  }
+}
+
+.svgLines__unstacked {
+  display: block;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
+.svgLines__stacked {
+  display: none;
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .svgLines__stacked__upper {
+    @media (max-width: 767px) {
+      max-width: 300px;
+    }
+    @media (min-width: 501px) {
+      margin-bottom: 30px;
+    }
+    @media (max-width: 500px) {
+      max-width: 225px;
+      margin-bottom: 0px;
+    }
+    @media (max-width: 400px) {
+      max-width: 150px;
+    }
+  }
+  .svgLines__stacked__lower {
   }
 }

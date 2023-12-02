@@ -65,7 +65,7 @@
     }
   }
   .projects-list__link {
-    color: #e9436f;
+    color: rgb(233 67 111 / 75%);
     font-family: 'Roboto Mono';
     &:hover {
       color: #33ced8;
@@ -86,7 +86,7 @@
     margin-bottom: 6px;
     font-family: 'Roboto Mono';
     &.license {
-      background: #e9436f;
+      color: rgb(233 67 111 / 75%);
     }
     &.stars {
       background: goldenrod;

@@ -40,8 +40,8 @@
     }
   }
   .projects-list__link {
-    --skeleton-color: #e9436f;
-    color: #e9436f;
+    --skeleton-color: rgb(233 67 111 / 75%);
+    color: rgb(233 67 111 / 75%);
     font-family: 'Roboto Mono';
     &:hover {
       color: #33ced8;

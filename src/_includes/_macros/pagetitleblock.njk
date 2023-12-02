@@ -1,8 +1,9 @@
 {% macro pagetitleblock(params) %}
   <section class="page-title-container {{ 'centered' if params.centered }}">
-    {% if params.title %}<h1 class="title neon-title nes-pointer {{ 'centered' if params.centered }}" {{ 'data-scrambler-fast' if params.scrambleFast }}>{{ params.title }}</h1>{% endif %}
+
     <div class="page-title-container__subtitles">
       {{ params.slot | safe }}
     </div>
+
   </section>
 {% endmacro %}

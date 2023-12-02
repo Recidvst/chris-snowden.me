@@ -13,7 +13,7 @@ export const hex2rgba = (hex, alpha = 1) => {
 export function triggerDraw(path, draw = true) {
   if (path === undefined) return false; // check for path
   // set random duration
-  let duration = Math.floor(Math.random() * (6000 - 2000) + 2000);
+  let duration = Math.floor(Math.random() * (5000) + 5000);
   let length = path.getTotalLength(); // path length
   path.style.transition = `stroke-dashoffset ${duration / 1000}s ease-in-out, stroke 1s ease-in`; // animate the stroke
 
@@ -36,14 +36,15 @@ export function triggerDraw(path, draw = true) {
 }
 
 export function linesStart() {
-  const svgPaths = [...document.querySelectorAll('#svgLinesContainer path')];
+  const svgPaths = [...document.querySelectorAll('.svgLinesContainer path')];
   if (svgPaths && Array.isArray(svgPaths)) {
     svgPaths.forEach((path) => {
       path.style.strokeDasharray = path.getTotalLength();
       path.style.strokeWidth = '2px';
+      let delay = Math.floor(Math.random() * (900) + 100);
       setTimeout(() => {
         triggerDraw(path, true);
-      }, 100);
+      }, delay);
     });
   }
 }

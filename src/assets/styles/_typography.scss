@@ -64,9 +64,9 @@ h1 {
   font-weight: 400;
   letter-spacing: 1px;
   color: $yellow;
+  max-width: 100%;
   &.neon-title {
     font-family: $family-neon-primary;
-    min-width: 700px;
     @media (max-width: 767px) {
       font-size: 2rem;
       min-width: 0;
@@ -78,7 +78,7 @@ h2 {
   display: block;
   margin: 10px 0 15px;
   font-family: 'Raleway';
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 1px;
   color: $yellow;
@@ -91,7 +91,6 @@ h2 {
   &.subtitle {
     display: inline-block;
     width: 100%;
-    max-width: 700px;
     @media (max-width: 767px) {
       font-size: 1rem;
     }
@@ -117,4 +116,13 @@ a {
   &:active {
     color: $blue-bright;
   }
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  color: transparent;
+  display: inline;
 }

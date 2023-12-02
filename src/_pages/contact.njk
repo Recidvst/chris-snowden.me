@@ -12,12 +12,13 @@ ignore: true
 
 <!-- Declaring Slot Content for the page title block-->
 {% set titleContent %}
-  <h1>Fill out the form below and I will get back to you asap 🙌</h1>
+  <h2>Fill out the form below and I will get back to you asap!</h2>
 {% endset %}
+
+{% include 'lines-contact.njk' %}
 
 {{ pagetitleblock({
   slot: titleContent,
-  scrambleFast: true,
   centered: true
 }) }}
 
