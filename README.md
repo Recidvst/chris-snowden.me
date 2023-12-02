@@ -41,5 +41,5 @@
 
 ### TODO
 
-- Improve styling/animation
+- Reinstate contact page
 - Fix/tweak PWA
