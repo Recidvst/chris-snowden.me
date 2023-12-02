@@ -2,13 +2,8 @@
 export function randColour() { // util fn to randomise icon colour
   let col = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
   while ( col === '#000000' ) col = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
-  return hex2rgba(col, 0.5);
+  return col;
 }
-
-export const hex2rgba = (hex, alpha = 1) => {
-  const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16));
-  return `rgba(${r},${g},${b},${alpha})`;
-};
 
 export function triggerDraw(path, draw = true) {
   if (path === undefined) return false; // check for path
