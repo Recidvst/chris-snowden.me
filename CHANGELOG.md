@@ -1,5 +1,7 @@
 ### 1.5.0 (2023-12-02)
 
+- **styles:** re-arrange homepage, replace tube map with name svg, some other tweaks ([117c7db1](https://github.com/Recidvst/chris-snowden.me/commit/117c7db13d57bfdd9a835b4d026f4fd5f3a461eb))
+
 #### 1.3.2 (2023-11-26)
 
 ##### New Features
