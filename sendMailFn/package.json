@@ -1,0 +1,26 @@
+{
+  "name": "sendMailFn",
+  "version": "1.0.0",
+  "description": "Send contact form email using SendGrid API",
+  "scripts": {
+    "test": "echo \"No tests yet...\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Recidvst/chris-snowden.me.git"
+  },
+  "author": "Chris Snowden <cdsnowden@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Recidvst/chris-snowden.me/issues"
+  },
+  "homepage": "https://github.com/Recidvst/chris-snowden.me#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^8.0.0",
+    "handlebars": "^4.7.7",
+    "serialize-error": "^8.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.55.0"
+  }
+}

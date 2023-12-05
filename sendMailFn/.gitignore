@@ -59,7 +59,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+sendMail/.env
 .env.test
 
 # parcel-bundler cache (https://parceljs.org/)
@@ -92,3 +92,5 @@ bin
 obj
 appsettings.json
 local.settings.json
+
+.vscode/
