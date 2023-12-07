@@ -1,3 +1,15 @@
+#### 1.5.1 (2023-12-07)
+
+##### New Features
+
+- **mail:**
+  - re-connect form with azure function app, some styling/ux changes to the form ([8e84eedf](https://github.com/Recidvst/chris-snowden.me/commit/8e84eedf6d0f724837771ae71efc64b8e7a0e67f))
+  - init using sendgrid to send mail ([75c50c0b](https://github.com/Recidvst/chris-snowden.me/commit/75c50c0bb0a6fb7d91fc338a3a1960c1dc256564))
+
+##### Refactors
+
+- **styles:** make name svg full opacity ([0a3c339c](https://github.com/Recidvst/chris-snowden.me/commit/0a3c339cb0a249e47a1dd35106a4f69dd196af04))
+
 ### 1.5.0 (2023-12-02)
 
 ##### New Features
