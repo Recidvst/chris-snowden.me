@@ -41,5 +41,4 @@
 
 ### TODO
 
-- Reinstate contact page
 - Fix/tweak PWA

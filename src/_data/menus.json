@@ -1,3 +1,14 @@
 {
-  "headerMenu": []
+  "headerMenu": [
+    {
+      "title": "Home",
+      "link": "/",
+      "metaTitle": "Homepage"
+    },
+    {
+      "title": "Contact",
+      "link": "/contact",
+      "metaTitle": "Contact me"
+    }
+  ]
 }

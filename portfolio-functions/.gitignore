@@ -59,6 +59,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
+.env
 sendMail/.env
 .env.test
 

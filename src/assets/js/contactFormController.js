@@ -15,6 +15,7 @@ function progressBarUpdate(form) {
             prog = prog + (100 / fields.length);
             progressBar.value = prog;
             field.setAttribute('data-field-valid', true);
+            field.classList.add('is-success', "success");
           }
         }
         else {
@@ -42,6 +43,49 @@ function scrollToMessage() {
   }
 }
 
+function showStatusMessage(message, success) {
+  const popupMessage = document.getElementById('contactFormStatusMessage');
+  const loadingIcon = document.getElementById('loadingIconCircles');
+
+  if (popupMessage && loadingIcon) {
+    popupMessage.querySelector('p').innerHTML = message;
+    popupMessage.classList.add('active');
+    popupMessage.classList.add(success ? 'success' : 'error');
+    loadingIcon.classList.remove('active');
+    scrollToMessage();
+  }
+}
+
+function resetStatusMessage() {
+  const popupMessage = document.getElementById('contactFormStatusMessage');
+  const loadingIcon = document.getElementById('loadingIconCircles');
+
+  if (popupMessage && loadingIcon) {
+    popupMessage.querySelector('p').innerHTML = '';
+    popupMessage.classList.remove('active', 'error', 'success');
+    loadingIcon.classList.add('active');
+  }
+}
+
+function resetForm(form) {
+  if (!form || form.tagName.toLowerCase() !== 'form') return false;
+  const progressBar = document.getElementById('contactFormProgressBar');
+  const popupMessage = document.getElementById('contactFormStatusMessage');
+  const loadingIcon = document.getElementById('loadingIconCircles');
+
+  setTimeout( () => {
+    form.reset();
+    if (progressBar) {
+      progressBar.value = 0;
+    }
+    if (popupMessage && loadingIcon) {
+      popupMessage.innerHTML = '';
+      popupMessage.classList.remove('active', 'error', 'success');
+      loadingIcon.classList.remove('active');
+    }
+  }, 10000);
+}
+
 export default function() {
   // mail endpoint
   let azureMailEndpoint;
@@ -49,29 +93,21 @@ export default function() {
     azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_PROD;
   }
   else {
-    azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_DEV;
+    azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_PROD;
   }
 
   const contactForm = document.getElementById('contactForm');
-  const popupMessage = document.getElementById('contactFormStatusMessage');
-  const loadingIcon = document.getElementById('loadingIconCircles');
   if (contactForm && contactForm.tagName.toLowerCase() === 'form') {
     // set fields to empty
     contactForm.reset();
     // set initial progress bar state and watch for changes
     progressBarUpdate(contactForm);
 
-    // TODO: watch form and when fields are filled out, set them to 'is-success' to turn them green and then back to normal if emptied. Can we go red if errored when using default html validation?
-    // TODO: button should be is-disabled by default and then remove when all fields validated
-
     contactForm.addEventListener('submit', async (form) => {
       form.preventDefault();
+
       // reset status message
-      if (popupMessage && loadingIcon) {
-        popupMessage.querySelector('p').innerHTML = '';
-        popupMessage.classList.remove('active', 'error', 'success');
-        loadingIcon.classList.add('active');
-      }
+      resetStatusMessage();
 
       // get form fields data
       let formData = new FormData(contactForm);
@@ -97,30 +133,17 @@ export default function() {
       catch(err) {
         result = err;
         // show message to say failure
-        if (popupMessage && loadingIcon) {
-          popupMessage.querySelector('p').innerHTML = 'Whoops!: <br/>' + err;
-          popupMessage.classList.add('active', 'error');
-          loadingIcon.classList.remove('active');
-          scrollToMessage();
-        }
-      }
-      finally {
-        // reset form fields
-        setTimeout( () => {
-          contactForm.reset();
-          popupMessage.classList.remove('active', 'error', 'success');
-          loadingIcon.classList.remove('active');
-        }, 7000);
+        showStatusMessage('Whoops!: <br/>' + 'Something went wrong. Please try again.', false);
       }
 
       if ( result && (result.ok || result.statusText === 'OK') && result.status === 200) {
         // show message to say success
-        if (popupMessage && loadingIcon) {
-          popupMessage.querySelector('p').innerHTML = 'Success! Your message has been sent. <br/> I will get back to you as soon as possible.';
-          popupMessage.classList.add('active', 'success');
-          loadingIcon.classList.remove('active');
-          scrollToMessage();
-        }
+        showStatusMessage('Success! Your message has been sent. <br/> I will get back to you as soon as possible.', true);
+        // reset form fields
+        // resetForm(contactForm);
+      }
+      else {
+        showStatusMessage('Whoops!: <br/>' + 'Something went wrong. Please try again.', false);
       }
     });
   }
