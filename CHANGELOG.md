@@ -1,3 +1,9 @@
+#### 1.5.2 (2023-12-08)
+
+##### Bug Fixes
+
+- **svelte:** fix bugs where npm downloads was wrong and repos weren't sorted correctly ([75c75344](https://github.com/Recidvst/chris-snowden.me/commit/75c753447460603d6bd1bf59607324c99b7fe075))
+
 #### 1.5.1 (2023-12-07)
 
 ##### New Features
