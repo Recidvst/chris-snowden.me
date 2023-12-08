@@ -14,7 +14,10 @@
   const NPM_API = 'https://api.npmjs.org/';
   const GITHUB_API = 'https://api.github.com/';
 
-  const NPM_DOWNLOADS_PATH = 'downloads/point/2014-02-01:2021-04-13/';
+  const today = new Date();
+  const todayFormatted = today.toISOString().split('T')[0];
+
+  const NPM_DOWNLOADS_PATH = `downloads/point/2014-02-01:${todayFormatted}/`;
   const GITHUB_USERS_PATH = 'users/';
 
   // HTTP REQUESTS
@@ -110,15 +113,18 @@
       const returnedRepos = featuredRepos.sort( (a, b) => {
         if (a.npm_downloads < b.npm_downloads) {
           return 1;
-        }
-        else if (a.stargazers.stargazers_count > b.stargazers.stargazers_count) {
+        } else if (a.npm_downloads > b.npm_downloads) {
           return -1;
-        }
-        else if (b.stargazers.stargazers_count < a.stargazers.stargazers_count) {
-          return 1;
-        }
-        else if (b.stargazers.stargazers_count === a.stargazers.stargazers_count) {
-          return (a.name > b.name) ? 1 : -1;
+        } else {
+          // If downloads are equal, then sort by stargazers count
+          if (a.stargazers.stargazers_count < b.stargazers.stargazers_count) {
+            return 1;
+          } else if (a.stargazers.stargazers_count > b.stargazers.stargazers_count) {
+            return -1;
+          } else {
+            // If stargazers count is also equal, then sort by name
+            return (a.name > b.name) ? 1 : -1;
+          }
         }
       });
 

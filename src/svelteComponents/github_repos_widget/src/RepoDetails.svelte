@@ -86,7 +86,8 @@
     margin-bottom: 6px;
     font-family: 'Roboto Mono';
     &.license {
-      color: rgb(233 67 111 / 75%);
+      color: #f7e3e3;
+      background: rgb(233 67 111 / 75%);
     }
     &.stars {
       background: goldenrod;
