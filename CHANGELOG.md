@@ -1,3 +1,10 @@
+#### 1.5.3 (2023-12-16)
+
+##### Bug Fixes
+
+- remove errant log ([d121be2a](https://github.com/Recidvst/chris-snowden.me/commit/d121be2a674b1b01ab5ab5514fd9c70ddc467326))
+- fixing bug with email validation and failed github load ([728a6ad5](https://github.com/Recidvst/chris-snowden.me/commit/728a6ad5c6f4114292db73258cab79c65a0f9f37))
+
 #### 1.5.2 (2023-12-08)
 
 ##### Bug Fixes
