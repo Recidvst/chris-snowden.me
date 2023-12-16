@@ -87,7 +87,6 @@ function resetForm(form) {
 }
 
 export default function() {
-  console.warn(process.env)
   // mail endpoint
   let azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_PROD;
 
