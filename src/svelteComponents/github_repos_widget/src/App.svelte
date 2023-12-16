@@ -141,14 +141,15 @@
 <section class="widget-container widget-container--{direction}">
   <div class="github-repos-widget github-repos-widget--{direction}">
     <div class="github-repos-widget__inner">
-      <h2>Featured Open Source Projects <i class="nes-icon trophy"></i></h2>
       {#await fetchGithubReposKeyInfo('Recidvst')}
+        <h2>Fetching Open Source Projects..</h2>
         <ul class="projects-list">
           {#each [1,2,3,4] as item}
             <RepoDetailsSkeleton/>
           {/each}
         </ul>
       {:then repos}
+        <h2>Featured Open Source Projects</h2>
         <ul class="projects-list">
           {#each repos as repo, i}
             <RepoDetails repo={repo} direction={direction}/>

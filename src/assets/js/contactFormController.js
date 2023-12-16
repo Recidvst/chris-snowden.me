@@ -87,14 +87,9 @@ function resetForm(form) {
 }
 
 export default function() {
+  console.warn(process.env)
   // mail endpoint
-  let azureMailEndpoint;
-  if (process.env.NODE_ENV === 'production') {
-    azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_PROD;
-  }
-  else {
-    azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_PROD;
-  }
+  let azureMailEndpoint = process.env.AZURE_MAIL_ENDPOINT_PROD;
 
   const contactForm = document.getElementById('contactForm');
   if (contactForm && contactForm.tagName.toLowerCase() === 'form') {
