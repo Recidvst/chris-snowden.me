@@ -14,10 +14,11 @@ jobs:
   build_and_deploy_job:
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
+    environment: azure
     name: Build and Deploy Job
     env:
-      AZURE_MAIL_ENDPOINT_PROD: 'https://portfolio-functions.azurewebsites.net/api/sendMail'
-      GTHB_ACCESS_TOKEN: 'test123'
+      AZURE_MAIL_ENDPOINT_PROD: ${{ secrets.AZURE_MAIL_ENDPOINT_PROD }}
+      GTHB_ACCESS_TOKEN: ${{ secrets.GTHB_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -26,7 +27,7 @@ jobs:
       - name: 'Create env file'
         run: |
           touch .env
-          echo AZURE_MAIL_ENDPOINT_PROD='https://portfolio-functions.azurewebsites.net/api/sendMail' >> .env
+          echo AZURE_MAIL_ENDPOINT_PROD='https://portfolio-functions.azurewebsites.net/api/sendMail/test' >> .env
           echo GTHB_ACCESS_TOKEN='test456' >> .env
           cat .env
       - name: Build And Deploy
@@ -43,6 +44,9 @@ jobs:
           output_location: '/dist' # Built app content directory - optional
           app_build_command: 'npm run release'
           ###### End of Repository/Build Configurations ######
+        env:
+          AZURE_MAIL_ENDPOINT_PROD: ${{ secrets.AZURE_MAIL_ENDPOINT_PROD }}
+          GTHB_ACCESS_TOKEN: ${{ secrets.GTHB_ACCESS_TOKEN }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
