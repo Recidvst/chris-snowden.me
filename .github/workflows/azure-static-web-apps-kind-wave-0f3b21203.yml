@@ -23,6 +23,12 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo AZURE_MAIL_ENDPOINT_PROD='https://portfolio-functions.azurewebsites.net/api/sendMail' >> .env
+          echo GTHB_ACCESS_TOKEN=${{ secrets.GTHB_ACCESS_TOKEN }} >> .env
+          cat .env
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -37,10 +43,6 @@ jobs:
           output_location: '/dist' # Built app content directory - optional
           app_build_command: 'npm run release'
           ###### End of Repository/Build Configurations ######
-      - name: Debug Environment Variables1
-        run: |
-          echo 'AZURE_MAIL_ENDPOINT_PROD: $AZURE_MAIL_ENDPOINT_PROD'
-          echo 'GTHB_ACCESS_TOKEN: $GTHB_ACCESS_TOKEN'
       - name: Debug Environment Variables2
         run: |
           echo ${{ secrets.GTHB_ACCESS_TOKEN }} | sed 's/./& /g'
