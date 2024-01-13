@@ -3,6 +3,7 @@ const HumanReadable = require('human-readable-numbers');
 const htmlmin = require("html-minifier");
 const { PurgeCSS } = require('purgecss');
 const environment = require('./src/_data/environment.js');
+require('dotenv').config();
 
 module.exports = function(eleventyConfig) {
 
