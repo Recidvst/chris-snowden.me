@@ -11,6 +11,13 @@ on:
       - master
 
 jobs:
+  get_secrets:
+    name: Get appsettings
+    uses: azure/CLI@v1
+    with:
+      inlineScript: |
+        settings=$(az staticwebapp appsettings list --name 'portfolio-site')
+        echo "::set-output name=settings::$settings"
   build_and_deploy_job:
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
@@ -33,11 +40,15 @@ jobs:
           api_location: '/portfolio-functions' # Api source code path - optional
           output_location: '/dist' # Built app content directory - optional
           app_build_command: 'npm run release'
+          secrets: inherit
           ###### End of Repository/Build Configurations ######
-        secrets: inherit
         env:
           AZURE_MAIL_ENDPOINT_PROD: 'https://portfolio-functions.azurewebsites.net/api/sendMail'
           GTHB_ACCESS_TOKEN: ${{ secrets.GTHB_ACCESS_TOKEN }}
+      - name: Debug Environment Variables
+        run: |
+          echo 'AZURE_MAIL_ENDPOINT_PROD: $AZURE_MAIL_ENDPOINT_PROD'
+          echo 'GTHB_ACCESS_TOKEN: $GTHB_ACCESS_TOKEN'
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
