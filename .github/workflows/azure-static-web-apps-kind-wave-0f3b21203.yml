@@ -34,6 +34,7 @@ jobs:
           output_location: '/dist' # Built app content directory - optional
           app_build_command: 'npm run release'
           ###### End of Repository/Build Configurations ######
+        secrets: inherit
         env:
           AZURE_MAIL_ENDPOINT_PROD: ${{ secrets.AZURE_MAIL_ENDPOINT_PROD }}
           GTHB_ACCESS_TOKEN: ${{ secrets.GTHB_ACCESS_TOKEN }}
