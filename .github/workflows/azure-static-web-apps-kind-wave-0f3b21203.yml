@@ -15,6 +15,9 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+    env:
+      AZURE_MAIL_ENDPOINT_PROD: 'https://portfolio-functions.azurewebsites.net/api/sendMail'
+      GTHB_ACCESS_TOKEN: ${{ secrets.GTHB_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -23,6 +26,7 @@ jobs:
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
+        secrets: inherit
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_KIND_WAVE_0F3B21203 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
@@ -33,11 +37,7 @@ jobs:
           api_location: '/portfolio-functions' # Api source code path - optional
           output_location: '/dist' # Built app content directory - optional
           app_build_command: 'npm run release'
-          secrets: inherit
           ###### End of Repository/Build Configurations ######
-        env:
-          AZURE_MAIL_ENDPOINT_PROD: 'https://portfolio-functions.azurewebsites.net/api/sendMail'
-          GTHB_ACCESS_TOKEN: ${{ secrets.GTHB_ACCESS_TOKEN }}
       - name: Debug Environment Variables1
         run: |
           echo 'AZURE_MAIL_ENDPOINT_PROD: $AZURE_MAIL_ENDPOINT_PROD'
