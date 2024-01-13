@@ -17,7 +17,7 @@ jobs:
     name: Build and Deploy Job
     env:
       AZURE_MAIL_ENDPOINT_PROD: 'https://portfolio-functions.azurewebsites.net/api/sendMail'
-      GTHB_ACCESS_TOKEN: ${{ secrets.GTHB_ACCESS_TOKEN }}
+      GTHB_ACCESS_TOKEN: 'test123'
     steps:
       - uses: actions/checkout@v3
         with:
@@ -27,7 +27,7 @@ jobs:
         run: |
           touch .env
           echo AZURE_MAIL_ENDPOINT_PROD='https://portfolio-functions.azurewebsites.net/api/sendMail' >> .env
-          echo GTHB_ACCESS_TOKEN=${{ secrets.GTHB_ACCESS_TOKEN }} >> .env
+          echo GTHB_ACCESS_TOKEN='test456' >> .env
           cat .env
       - name: Build And Deploy
         id: builddeploy
@@ -43,14 +43,6 @@ jobs:
           output_location: '/dist' # Built app content directory - optional
           app_build_command: 'npm run release'
           ###### End of Repository/Build Configurations ######
-      - name: Debug Environment Variables2
-        run: |
-          echo ${{ secrets.GTHB_ACCESS_TOKEN }} | sed 's/./& /g'
-      - name: Get appsettings
-        uses: azure/CLI@v1
-        with:
-          inlineScript: |
-            echo az staticwebapp appsettings list --name 'portfolio-site'
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
