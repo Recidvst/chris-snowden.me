@@ -36,7 +36,7 @@ jobs:
           ###### End of Repository/Build Configurations ######
         secrets: inherit
         env:
-          AZURE_MAIL_ENDPOINT_PROD: ${{ secrets.AZURE_MAIL_ENDPOINT_PROD }}
+          AZURE_MAIL_ENDPOINT_PROD: 'https://portfolio-functions.azurewebsites.net/api/sendMail'
           GTHB_ACCESS_TOKEN: ${{ secrets.GTHB_ACCESS_TOKEN }}
 
   close_pull_request_job:
