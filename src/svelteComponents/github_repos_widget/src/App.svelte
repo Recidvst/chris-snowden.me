@@ -60,7 +60,7 @@
     let headers = new Headers()
     headers.append('Accept', 'application/vnd.github.v3+json')
     headers.append('Accept', 'application/vnd.github.mercy-preview+json')
-    headers.append('Authorization', 'token ' + process.env.GITHUB_ACCESS_TOKEN);
+    headers.append('Authorization', 'token ' + process.env.GTHB_ACCESS_TOKEN);
 
     const response = await fetch(
       githubTargetURL, {
