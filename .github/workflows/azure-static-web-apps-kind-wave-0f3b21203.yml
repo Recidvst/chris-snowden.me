@@ -32,9 +32,12 @@ jobs:
           api_location: ''
           output_location: 'dist'
           app_build_command: 'npm run release'
-          deployment_environment: 'production'
+          deployment_environment: 'default'
           skip_api_build: true
         env:
+          DEPLOYMENT_PROVIDER: 'Custom'
+          REPOSITORY_URL: ${{github.event.repository.html_url}}
+          BRANCH: ${{github.event.pull_request.head.ref}}
           NODE_VERSION: 18.2.0
           AZURE_MAIL_ENDPOINT_PROD: ${{ secrets.AZURE_MAIL_ENDPOINT_PROD }}
           GTHB_ACCESS_TOKEN: ${{ secrets.GTHB_ACCESS_TOKEN }}
