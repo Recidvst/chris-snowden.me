@@ -1,3 +1,25 @@
+#### 1.5.4 (2024-01-14)
+
+##### Other Changes (ci: add azure static web apps workflow file on-behalf-of)
+
+- @Azure opensource@microsoft.com ([3ae818fa](https://github.com/Recidvst/chris-snowden.me/commit/3ae818fa6f3ac82ef78ccd96ac1a03318bcd8b65))
+
+##### New Features
+
+- **docs:** minor readme update ([523b4c04](https://github.com/Recidvst/chris-snowden.me/commit/523b4c04d7d7560f5fd5e505e75c2c019f80f301))
+- **ci:**
+  - adjust yaml and package.json to get deployment working ([348ea0b7](https://github.com/Recidvst/chris-snowden.me/commit/348ea0b74c22139717ad4538ccecd4dd1d56f4a9))
+  - allow manual trigger ([fe437a35](https://github.com/Recidvst/chris-snowden.me/commit/fe437a3589401a6ba7b97416272be55ce3019f9a))
+- **content:** minor content change ([81ba14ed](https://github.com/Recidvst/chris-snowden.me/commit/81ba14ed9e0e70188026c55d0fa4fc8cfa101ca1))
+
+##### Bug Fixes
+
+- **ci:**
+  - add workflow_dispatch to ci if ([ab4eb5a2](https://github.com/Recidvst/chris-snowden.me/commit/ab4eb5a25b22b4a2ad758b6f9ea5f453b908ca2c))
+  - add missing env variables ([c364c544](https://github.com/Recidvst/chris-snowden.me/commit/c364c5440e411c7018070d58fb321a5b7cad7ae4))
+  - add correct build command ([be039062](https://github.com/Recidvst/chris-snowden.me/commit/be039062ab9e1e0ef438299ab077cffb63b8e12c))
+- **content:** unignore contact page from sitemap ([4d865b4b](https://github.com/Recidvst/chris-snowden.me/commit/4d865b4b6f4afec4a9fee09d4693f67518b236ee))
+
 #### 1.5.3 (2023-12-16)
 
 ##### Bug Fixes
