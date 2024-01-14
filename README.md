@@ -1,7 +1,7 @@
 # [chris-snowden.me](https://www.chris-snowden.me/ 'Personal website URL')
 
 [![status](https://img.shields.io/website?url=https%3A%2F%2Fchris-snowden.me%2F)](https://www.chris-snowden.me/)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/33e22402-e05e-4954-9147-88c67e91d94e/deploy-status)](https://app.netlify.com/sites/chris-snowden/deploys)
+[![Azure Static Web Apps CI/CD](https://github.com/Recidvst/chris-snowden.me/actions/workflows/azure-static-web-apps-kind-wave-0f3b21203.yml/badge.svg?branch=master)](https://github.com/Recidvst/chris-snowden.me/actions/workflows/azure-static-web-apps-kind-wave-0f3b21203.yml)
 [![status](https://img.shields.io/github/package-json/v/Recidvst/chris-snowden.me)](https://github.com/Recidvst/chris-snowden.me)
 
 > Personal website/portfolio - Inspired by vaporwave/outrun aesthetic
@@ -32,10 +32,9 @@
   - Enforcing a consistent commit style
   - Linting & beautifying before committing
 - [Azure](https://azure.microsoft.com/en-gb/ 'Azure website')
-  - Serverless function for contact form
-- [Netlify](https://www.netlify.com/ 'Netlify website')
-  - Hosting
-  - CI/CD
+  - Hosted as a Static Web App
+  - SWA deployed via Github Actions
+  - Serverless function app for contact form submission
 - [Speedlify](https://github.com/zachleat/speedlify 'Speedlify GitHub repo')
   - Automated lighthouse speed testing
 
