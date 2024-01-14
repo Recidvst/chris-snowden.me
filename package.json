@@ -21,14 +21,14 @@
     "dev:eleventy": "eleventy --serve",
     "dev:rollup": "rollup --watch --config rollup.config.dev.js",
     "build": "cross-env ELEVENTY_ENV=production NODE_ENV=production SITE_VERSION=%npm_package_version% run-s prod:*",
-    "prod:rollup": "dotenv cross-var rollup --config rollup.config.prod.js",
+    "prod:rollup": "rollup --config rollup.config.prod.js",
     "prod:eleventy": "eleventy",
     "generate:serviceworker": "rollup --config rollup.config.pwa.js",
     "generate:svelteapps": "cd src/svelteComponents/github_repos_widget && npm ci && npm run build && cd ../../..",
-    "release": "env-cmd -f ./.env run-s clean generate:svelteapps build",
-    "netlify:build": "dotenv cross-var netlify build",
-    "netlify:deploy": "env-cmd -f ./.env cross-env-shell netlify deploy --prod --dir=dist --site %NETLIFY_SITE_ID% --auth %NETLIFY_AUTH_TOKEN%",
-    "deploy": "run-s netlify:*",
+    "release": "run-s clean generate:svelteapps build",
+    "swa:build": "dotenv swa build",
+    "swa:deploy": "env-cmd -f ./.env cross-env-shell swa deploy ./dist --deployment-token %SWA_SITE_TOKEN% --env production",
+    "deploy": "run-s swa:*",
     "lint:js": "eslint --ext \".js\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{css,scss}\" --ignore-path .gitignore",
     "lint": "npm run lint:js && npm run lint:style",
@@ -43,7 +43,7 @@
     "*.{css}": "stylelint"
   },
   "engines": {
-    "node": ">=14.15.0"
+    "node": "18.11.0"
   },
   "dependencies": {
     "@11ty/eleventy": "1.0.2",
@@ -97,5 +97,8 @@
     "workbox-precaching": "6.6.0",
     "workbox-routing": "6.6.0",
     "workbox-strategies": "6.6.0"
+  },
+  "devDependencies": {
+    "@azure/static-web-apps-cli": "^1.1.6"
   }
 }

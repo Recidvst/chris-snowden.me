@@ -1,0 +1,17 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "chris-snowden.me": {
+      "appLocation": ".",
+      "apiLocation": "",
+      "outputLocation": "dist",
+      "apiLanguage": "",
+      "apiVersion": "",
+      "appBuildCommand": "npm run release",
+      "apiBuildCommand": "",
+      "run": "npm run start",
+      "appDevserverUrl": "http://localhost:8080",
+      "env": "production"
+    }
+  }
+}
