@@ -9,13 +9,15 @@ import { listen } from "quicklink";
 // import scss (for rollup build)
 import '../styles/main.scss'; // eslint-disable-line import-order-aesthetic/order-import-by-length
 
+let appInsights = null;
+
 document.addEventListener("DOMContentLoaded", function() {
   // trigger quicklink (prefetch URLs)
   listen();
 
   // integrate app insights
   if (process.env.NODE_ENV === "production") {
-    const appInsights = new ApplicationInsights({
+    appInsights = new ApplicationInsights({
       config: {
         connectionString: process.env.APP_INSIGHTS_CONN_STR,
       },
@@ -87,3 +89,5 @@ document.addEventListener("DOMContentLoaded", function() {
   // handle ambient light fun widget
   ambientLightController();
 });
+
+export { appInsights };
