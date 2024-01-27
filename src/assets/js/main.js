@@ -1,15 +1,28 @@
 import { flickerAction, regularFlicker, hoverWatch } from './neonController';
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import ambientLightController from './ambientLightController.js';
 import { scramblerTrigger } from './scramblerController';
 import handleContactForm from "./contactFormController";
 import { linesStart } from './linesController';
-import { listen, prefetch } from "quicklink";
+import { listen } from "quicklink";
+
 // import scss (for rollup build)
 import '../styles/main.scss'; // eslint-disable-line import-order-aesthetic/order-import-by-length
 
 document.addEventListener("DOMContentLoaded", function() {
   // trigger quicklink (prefetch URLs)
   listen();
+
+  // integrate app insights
+  if (process.env.NODE_ENV === "production") {
+    const appInsights = new ApplicationInsights({
+      config: {
+        connectionString: process.env.APP_INSIGHTS_CONN_STR,
+      },
+    });
+    appInsights.loadAppInsights();
+    appInsights.trackPageView();
+  }
 
   // start the neon lines in background
   linesStart();
@@ -67,12 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // these are applied to all items with the 'neon-title' class
   regularFlicker(20000);
   hoverWatch();
-
-  // listen for form submission
-  function logSubmit(event) {
-    log.textContent = `Form Submitted! Time stamp: ${event.timeStamp}`;
-    event.preventDefault();
-  }
 
   // handle contact form submissions
   handleContactForm();

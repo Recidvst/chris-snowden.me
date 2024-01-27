@@ -109,10 +109,16 @@ export default function() {
       let formObject = {};
       formData.forEach((value, key) => formObject[key] = value);
 
+      appInsights.trackEvent({name: 'Contact__SubmitAttempt',
+        properties: {
+          submission: JSON.stringify(formObject),
+        }});
+
       // send request
       let result;
       try {
         if (formObject.faxnumber) {
+          appInsights.trackEvent({name: 'Contact__BotDetected'});
           throw new Error('Bad bot!');
         }
         result = await fetch(azureMailEndpoint, {
@@ -128,16 +134,34 @@ export default function() {
         result = err;
         // show message to say failure
         showStatusMessage('Whoops!: <br/>' + 'Something went wrong. Please try again.', false);
+        appInsights.trackEvent({
+          name: 'Contact__SendFailed',
+          properties: {
+            errorMessage: err.message,
+          },
+        });
       }
 
       if ( result && (result.ok || result.statusText === 'OK') && result.status === 200) {
         // show message to say success
         showStatusMessage('Success! Your message has been sent. <br/> I will get back to you as soon as possible.', true);
+        appInsights.trackEvent({
+          name: 'Contact__SendSuccess',
+          properties: {
+            submission: JSON.stringify(formObject),
+          },
+        });
         // reset form fields
         // resetForm(contactForm);
       }
       else {
         showStatusMessage('Whoops!: <br/>' + 'Something went wrong. Please try again.', false);
+        appInsights.trackEvent({
+          name: 'Contact__SendFailed',
+          properties: {
+            errorMessage: err.message,
+          },
+        });
       }
     });
   }

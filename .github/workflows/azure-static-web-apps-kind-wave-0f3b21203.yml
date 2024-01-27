@@ -16,6 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: azure
     name: Build and Deploy Job
+    env:
+      NODE_VERSION: 18.2.0
+      AZURE_MAIL_ENDPOINT_PROD: ${{ secrets.AZURE_MAIL_ENDPOINT_PROD }}
+      GTHB_ACCESS_TOKEN: ${{ secrets.GTHB_ACCESS_TOKEN }}
+      APP_INSIGHTS_CONN_STR: ${{ secrets.APP_INSIGHTS_CONN_STR }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -28,19 +33,15 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_KIND_WAVE_0F3B21203 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: 'upload'
-          app_location: '.'
+          app_location: '/'
           api_location: ''
           output_location: 'dist'
           app_build_command: 'npm run release'
-          deployment_environment: 'default'
-          skip_api_build: true
         env:
-          DEPLOYMENT_PROVIDER: 'Custom'
-          REPOSITORY_URL: ${{github.event.repository.html_url}}
-          BRANCH: ${{github.event.pull_request.head.ref}}
           NODE_VERSION: 18.2.0
           AZURE_MAIL_ENDPOINT_PROD: ${{ secrets.AZURE_MAIL_ENDPOINT_PROD }}
           GTHB_ACCESS_TOKEN: ${{ secrets.GTHB_ACCESS_TOKEN }}
+          APP_INSIGHTS_CONN_STR: ${{ secrets.APP_INSIGHTS_CONN_STR }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
