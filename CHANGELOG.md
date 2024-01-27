@@ -1,3 +1,17 @@
+#### 1.5.5 (2024-01-27)
+
+##### Continuous Integration
+
+- set prod branch name ([d3c3a97d](https://github.com/Recidvst/chris-snowden.me/commit/d3c3a97d3080fd852ad48821959dce57d5b4c523))
+
+##### New Features
+
+- **analytics:** replace google analytics with app insights ([3e8e5eea](https://github.com/Recidvst/chris-snowden.me/commit/3e8e5eea534f45d1dd5e898051034f53f70c7a0e))
+
+##### Bug Fixes
+
+- **analytics:** import export app insights properly ([45df074c](https://github.com/Recidvst/chris-snowden.me/commit/45df074c3959f45ceb4ddb8ad5a7b8203fba568b))
+
 #### 1.5.4 (2024-01-14)
 
 ##### Other Changes (ci: add azure static web apps workflow file on-behalf-of)
