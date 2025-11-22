@@ -1,3 +1,10 @@
+### 1.6.0 (2025-11-22)
+
+##### Refactors
+
+- remove projects section and github link; tweak text of blurb ([29d267df](https://github.com/Recidvst/chris-snowden.me/commit/29d267df6aa0447ba17f4d03eb07addfc22329f0))
+- **docs:** minor text update ([025ee5e9](https://github.com/Recidvst/chris-snowden.me/commit/025ee5e937a8890143a2b6f5fa152e6cdd8ba6ef))
+
 #### 1.5.5 (2024-01-27)
 
 ##### Continuous Integration
